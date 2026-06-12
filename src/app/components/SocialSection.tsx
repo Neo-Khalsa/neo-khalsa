@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import assetImage1 from "../../assets/b15b54e92731eb30e0871fb4247f2fd293fb29fc.png";
-import assetImage2 from "../../assets/09963943a3c9a0ff88e365b3dc5c6996783eb2ef.png";
+import assetImage1 from "../../assets/b15b54e92731eb30e0871fb4247f2fd293fb29fc.webp";
+import assetImage2 from "../../assets/09963943a3c9a0ff88e365b3dc5c6996783eb2ef.webp";
 
 export function SocialSection() {
   return (

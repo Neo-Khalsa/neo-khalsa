@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from "motion/react";
-import operationImage from "../../assets/d819f16399e086e1b759d42556e51b73a508aa03.png";
-import operationImageMain from "../../assets/d471ea4233bb041ed70df8b61c5f992a45b7d581.png";
+import operationImage from "../../assets/d819f16399e086e1b759d42556e51b73a508aa03.webp";
+import operationImageMain from "../../assets/d471ea4233bb041ed70df8b61c5f992a45b7d581.webp";
 
 export function OperationSection() {
   const [currentSlide, setCurrentSlide] = useState(3);

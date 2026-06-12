@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import missionImage from "../../assets/4c82dfbc2bfb2978f11914e22f7c49f4f06e2381.jpg";
+import missionImage from "../../assets/4c82dfbc2bfb2978f11914e22f7c49f4f06e2381.webp";
 
 export function MissionSection() {
   return (

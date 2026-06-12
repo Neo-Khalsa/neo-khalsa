@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
-import projectImage1 from "../../assets/9db7de1cffccd7b3bcecbc3271c23d56717dcbc4.png";
-import projectImage2 from "../../assets/104fc68ae2769a86b33de8df270f335c79fa0eda.png";
-import projectImage3 from "../../assets/f51d02d1d6fe32ecb948954f06c2b5e6d43a9472.png";
-import logoImage from '../../assets/84335e1f178065509e21c16077749e55474b40ec.png';
+import projectImage1 from "../../assets/9db7de1cffccd7b3bcecbc3271c23d56717dcbc4.webp";
+import projectImage2 from "../../assets/104fc68ae2769a86b33de8df270f335c79fa0eda.webp";
+import projectImage3 from "../../assets/f51d02d1d6fe32ecb948954f06c2b5e6d43a9472.webp";
+import logoImage from '../../assets/84335e1f178065509e21c16077749e55474b40ec.webp';
 import { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 

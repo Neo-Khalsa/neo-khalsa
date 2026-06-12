@@ -22,10 +22,13 @@ export default defineConfig({
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
           'motion-vendor': ['motion/react'],
+          'lucide-vendor': ['lucide-react'],
         },
       },
     },
-    chunkSizeWarningLimit: 1000,
+    // Inline small assets (< 4KB) as base64; anything larger gets hashed file
+    assetsInlineLimit: 4096,
+    chunkSizeWarningLimit: 600,
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'motion/react'],

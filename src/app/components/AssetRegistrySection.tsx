@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from "motion/react";
-import assetImage1 from "../../assets/b15b54e92731eb30e0871fb4247f2fd293fb29fc.png";
-import assetImage2 from "../../assets/09963943a3c9a0ff88e365b3dc5c6996783eb2ef.png";
-import assetGridImage from "../../assets/e794e30f5d95623797655a17dd31d2b0fd6bc95d.png";
-import logoImage from '../../assets/84335e1f178065509e21c16077749e55474b40ec.png';
-import asaSinghPortrait from "../../assets/60709e882963ac69655fb3b44e405b973edeeb9e.png";
-import arjanSinghPortrait from "../../assets/b86ac6613e9bfb44e0ce4d10d38e39e3e34476ff.png";
-import jodhSinghPortrait from "../../assets/55a581fe46d9bb3d99cf39a4a1652372a53ece34.png";
+import assetImage1 from "../../assets/b15b54e92731eb30e0871fb4247f2fd293fb29fc.webp";
+import assetImage2 from "../../assets/09963943a3c9a0ff88e365b3dc5c6996783eb2ef.webp";
+import assetGridImage from "../../assets/e794e30f5d95623797655a17dd31d2b0fd6bc95d.webp";
+import logoImage from '../../assets/84335e1f178065509e21c16077749e55474b40ec.webp';
+import asaSinghPortrait from "../../assets/60709e882963ac69655fb3b44e405b973edeeb9e.webp";
+import arjanSinghPortrait from "../../assets/b86ac6613e9bfb44e0ce4d10d38e39e3e34476ff.webp";
+import jodhSinghPortrait from "../../assets/55a581fe46d9bb3d99cf39a4a1652372a53ece34.webp";
 import { Users, Briefcase, FileText, Shield, Target, Layers } from 'lucide-react';
 
 // Unsplash image for human assets symbol
