@@ -7,10 +7,12 @@ import { Marquee } from './Marquee';
 const TICKER = ['MISSION', 'NARRATIVE INFLUENCE', 'RESOURCE ACQUISITION', 'INTERNAL DISCIPLINE', 'NEO KHALSA'];
 
 const TIMELINE = [
-  { year: '2025', sub: 'PROJECT',   title: 'Neo Khalsa Koans',      status: 'COMPLETE', active: false },
-  { year: '2026', sub: 'PROJECT',   title: 'Neo Saroop & Workshop', status: 'ACTIVE',   active: true  },
-  { year: '2027', sub: 'PROJECT',   title: 'Sikh Anime & VC Fund',  status: 'UPCOMING', active: false },
-  { year: '2030', sub: 'MILESTONE', title: 'The Crossing',          status: 'HORIZON',  active: false },
+  { year: '2025', sub: 'PROJECT · VOL I',  title: 'Neo Khalsa Koans',          status: 'COMPLETE',    active: false },
+  { year: '2026', sub: 'PROJECT · VOL I',  title: 'Neo Saroop & Workshop',     status: 'ACTIVE',      active: true  },
+  { year: '2027', sub: 'PROJECT · VOL I',  title: 'Literary Genesis',          status: 'DEVELOPMENT', active: false },
+  { year: '2028', sub: 'PROJECT · VOL I',  title: 'Sikh Anime',                status: 'UPCOMING',    active: false },
+  { year: '2030', sub: 'SPACE · VOL II',   title: 'The Akhara Opens',          status: 'BUILDING',    active: false },
+  { year: '2035', sub: 'MILESTONE',        title: 'University & Gurdwaras',     status: 'HORIZON',     active: false },
 ];
 
 const STATEMENT: { text: string; italic?: boolean }[] = [
