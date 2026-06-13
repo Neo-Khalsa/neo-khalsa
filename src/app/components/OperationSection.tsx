@@ -2,180 +2,203 @@ import { useState } from 'react';
 import { motion } from "motion/react";
 import operationImage from "../../assets/d819f16399e086e1b759d42556e51b73a508aa03.webp";
 import operationImageMain from "../../assets/d471ea4233bb041ed70df8b61c5f992a45b7d581.webp";
+import { ParticleField } from './ParticleField';
+import { KhandaSymbol } from './KhandaSymbol';
 
 export function OperationSection() {
   const [currentSlide, setCurrentSlide] = useState(3);
   const totalSlides = 9;
 
   return (
-    <div className="min-h-screen pt-20 md:pt-32 pb-16 md:pb-24 px-4 md:px-8 relative overflow-hidden">
-      {/* Page Numbers - Desktop Only */}
-      <div className="hidden md:block absolute bottom-8 left-8 text-xs opacity-20 font-mono">0</div>
-      <div className="hidden md:block absolute bottom-8 right-8 text-xs opacity-20 font-mono">5</div>
+    <div className="min-h-screen pt-20 md:pt-32 pb-16 md:pb-24 px-4 md:px-8 relative overflow-hidden grain-overlay">
 
-      {/* Top Center Quote */}
+      {/* Ambient particles */}
+      <ParticleField />
+
+      {/* Subtle sacred geometry — top-right corner */}
+      <div
+        className="hidden lg:block fixed top-0 right-0 pointer-events-none"
+        style={{ zIndex: 0, width: '45vw', height: '45vw', opacity: 0.032 }}
+      >
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg"
+             className="w-full h-full">
+          <circle cx="200" cy="200" r="180" stroke="white" strokeWidth="0.5" />
+          <circle cx="200" cy="200" r="130" stroke="white" strokeWidth="0.35" strokeDasharray="4 8" />
+          <circle cx="200" cy="200" r="80"  stroke="white" strokeWidth="0.5" />
+          {[0,45,90,135,180,225,270,315].map(deg => {
+            const r = deg * Math.PI / 180;
+            return <line key={deg}
+              x1={200 + Math.cos(r) * 80} y1={200 + Math.sin(r) * 80}
+              x2={200 + Math.cos(r) * 180} y2={200 + Math.sin(r) * 180}
+              stroke="white" strokeWidth="0.25" />;
+          })}
+        </svg>
+      </div>
+
+      {/* Page numbers */}
+      <div className="hidden md:block absolute bottom-8 left-8 text-xs opacity-15 font-mono z-10">0</div>
+      <div className="hidden md:block absolute bottom-8 right-8 text-xs opacity-15 font-mono z-10">5</div>
+
+      {/* Top quote */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-2xl mx-auto text-center mb-8 md:mb-12 px-4"
+        className="relative z-10 max-w-2xl mx-auto text-center mb-8 md:mb-12 px-4"
       >
-        <p className="text-xs md:text-sm leading-relaxed italic opacity-70">
+        <div className="crimson-divider mb-6" />
+        <p className="text-xs md:text-sm leading-relaxed italic opacity-65">
           "Moving beyond mere talk to definitize ideas through embodied action and strategic discipline."
         </p>
+        <div className="crimson-divider mt-6" />
       </motion.div>
 
-      {/* Carousel Dots - Simplified on mobile */}
-      <div className="flex justify-center md:justify-end md:mr-32 gap-2 mb-6 md:mb-8">
+      {/* Carousel dots */}
+      <div className="relative z-10 flex justify-center md:justify-end md:mr-32 gap-2 mb-6 md:mb-8">
         {Array.from({ length: totalSlides }).map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentSlide(idx)}
-            className={`w-2 h-2 rounded-full border transition-all ${
-              currentSlide === idx 
-                ? 'border-foreground bg-foreground' 
-                : 'border-foreground/30 bg-transparent hover:border-foreground/60'
-            }`}
+            className="w-2 h-2 rounded-full border transition-all"
+            style={currentSlide === idx
+              ? { borderColor: 'rgba(192,24,24,0.85)', background: 'rgba(192,24,24,0.85)',
+                  boxShadow: '0 0 8px rgba(192,24,24,0.6)' }
+              : { borderColor: 'rgba(255,255,255,0.25)', background: 'transparent' }}
           />
         ))}
       </div>
 
-      {/* Symbol Analysis Label - Desktop Only */}
-      <div className="hidden lg:block absolute top-32 right-16 opacity-20">
-        <p className="text-xs font-mono tracking-wider -rotate-90 origin-center whitespace-nowrap">
-          SYMBOL ANALYSIS
-        </p>
-      </div>
+      {/* Main layout */}
+      <div className="relative z-10 max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 lg:gap-16">
 
-      {/* Main Layout - Sidebar Style */}
-      <div className="max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 lg:gap-16">
-        {/* Left Sidebar - All Text Content */}
+        {/* ── Left sidebar ─────────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           className="space-y-6 md:space-y-8"
         >
-          {/* Vertical Line + Title */}
           <div className="flex items-start gap-3 md:gap-4">
-            <div className="w-[1px] h-full min-h-[300px] md:min-h-[400px] bg-foreground/30"></div>
+            <div
+              className="w-[1px] min-h-[300px] md:min-h-[400px]"
+              style={{ background: 'linear-gradient(to bottom, rgba(192,24,24,0.5), rgba(255,255,255,0.25), rgba(192,24,24,0.15))' }}
+            />
             <div className="space-y-4 md:space-y-6">
-              {/* Large Stacked Title */}
-              <div>
-                <h1 className="text-2xl md:text-4xl tracking-wider leading-tight mb-2">OPERATION</h1>
-                <h1 className="text-2xl md:text-4xl tracking-wider leading-tight mb-2">ACHERON</h1>
-                <h2 className="text-lg md:text-2xl tracking-wider opacity-60 leading-tight mb-1">THE SHADOWED</h2>
-                <h2 className="text-lg md:text-2xl tracking-wider opacity-60 leading-tight">PASSAGE</h2>
+              {/* Khanda + title */}
+              <div className="flex items-center gap-3 mb-2">
+                <KhandaSymbol size={24} glow={true} animate={true} className="text-white opacity-65" />
               </div>
 
-              {/* START-UP Label */}
+              <div>
+                <h1 className="text-2xl md:text-4xl tracking-wider leading-tight mb-2 text-glow-crimson">OPERATION</h1>
+                <h1 className="text-2xl md:text-4xl tracking-wider leading-tight mb-2">ACHERON</h1>
+                <h2 className="text-lg md:text-2xl tracking-wider opacity-55 leading-tight mb-1">THE SHADOWED</h2>
+                <h2 className="text-lg md:text-2xl tracking-wider opacity-55 leading-tight">PASSAGE</h2>
+              </div>
+
               <div className="pt-2 md:pt-4">
-                <p className="text-xs tracking-[0.25em] opacity-40 mb-3 md:mb-4">START-UP</p>
-                <p className="text-xs leading-relaxed opacity-70">
-                  Operation Acheron embraces the sound, embodied, tactical nature of Neo Khalsa—the pathway into deeper 
-                  self-discovery and self-actualization.
+                <p className="text-xs tracking-[0.25em] opacity-35 mb-3 md:mb-4">START-UP</p>
+                <p className="text-xs leading-relaxed opacity-65">
+                  Operation Acheron embraces the sound, embodied, tactical nature of Neo Khalsa —
+                  the pathway into deeper self-discovery and self-actualization.
                 </p>
               </div>
 
               {/* Metadata */}
               <div className="space-y-2 text-xs pt-2 md:pt-4">
-                <div className="flex justify-between opacity-60 border-b border-border/10 pb-2">
-                  <span className="tracking-wider opacity-50">INITIATED</span>
-                  <span>2024</span>
-                </div>
-                <div className="flex justify-between opacity-60 border-b border-border/10 pb-2">
-                  <span className="tracking-wider opacity-50">FOCUS</span>
-                  <span className="font-mono">DISCIPLINE</span>
-                </div>
-                <div className="flex justify-between opacity-60 border-b border-border/10 pb-2">
-                  <span className="tracking-wider opacity-50">APPROACH</span>
-                  <span>Tactical</span>
-                </div>
-                <div className="flex justify-between opacity-60 border-b border-border/10 pb-2">
-                  <span className="tracking-wider opacity-50">STATUS</span>
-                  <span className="font-mono">ACTIVE</span>
-                </div>
+                {[
+                  { label: 'INITIATED', val: '2024' },
+                  { label: 'FOCUS',     val: 'DISCIPLINE' },
+                  { label: 'APPROACH',  val: 'Tactical' },
+                  { label: 'STATUS',    val: 'ACTIVE' },
+                ].map(({ label, val }) => (
+                  <div key={label} className="flex justify-between opacity-55 border-b border-border/10 pb-2">
+                    <span className="tracking-wider opacity-45">{label}</span>
+                    <span>{val}</span>
+                  </div>
+                ))}
               </div>
 
-              {/* Manifesto Box */}
-              <div className="bg-foreground/10 border border-foreground/20 p-4 mt-4 md:mt-6">
-                <p className="text-xs tracking-[0.2em] opacity-40 mb-2 md:mb-3">MANIFESTO</p>
-                <p className="text-xs leading-relaxed opacity-70">
-                  Neo Khalsa moves where others hesitate, confronting wounds, braving the harsh. Acheron takes 
-                  the will, mind, and spirit to greater energy and control—the labor towards self-made lifestyles, 
-                  disciplined and uncomplicated futures.
+              {/* Manifesto box */}
+              <div
+                className="p-4 mt-4 md:mt-6 relative overflow-hidden"
+                style={{
+                  background: 'rgba(192,24,24,0.045)',
+                  border: '1px solid rgba(192,24,24,0.25)',
+                }}
+              >
+                <div className="absolute inset-0 shimmer-overlay pointer-events-none" />
+                <p className="text-xs tracking-[0.2em] opacity-35 mb-2 md:mb-3 relative z-10">MANIFESTO</p>
+                <p className="text-xs leading-relaxed opacity-65 relative z-10">
+                  Neo Khalsa moves where others hesitate, confronting wounds, braving the harsh.
+                  Acheron takes the will, mind, and spirit to greater energy and control — the labour
+                  towards self-made lifestyles, disciplined and uncomplicated futures.
                 </p>
               </div>
 
-              {/* DISCIPLINE Label at Bottom */}
               <div className="pt-4 md:pt-8">
-                <p className="text-xs tracking-[0.25em] opacity-30">DISCIPLINE</p>
+                <p className="text-xs tracking-[0.25em] opacity-25">DISCIPLINE</p>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Right Side - Images Dominating */}
+        {/* ── Right – images ───────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative"
         >
-          {/* Large Main Image */}
-          <div className="relative overflow-hidden border border-border/30 mb-6 md:mb-8 bg-neutral-800 p-4 md:p-6">
+          {/* Main image */}
+          <div
+            className="relative overflow-hidden mb-6 md:mb-8 bg-neutral-900 p-4 md:p-6 transition-all duration-700 group"
+            style={{ border: '1px solid rgba(192,24,24,0.22)' }}
+          >
             <motion.img
               src={operationImageMain}
               alt="Operation Acheron"
-              className="w-full h-auto border border-neutral-700 brightness-90"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.6 }}
+              className="w-full h-auto brightness-90 gpu-accelerate"
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.5 }}
             />
-            <div className="absolute top-6 md:top-10 left-6 md:left-10 bg-background/90 px-3 py-1 border border-border/30">
-              <span className="text-xs tracking-[0.2em] font-mono">02</span>
+            {/* Crimson hover veil */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(192,24,24,0.08)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div
+              className="absolute top-6 md:top-10 left-6 md:left-10 bg-background/90 px-3 py-1 border"
+              style={{ borderColor: 'rgba(192,24,24,0.3)' }}
+            >
+              <span className="text-xs tracking-[0.2em] font-mono text-glow-crimson">02</span>
             </div>
             <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6 h-12 bg-gradient-to-t from-background/60 to-transparent flex items-end justify-between px-2 md:px-4 pb-2">
-              <span className="text-[10px] opacity-30 font-mono">INIT. 2024</span>
-              <span className="text-[10px] opacity-30 font-mono">TACTICAL</span>
+              <span className="text-[10px] opacity-25 font-mono">INIT. 2024</span>
+              <span className="text-[10px] opacity-25 font-mono">TACTICAL</span>
             </div>
           </div>
 
-          <div className="flex justify-between text-xs opacity-30 tracking-wider mb-8 md:mb-12">
+          <div className="flex justify-between text-xs opacity-22 tracking-wider mb-8 md:mb-12">
             <span className="font-mono">ACHERON.V1</span>
             <span className="font-mono">ONGOING</span>
           </div>
 
-          {/* Secondary Smaller Image - Hidden on mobile */}
-          <div className="hidden lg:block lg:absolute lg:bottom-0 lg:right-0 lg:w-1/2 relative overflow-hidden border border-border/30 bg-neutral-800 p-4">
+          {/* Secondary image — desktop only */}
+          <div
+            className="hidden lg:block lg:absolute lg:bottom-0 lg:right-0 lg:w-1/2 relative overflow-hidden bg-neutral-900 p-4 group"
+            style={{ border: '1px solid rgba(192,24,24,0.18)' }}
+          >
             <motion.img
               src={operationImage}
               alt="Operation Acheron Detail"
-              className="w-full h-auto border border-neutral-700"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.6 }}
+              className="w-full h-auto gpu-accelerate"
+              whileHover={{ scale: 1.04 }}
+              transition={{ duration: 0.5 }}
             />
-            <div className="absolute top-6 left-6 bg-background/90 px-2 py-1 border border-border/30">
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(192,24,24,0.06)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div
+              className="absolute top-6 left-6 bg-background/90 px-2 py-1 border"
+              style={{ borderColor: 'rgba(192,24,24,0.25)' }}
+            >
               <span className="text-[10px] tracking-[0.2em] font-mono">02.1</span>
-            </div>
-          </div>
-
-          {/* Decorative Warrior Graphics - Desktop Only */}
-          <div className="hidden lg:flex items-center gap-8 absolute top-1/2 -left-20 opacity-[0.08]">
-            {/* Shield */}
-            <div className="relative w-12 h-16">
-              <div className="absolute inset-0 border-[2px] border-foreground rounded-b-full"></div>
-              <div className="absolute top-0 left-0 right-0 h-0 border-l-[24px] border-l-transparent border-r-[24px] border-r-transparent border-t-[12px] border-t-foreground"></div>
-              <div className="absolute inset-2 flex items-center justify-center">
-                <div className="w-3 h-[2px] bg-foreground"></div>
-                <div className="w-[2px] h-3 bg-foreground absolute"></div>
-              </div>
-            </div>
-            
-            {/* Sword */}
-            <div className="relative w-2 h-20">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-16 bg-foreground"></div>
-              <div className="absolute top-16 left-1/2 -translate-x-1/2 w-6 h-[2px] bg-foreground"></div>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-6 border-[2px] border-foreground border-t-0"></div>
             </div>
           </div>
         </motion.div>
