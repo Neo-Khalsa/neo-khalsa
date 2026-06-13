@@ -1,73 +1,85 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ParticleField } from './components/ParticleField';
-import { SacredGeometryBg } from './components/SacredGeometryBg';
 import { Marquee } from './components/Marquee';
 import logoWhite from '../assets/027354ce14dae85850c3c889442da6849aab7a08.webp';
 
 const NAV_ROWS = [
-  { path: '/mission',   num: '01', label: 'MISSION',   desc: 'The vision and strategic intent'    },
-  { path: '/projects',  num: '02', label: 'PROJECTS',  desc: 'Three active cultural initiatives'  },
-  { path: '/operation', num: '03', label: 'OPERATION', desc: 'Acheron — the discipline arm'       },
-  { path: '/contact',   num: '04', label: 'CONTACT',   desc: 'Correspondence and collaboration'   },
+  { path: '/mission',   num: '01', label: 'Mission',   desc: 'The vision and strategic intent'    },
+  { path: '/projects',  num: '02', label: 'Projects',  desc: 'Three active cultural initiatives'  },
+  { path: '/operation', num: '03', label: 'Operation', desc: 'Acheron — the discipline arm'       },
+  { path: '/contact',   num: '04', label: 'Contact',   desc: 'Correspondence and collaboration'   },
 ];
 
-const TICKER = ['NEO KHALSA', 'KHALSA RAAJ', 'CHARDI KALA', 'SURREY BC', 'MMXXVI', 'KHALSA NU'];
+const TICKER = ['NEO KHALSA', 'CHARDI KALA', 'KOANS', 'SAROOP', 'ANIME', 'ACHERON', 'MMXXVI'];
 
 export function HomePage() {
   return (
     <div className="min-h-screen relative grain-overlay">
       <ParticleField />
-      <SacredGeometryBg opacity={0.028} />
 
-      {/* ── HERO (full viewport) ────────────────────────────────────── */}
-      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4">
+      {/* ── HERO ─────────────────────────────────────────────────────── */}
+      <section
+        className="relative z-10 flex flex-col items-center justify-center text-center px-5"
+        style={{ minHeight: '100svh' }}
+      >
+        {/* Crimson bloom behind the mark */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: '50%', left: '50%', transform: 'translate(-50%, -58%)',
+            width: 'min(90vw, 760px)', height: 'min(90vw, 760px)',
+            background: 'radial-gradient(circle, rgba(192,24,24,0.085) 0%, transparent 62%)',
+          }}
+        />
 
         {/* Logo */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-8 md:mb-12"
+          className="mb-9 md:mb-12"
         >
           <img
             src={logoWhite}
             alt="Neo Khalsa"
-            className="w-28 md:w-40 lg:w-52 h-auto animate-divine-breathe"
-            style={{ filter: 'drop-shadow(0 0 24px rgba(192,24,24,0.45)) drop-shadow(0 0 60px rgba(192,24,24,0.15))' }}
+            className="w-24 md:w-36 lg:w-44 h-auto animate-divine-breathe"
+            style={{ filter: 'drop-shadow(0 0 22px rgba(192,24,24,0.35)) drop-shadow(0 0 56px rgba(192,24,24,0.12))' }}
             loading="eager"
             fetchPriority="high"
           />
         </motion.div>
 
-        {/* Wordmark — each line clips out from behind */}
-        <div className="overflow-hidden leading-none mb-1">
-          <motion.span
+        {/* Wordmark — serif, clipped reveal */}
+        <div className="overflow-hidden leading-none">
+          <motion.h1
             initial={{ y: '110%' }}
             animate={{ y: 0 }}
-            transition={{ duration: 1.0, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="block text-[15vw] md:text-[12vw] lg:text-[10vw] tracking-[0.1em] leading-none text-glow-crimson"
+            transition={{ duration: 1.0, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display leading-[0.92] tracking-[0.01em]"
+            style={{ fontSize: 'clamp(4rem, 17vw, 12rem)' }}
           >
             NEO
-          </motion.span>
+          </motion.h1>
         </div>
         <div className="overflow-hidden leading-none">
-          <motion.span
+          <motion.h1
             initial={{ y: '110%' }}
             animate={{ y: 0 }}
-            transition={{ duration: 1.0, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="block text-[15vw] md:text-[12vw] lg:text-[10vw] tracking-[0.1em] leading-none"
+            transition={{ duration: 1.0, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display-italic leading-[0.92] tracking-[0.01em]"
+            style={{ fontSize: 'clamp(4rem, 17vw, 12rem)' }}
           >
-            KHALSA
-          </motion.span>
+            Khalsa
+          </motion.h1>
         </div>
 
         {/* Rule */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 1.0, delay: 0.85, ease: [0.25, 0.1, 0.25, 1] }}
-          className="w-24 md:w-40 h-px mt-7 md:mt-9 mb-5 md:mb-6"
+          transition={{ duration: 1.0, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="w-24 md:w-40 h-px mt-8 mb-6"
           style={{
             background: 'linear-gradient(90deg, transparent, rgba(192,24,24,0.65), transparent)',
             transformOrigin: 'center',
@@ -78,10 +90,18 @@ export function HomePage() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.05 }}
-          className="text-[9px] md:text-[10px] tracking-[0.4em] opacity-25 font-mono"
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="text-[9px] md:text-[10px] tracking-[0.45em] opacity-30 font-mono"
         >
-          SURREY · EST. 2020 · KHALSA RAAJ
+          CULTURE · CRAFT · DISCIPLINE
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.15 }}
+          className="text-[9px] tracking-[0.4em] opacity-15 font-mono mt-3"
+        >
+          EST. MMXX
         </motion.p>
 
         {/* Scroll cue */}
@@ -89,7 +109,7 @@ export function HomePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.6 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
           <motion.div
             animate={{ y: [0, 9, 0] }}
@@ -101,65 +121,62 @@ export function HomePage() {
         </motion.div>
       </section>
 
-      {/* ── SECTION INDEX ────────────────────────────────────────────── */}
-      <section className="relative z-10 pb-24 md:pb-36">
+      {/* ── SECTION INDEX ───────────────────────────────────────────── */}
+      <section className="relative z-10 pb-24 md:pb-32">
 
         {/* Ticker strip */}
-        <div
-          className="border-y py-3 md:py-4"
-          style={{ borderColor: 'rgba(255,255,255,0.06)' }}
-        >
-          <Marquee items={TICKER} className="text-[9px] md:text-[10px] tracking-[0.35em] opacity-18 font-mono" />
+        <div className="border-y py-3 md:py-4 hairline">
+          <Marquee items={TICKER} className="text-[9px] md:text-[10px] tracking-[0.35em] opacity-20 font-mono" />
+        </div>
+
+        {/* Index label */}
+        <div className="max-w-[1700px] mx-auto px-5 md:px-10 pt-12 md:pt-16 pb-2">
+          <p className="text-[9px] tracking-[0.45em] opacity-22 font-mono">INDEX</p>
         </div>
 
         {/* Navigation rows */}
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10">
+        <div className="max-w-[1700px] mx-auto px-5 md:px-10">
           {NAV_ROWS.map(({ path, num, label, desc }, i) => (
             <motion.div
               key={path}
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.55, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-              viewport={{ once: true, margin: '-40px' }}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: i * 0.07, ease: [0.25, 0.1, 0.25, 1] }}
+              viewport={{ once: true, margin: '-30px' }}
             >
               <Link
                 to={path}
-                className="group flex items-center gap-3 md:gap-6 py-6 md:py-8 border-b transition-all duration-300"
-                style={{ borderColor: 'rgba(255,255,255,0.06)' }}
+                className="group flex items-center gap-4 md:gap-8 py-6 md:py-9 border-b hairline transition-all duration-300"
               >
                 {/* Active bar on hover */}
                 <div
-                  className="w-0 group-hover:w-[3px] h-6 md:h-8 flex-shrink-0 transition-all duration-300 rounded-full"
-                  style={{ background: 'rgba(192,24,24,0.85)', boxShadow: '0 0 10px rgba(192,24,24,0.5)' }}
+                  className="w-0 group-hover:w-[3px] h-8 md:h-10 flex-shrink-0 transition-all duration-300"
+                  style={{ background: 'rgba(192,24,24,0.85)', boxShadow: '0 0 10px rgba(192,24,24,0.45)' }}
                 />
 
-                {/* Number */}
-                <span className="text-[9px] font-mono opacity-18 w-5 flex-shrink-0 group-hover:opacity-35 transition-opacity">{num}</span>
+                <span className="text-[9px] font-mono opacity-20 w-6 flex-shrink-0 group-hover:opacity-50 group-hover:text-crimson transition-all">
+                  {num}
+                </span>
 
-                {/* Section name */}
-                <h3 className="text-3xl md:text-5xl lg:text-6xl tracking-[0.1em] font-mono flex-shrink-0 group-hover:text-glow-crimson transition-all duration-300">
+                <span
+                  className="font-display flex-shrink-0 leading-none opacity-85 group-hover:opacity-100 transition-all duration-300"
+                  style={{ fontSize: 'clamp(2.2rem, 7vw, 4.5rem)' }}
+                >
                   {label}
-                </h3>
+                </span>
 
-                {/* Extend line */}
-                <div
-                  className="flex-1 h-px hidden md:block opacity-0 group-hover:opacity-10 transition-opacity duration-500"
-                  style={{ background: 'rgba(255,255,255,1)' }}
-                />
+                <div className="flex-1 h-px hidden md:block opacity-0 group-hover:opacity-100 bg-line transition-opacity duration-500" />
 
-                {/* Right side */}
                 <div className="ml-auto flex items-center gap-5 md:gap-8 flex-shrink-0">
-                  <span className="hidden lg:block text-xs tracking-wider opacity-25 group-hover:opacity-50 transition-opacity text-right max-w-[220px]">
+                  <span className="hidden lg:block text-xs tracking-wider opacity-25 group-hover:opacity-55 transition-opacity text-right max-w-[230px]">
                     {desc}
                   </span>
-                  <motion.span
-                    className="text-xl md:text-3xl opacity-18 group-hover:opacity-70 transition-all duration-300"
-                    style={{ color: 'rgba(192,24,24,1)' }}
-                    animate={{}}
-                    whileHover={{ x: 4 }}
+                  <span
+                    className="text-xl md:text-2xl opacity-20 group-hover:opacity-80 group-hover:translate-x-1 transition-all duration-300"
+                    style={{ color: '#C01818' }}
                   >
                     →
-                  </motion.span>
+                  </span>
                 </div>
               </Link>
             </motion.div>
@@ -172,11 +189,11 @@ export function HomePage() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="flex flex-wrap items-center justify-between gap-4 mt-16 md:mt-24 px-5 md:px-10 text-[8px] md:text-[10px] font-mono opacity-12 max-w-[1600px] mx-auto"
+          className="flex flex-wrap items-center justify-between gap-4 mt-16 md:mt-24 px-5 md:px-10 text-[8px] md:text-[9px] font-mono tracking-[0.25em] opacity-15 max-w-[1700px] mx-auto"
         >
           <span>NEO KHALSA INITIATIVE</span>
-          <span>49.1913°N · 122.8490°W</span>
-          <span>SURREY BC · 2026</span>
+          <span>EST. 2020</span>
+          <span>MMXXVI</span>
         </motion.div>
       </section>
     </div>

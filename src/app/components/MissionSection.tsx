@@ -1,34 +1,41 @@
 import { motion } from "motion/react";
 import missionImage from "../../assets/4c82dfbc2bfb2978f11914e22f7c49f4f06e2381.webp";
 import { ParticleField } from './ParticleField';
-import { SacredGeometryBg } from './SacredGeometryBg';
 import { KhandaSymbol } from './KhandaSymbol';
 import { Marquee } from './Marquee';
 
-const TICKER = ['NEO KHALSA', 'MISSION', 'SURREY', 'NARRATIVE INFLUENCE', 'RESOURCE ACQUISITION', 'INTERNAL DISCIPLINE'];
+const TICKER = ['MISSION', 'NARRATIVE INFLUENCE', 'RESOURCE ACQUISITION', 'INTERNAL DISCIPLINE', 'NEO KHALSA'];
 
 const TIMELINE = [
-  { year: '2025', sub: 'PROJECT', title: 'Neo Khalsa Koans',       status: 'COMPLETE', active: false },
-  { year: '2026', sub: 'PROJECT', title: 'Neo Saroop & Workshop',  status: 'ACTIVE',   active: true  },
-  { year: '2027', sub: 'PROJECT', title: 'Sikh Anime & VC Fund',   status: 'UPCOMING', active: false },
-  { year: '2030', sub: 'MILESTONE', title: 'The Crossing',         status: 'HORIZON',  active: false },
+  { year: '2025', sub: 'PROJECT',   title: 'Neo Khalsa Koans',      status: 'COMPLETE', active: false },
+  { year: '2026', sub: 'PROJECT',   title: 'Neo Saroop & Workshop', status: 'ACTIVE',   active: true  },
+  { year: '2027', sub: 'PROJECT',   title: 'Sikh Anime & VC Fund',  status: 'UPCOMING', active: false },
+  { year: '2030', sub: 'MILESTONE', title: 'The Crossing',          status: 'HORIZON',  active: false },
+];
+
+const STATEMENT: { text: string; italic?: boolean }[] = [
+  { text: 'A strategic,' },
+  { text: 'results-driven hub —' },
+  { text: 'moving ideas', italic: true },
+  { text: 'from words to will.', italic: true },
 ];
 
 export function MissionSection() {
   return (
     <div className="relative grain-overlay">
       <ParticleField />
-      <SacredGeometryBg opacity={0.028} />
 
       {/* ════════════════════════════════════════════════════
-          § 1 — STATEMENT HERO (full viewport)
+          § 1 — STATEMENT HERO
       ════════════════════════════════════════════════════ */}
-      <section className="relative z-10 min-h-screen flex flex-col justify-end pb-16 md:pb-24 px-5 md:px-10 lg:px-16 pt-28 md:pt-36 overflow-hidden">
-
+      <section
+        className="relative z-10 flex flex-col justify-end pb-14 md:pb-20 px-5 md:px-10 lg:px-16 pt-28 md:pt-40 overflow-hidden"
+        style={{ minHeight: '92svh' }}
+      >
         {/* Faint background numeral */}
         <div
-          className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none hidden lg:block"
-          style={{ fontSize: '28vw', lineHeight: 1, opacity: 0.025, fontFamily: 'Space Mono, monospace', color: 'white' }}
+          className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none hidden lg:block font-display"
+          style={{ fontSize: '30vw', lineHeight: 1, opacity: 0.03, color: 'white' }}
           aria-hidden="true"
         >
           01
@@ -39,26 +46,22 @@ export function MissionSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7 }}
-          className="flex items-center gap-3 mb-14 md:mb-20"
+          className="flex items-center gap-3 mb-12 md:mb-16"
         >
           <KhandaSymbol size={14} glow={false} animate={false} className="opacity-25" />
-          <span className="text-[9px] tracking-[0.45em] opacity-25 font-mono">NEO KHALSA · 01 · MISSION</span>
+          <span className="text-[9px] tracking-[0.45em] opacity-25 font-mono">01 · MISSION</span>
         </motion.div>
 
         {/* The statement — lines clip in from below */}
-        <div className="max-w-5xl">
-          {[
-            { text: 'A strategic,',            delay: 0.15 },
-            { text: 'results-driven hub',       delay: 0.28 },
-            { text: 'propelling the Khalsa',    delay: 0.41 },
-            { text: 'into the 21st century.', delay: 0.54, glow: true },
-          ].map(({ text, delay, glow }) => (
+        <div className="max-w-6xl">
+          {STATEMENT.map(({ text, italic }, i) => (
             <div key={text} className="overflow-hidden">
               <motion.h1
                 initial={{ y: '105%' }}
                 animate={{ y: 0 }}
-                transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
-                className={`block text-[9vw] md:text-[7vw] lg:text-[5.5vw] leading-[1.08] tracking-wide ${glow ? 'text-glow-crimson' : ''}`}
+                transition={{ duration: 0.9, delay: 0.15 + i * 0.13, ease: [0.16, 1, 0.3, 1] }}
+                className={`block leading-[1.04] ${italic ? 'font-display-italic' : 'font-display'}`}
+                style={{ fontSize: 'clamp(2.6rem, 9vw, 7rem)' }}
               >
                 {text}
               </motion.h1>
@@ -71,11 +74,10 @@ export function MissionSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.9 }}
-          className="flex flex-wrap items-center gap-5 md:gap-10 mt-12 md:mt-16 pt-6 text-[9px] md:text-[10px] tracking-[0.35em] font-mono opacity-25 border-t"
-          style={{ borderColor: 'rgba(255,255,255,0.07)' }}
+          className="flex flex-wrap items-center gap-x-8 gap-y-3 mt-12 md:mt-16 pt-6 text-[9px] md:text-[10px] tracking-[0.35em] font-mono opacity-25 border-t hairline"
         >
-          {['HQ · SURREY BC', 'SIZE · 347', 'STATUS · ACTIVE', '49.1913°N, 122.8490°W'].map((item, i) => (
-            <span key={i}>{item}</span>
+          {['EST. 2020', 'MEMBERS · 347', 'STATUS · ACTIVE', 'THREE DOMAINS'].map((item) => (
+            <span key={item}>{item}</span>
           ))}
         </motion.div>
       </section>
@@ -90,19 +92,18 @@ export function MissionSection() {
           transition={{ duration: 1.1 }}
           viewport={{ once: true }}
           className="relative overflow-hidden"
-          style={{ height: '55vw', maxHeight: '680px', minHeight: '280px' }}
+          style={{ height: '60vw', maxHeight: '680px', minHeight: '320px' }}
         >
           <img
             src={missionImage}
             alt="Neo Khalsa"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center img-duotone"
             loading="lazy"
             decoding="async"
           />
-          {/* Gradient vignette */}
           <div
             className="absolute inset-0"
-            style={{ background: 'linear-gradient(to bottom, rgba(26,26,26,0.55) 0%, transparent 30%, transparent 65%, rgba(26,26,26,0.85) 100%)' }}
+            style={{ background: 'linear-gradient(to bottom, rgba(10,10,10,0.6) 0%, transparent 30%, transparent 60%, rgba(10,10,10,0.92) 100%)' }}
           />
           {/* Quote overlay */}
           <div className="absolute inset-0 flex items-center justify-center px-6 md:px-16">
@@ -111,8 +112,13 @@ export function MissionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-center text-lg md:text-2xl lg:text-3xl italic max-w-3xl leading-relaxed"
-              style={{ textShadow: '0 2px 24px rgba(0,0,0,0.9)', opacity: 0.88 }}
+              className="text-center font-display-italic max-w-3xl"
+              style={{
+                fontSize: 'clamp(1.25rem, 3.4vw, 2.2rem)',
+                lineHeight: 1.45,
+                textShadow: '0 2px 24px rgba(0,0,0,0.9)',
+                opacity: 0.92,
+              }}
             >
               "Starting with The Founder, Neo Khalsa has become a deliberate manifestation, quietly addressing the deficiencies within the Panth."
             </motion.p>
@@ -121,14 +127,14 @@ export function MissionSection() {
       </section>
 
       {/* Ticker between sections */}
-      <div className="relative z-10 border-y py-3" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+      <div className="relative z-10 border-y py-3 hairline">
         <Marquee items={TICKER} slow className="text-[9px] tracking-[0.35em] opacity-15 font-mono" />
       </div>
 
       {/* ════════════════════════════════════════════════════
-          § 3 — ORIGINS + TIMELINE (editorial two-column)
+          § 3 — ORIGINS + TIMELINE
       ════════════════════════════════════════════════════ */}
-      <section className="relative z-10 px-5 md:px-10 lg:px-16 py-20 md:py-32 max-w-[1600px] mx-auto">
+      <section className="relative z-10 px-5 md:px-10 lg:px-16 py-20 md:py-32 max-w-[1700px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1px_1fr] gap-0">
 
           {/* Left: Origins */}
@@ -137,13 +143,13 @@ export function MissionSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: true, margin: '-80px' }}
-            className="space-y-8 pb-12 lg:pb-0 lg:pr-16"
+            className="space-y-8 pb-14 lg:pb-0 lg:pr-16"
           >
             <p className="text-[9px] tracking-[0.45em] opacity-22 font-mono">ORIGINS & VISION</p>
 
             <blockquote
-              className="text-xl md:text-2xl leading-relaxed pl-5"
-              style={{ borderLeft: '2px solid rgba(192,24,24,0.5)' }}
+              className="font-display-italic pl-5"
+              style={{ fontSize: 'clamp(1.35rem, 2.6vw, 1.8rem)', lineHeight: 1.4, borderLeft: '2px solid rgba(192,24,24,0.5)' }}
             >
               "Neo Khalsa is a positive panthic institution that offers new ideas to people."
             </blockquote>
@@ -156,7 +162,8 @@ export function MissionSection() {
               </p>
               <p>
                 In this spirit, the ideological current of Neo Khalsa is now taking shape in tangible
-                initiatives intended to propel the Khalsa into the second half of the 21st century.
+                initiatives — books, craft, and story — built to carry the work deep into the
+                second half of the 21st century.
               </p>
               <p className="italic opacity-80">
                 The objectives are far-reaching, concentrated in three domains: narrative influence,
@@ -167,7 +174,7 @@ export function MissionSection() {
             {/* Core strategy box */}
             <div
               className="relative overflow-hidden p-6 md:p-8"
-              style={{ background: 'rgba(192,24,24,0.04)', border: '1px solid rgba(192,24,24,0.2)' }}
+              style={{ background: 'rgba(192,24,24,0.04)', border: '1px solid rgba(192,24,24,0.18)' }}
             >
               <div className="absolute inset-0 shimmer-overlay pointer-events-none" />
               <p className="text-[9px] tracking-[0.35em] opacity-25 mb-3 font-mono relative z-10">CORE STRATEGY</p>
@@ -180,7 +187,7 @@ export function MissionSection() {
           {/* Vertical divider */}
           <div
             className="hidden lg:block w-px self-stretch"
-            style={{ background: 'linear-gradient(to bottom, transparent, rgba(192,24,24,0.25) 20%, rgba(192,24,24,0.25) 80%, transparent)' }}
+            style={{ background: 'linear-gradient(to bottom, transparent, rgba(192,24,24,0.22) 20%, rgba(192,24,24,0.22) 80%, transparent)' }}
           />
 
           {/* Right: Timeline */}
@@ -201,12 +208,13 @@ export function MissionSection() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
                 className="group flex items-start gap-5 md:gap-7 py-6 md:py-7 border-b"
-                style={{ borderColor: active ? 'rgba(192,24,24,0.28)' : 'rgba(255,255,255,0.06)' }}
+                style={{ borderColor: active ? 'rgba(192,24,24,0.28)' : 'rgba(255,255,255,0.07)' }}
               >
                 <span
-                  className={`text-4xl md:text-5xl font-mono flex-shrink-0 transition-all leading-none ${
-                    active ? 'text-glow-crimson opacity-90' : 'opacity-20 group-hover:opacity-40'
+                  className={`font-display flex-shrink-0 leading-none transition-all ${
+                    active ? 'text-glow-crimson opacity-95' : 'opacity-20 group-hover:opacity-45'
                   }`}
+                  style={{ fontSize: 'clamp(2.4rem, 5vw, 3.4rem)' }}
                 >
                   {year}
                 </span>
