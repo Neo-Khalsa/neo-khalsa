@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ParticleField } from './components/ParticleField';
 import { SacredGeometryBg } from './components/SacredGeometryBg';
 import { KhandaSymbol } from './components/KhandaSymbol';
+import finalLogo from '../assets/4cdf9cd568e3ee9baa5d3b36dc93e020b862ab0a.webp';
 
 const sections = [
   {
@@ -44,14 +45,19 @@ export function HomePage() {
       {/* ── Hero ──────────────────────────────────────────────────────── */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
 
-        {/* Khanda */}
+        {/* Final logo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           className="mb-8 md:mb-12"
         >
-          <KhandaSymbol size={120} glow animate />
+          <img
+            src={finalLogo}
+            alt="Neo Khalsa"
+            className="w-28 md:w-40 lg:w-48 h-auto animate-divine-breathe"
+            style={{ filter: 'drop-shadow(0 0 18px rgba(192,24,24,0.45)) drop-shadow(0 0 40px rgba(192,24,24,0.18))' }}
+          />
         </motion.div>
 
         {/* Wordmark */}
