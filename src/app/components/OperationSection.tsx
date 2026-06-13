@@ -48,7 +48,7 @@ export function OperationSection() {
           className="flex items-center gap-3 relative z-10"
         >
           <KhandaSymbol size={14} glow={false} animate={false} className="opacity-25" />
-          <span className="text-[9px] tracking-[0.45em] opacity-25 font-mono">03 · OPERATION</span>
+          <span className="text-[9px] tracking-[0.45em] opacity-25 font-mono">04 · OPERATION</span>
         </motion.div>
 
         {/* Center content */}
@@ -151,7 +151,7 @@ export function OperationSection() {
                 className="absolute top-4 left-4 px-3 py-1.5 backdrop-blur-sm"
                 style={{ background: 'rgba(10,10,10,0.85)', border: '1px solid rgba(192,24,24,0.25)' }}
               >
-                <span className="text-[9px] tracking-[0.3em] font-mono text-crimson">03</span>
+                <span className="text-[9px] tracking-[0.3em] font-mono text-crimson">04</span>
               </div>
               <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between px-4 pb-3 pt-10"
                 style={{ background: 'linear-gradient(to top, rgba(10,10,10,0.75), transparent)' }}>

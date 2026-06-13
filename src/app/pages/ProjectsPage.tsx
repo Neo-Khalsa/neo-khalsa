@@ -4,11 +4,12 @@ import { ChevronDown } from 'lucide-react';
 import projectImage1 from "../../assets/9db7de1cffccd7b3bcecbc3271c23d56717dcbc4.webp";
 import projectImage2 from "../../assets/104fc68ae2769a86b33de8df270f335c79fa0eda.webp";
 import projectImage3 from "../../assets/f51d02d1d6fe32ecb948954f06c2b5e6d43a9472.webp";
+import projectImage4 from "../../assets/litgen.webp";
 import { ParticleField } from '../components/ParticleField';
 import { KhandaSymbol } from '../components/KhandaSymbol';
 import { Marquee } from '../components/Marquee';
 
-const TICKER = ['THREE INITIATIVES', 'KOANS', 'NEO SAROOP', 'SIKH ANIME', '2026 — 2028', 'NEO KHALSA'];
+const TICKER = ['FOUR INITIATIVES', 'KOANS', 'NEO SAROOP', 'SIKH ANIME', 'LITERARY GENESIS', '2026 — 2028', 'NEO KHALSA'];
 
 /* ── Buy dropdown ──────────────────────────────────────────────────────── */
 function BuyDropdown() {
@@ -222,8 +223,8 @@ export function ProjectsPage() {
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 pb-8 md:pb-10 border-b hairline"
         >
           <div>
-            <p className="text-[9px] tracking-[0.45em] opacity-22 font-mono mb-5">02 · PROJECTS</p>
-            <h1 className="font-display leading-[0.92]" style={{ fontSize: 'clamp(3.4rem, 12vw, 9rem)' }}>Three</h1>
+            <p className="text-[9px] tracking-[0.45em] opacity-22 font-mono mb-5">02 · PROJECTS · VOLUME I</p>
+            <h1 className="font-display leading-[0.92]" style={{ fontSize: 'clamp(3.4rem, 12vw, 9rem)' }}>Four</h1>
             <h1 className="font-display-italic leading-[0.92]" style={{ fontSize: 'clamp(3.4rem, 12vw, 9rem)' }}>Initiatives</h1>
           </div>
           <div className="text-left md:text-right space-y-1 flex md:block items-center gap-4">
@@ -309,10 +310,34 @@ export function ProjectsPage() {
         />
       </div>
 
+      <ChapterDivider numeral="IV" />
+
+      {/* ── PROJECT IV — LITERARY GENESIS ────────────────────────── */}
+      <div className="relative z-10">
+        <ProjectSection
+          bgNum="IV" theme="WRITTEN TRUTH · PROJECT IV"
+          image={projectImage4} imageAlt="Literary Genesis" flip
+          title={['Literary', 'Genesis']}
+          statement="Restoring the written word to the centre of Panthic life — original literature, translation, and thought set down to endure"
+          meta={[
+            { label: 'IMPRINT',  value: 'Neo Khalsa', live: true },
+            { label: 'FORM',     value: 'Essay · Translation' },
+            { label: 'LANGUAGE', value: 'Punjabi · English' },
+            { label: 'ORIGIN',   value: 'Surrey' },
+            { label: 'RELEASE',  value: '2027', live: true },
+          ]}
+          details={[
+            'Literary Genesis is the publishing arm of the Neo Khalsa — an imprint dedicated to original Sikh literature, rigorous translation, and philosophical essay. Where scripture has been printed without reverence and scholarship left to languish, this work returns the written word to the heart of the Panth.',
+            'Drawing on archival manuscripts and the wider intellectual inheritance of mankind, each volume places Gurbani and Sikh thought in conversation with the great texts of human history — building, edition by edition, a canon for the century ahead.',
+          ]}
+          status="IN DEVELOPMENT · 2027"
+        />
+      </div>
+
       {/* Footer strip */}
       <div className="relative z-10 flex flex-wrap items-center justify-between gap-2 px-5 md:px-10 py-10 text-[9px] font-mono tracking-[0.25em] opacity-15 border-t hairline">
         <span>NEO KHALSA</span>
-        <span>THREE INITIATIVES · 2026–2028</span>
+        <span>FOUR INITIATIVES · VOLUME I · 2026–2028</span>
         <span>MMXXVI</span>
       </div>
     </div>

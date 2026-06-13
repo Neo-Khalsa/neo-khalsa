@@ -6,9 +6,10 @@ import logoWhite from '../assets/027354ce14dae85850c3c889442da6849aab7a08.webp';
 
 const NAV_ROWS = [
   { path: '/mission',   num: '01', label: 'Mission',   desc: 'The vision and strategic intent'    },
-  { path: '/projects',  num: '02', label: 'Projects',  desc: 'Three active cultural initiatives'  },
-  { path: '/operation', num: '03', label: 'Operation', desc: 'Acheron — the discipline arm'       },
-  { path: '/contact',   num: '04', label: 'Contact',   desc: 'Correspondence and collaboration'   },
+  { path: '/projects',  num: '02', label: 'Projects',  desc: 'Four creative initiatives — Volume I' },
+  { path: '/spaces',    num: '03', label: 'Spaces',    desc: 'Physical Sikh builds — Volume II'    },
+  { path: '/operation', num: '04', label: 'Operation', desc: 'Acheron — the discipline arm'       },
+  { path: '/contact',   num: '05', label: 'Contact',   desc: 'Correspondence and collaboration'   },
 ];
 
 const TICKER = ['NEO KHALSA', 'CHARDI KALA', 'KOANS', 'SAROOP', 'ANIME', 'ACHERON', 'MMXXVI'];

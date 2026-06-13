@@ -3,6 +3,7 @@ import { Navigation } from './components/Navigation';
 import { ScrollToTop } from './components/ScrollToTop';
 import { HomePage } from './HomePage';
 import { ProjectsPage } from './pages/ProjectsPage';
+import { SpacesPage } from './pages/SpacesPage';
 import { MissionPage } from './pages/MissionPage';
 import { OperationPage } from './pages/OperationPage';
 import { ContactPage } from './pages/ContactPage';
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/"           element={<HomePage />} />
           <Route path="/mission"    element={<MissionPage />} />
           <Route path="/projects"   element={<ProjectsPage />} />
+          <Route path="/spaces"     element={<SpacesPage />} />
           <Route path="/operation"  element={<OperationPage />} />
           <Route path="/contact"    element={<ContactPage />} />
           <Route path="*"           element={<Navigate to="/" replace />} />
