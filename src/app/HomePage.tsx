@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ParticleField } from './components/ParticleField';
 import { SacredGeometryBg } from './components/SacredGeometryBg';
 import { KhandaSymbol } from './components/KhandaSymbol';
-import finalLogo from '../assets/4cdf9cd568e3ee9baa5d3b36dc93e020b862ab0a.webp';
+import finalLogo from '../assets/027354ce14dae85850c3c889442da6849aab7a08.webp';
 
 const sections = [
   {
