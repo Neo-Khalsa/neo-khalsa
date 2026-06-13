@@ -10,25 +10,28 @@ export function Navigation({ isAtTop }: { isAtTop: boolean }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems = [
-    { path: '/',          label: 'MISSION'   },
+    { path: '/mission',   label: 'MISSION'   },
     { path: '/projects',  label: 'PROJECTS'  },
     { path: '/operation', label: 'OPERATION' },
   ];
   const contactItem = { path: '/contact', label: 'CONTACT' };
 
+  // Hide nav entirely on the home page (it's not needed there)
+  const isHome = location.pathname === '/';
+
   return (
     <>
       {/* ── Desktop nav ──────────────────────────────────────────────── */}
       <nav
-        className={`hidden md:flex fixed top-8 right-8 z-50 transition-opacity duration-300 ${
-          isAtTop || isHovered ? 'opacity-100' : 'opacity-0'
+        className={`hidden md:flex fixed top-8 right-8 z-50 transition-opacity duration-500 ${
+          isHome ? 'opacity-0 pointer-events-none' : isAtTop || isHovered ? 'opacity-100' : 'opacity-0'
         }`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="flex flex-col gap-6 items-end">
 
-          {/* Logo + Khanda */}
+          {/* Logo — home link */}
           <Link to="/" className="mb-2 flex items-center gap-3 group">
             <KhandaSymbol
               size={18}
@@ -43,7 +46,6 @@ export function Navigation({ isAtTop }: { isAtTop: boolean }) {
             />
           </Link>
 
-          {/* Nav links */}
           {navItems.map((item) => {
             const active = location.pathname === item.path;
             return (
@@ -57,10 +59,7 @@ export function Navigation({ isAtTop }: { isAtTop: boolean }) {
                 {active && (
                   <span
                     className="absolute right-0 top-1/2 -translate-y-1/2 w-0.5 h-full"
-                    style={{
-                      background: 'rgba(192,24,24,0.85)',
-                      boxShadow: '0 0 8px rgba(192,24,24,0.7)',
-                    }}
+                    style={{ background: 'rgba(192,24,24,0.85)', boxShadow: '0 0 8px rgba(192,24,24,0.7)' }}
                   />
                 )}
                 <span
@@ -73,7 +72,6 @@ export function Navigation({ isAtTop }: { isAtTop: boolean }) {
             );
           })}
 
-          {/* Contact — subtler */}
           <div className="mt-3 pt-3 border-t border-foreground/5">
             <Link
               to={contactItem.path}
@@ -90,13 +88,14 @@ export function Navigation({ isAtTop }: { isAtTop: boolean }) {
       </nav>
 
       {/* ── Mobile nav ───────────────────────────────────────────────── */}
-      <nav className="md:hidden fixed top-0 left-0 right-0 z-50 bg-background/96 backdrop-blur-sm border-b border-foreground/10">
+      <nav className={`md:hidden fixed top-0 left-0 right-0 z-50 bg-background/96 backdrop-blur-sm border-b border-foreground/10 transition-opacity duration-500 ${
+        isHome ? 'opacity-0 pointer-events-none' : 'opacity-100'
+      }`}>
         <div className="flex items-center justify-between px-4 py-4">
           <Link to="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
             <KhandaSymbol size={16} glow={false} animate={false} className="text-white opacity-40" />
             <img src={logoImage} alt="Neo Khalsa" className="h-8 w-auto opacity-95" />
           </Link>
-
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="p-2 opacity-65 hover:opacity-100 transition-opacity"
@@ -117,20 +116,16 @@ export function Navigation({ isAtTop }: { isAtTop: boolean }) {
                     to={item.path}
                     onClick={() => setMobileOpen(false)}
                     className={`px-6 py-4 text-xs tracking-[0.2em] transition-all border-l-2 ${
-                      active
-                        ? 'opacity-100 bg-foreground/5'
-                        : 'opacity-55 border-transparent hover:opacity-100 hover:bg-foreground/5'
+                      active ? 'opacity-100 bg-foreground/5' : 'opacity-55 border-transparent hover:opacity-100 hover:bg-foreground/5'
                     }`}
                     style={active
                       ? { borderColor: 'rgba(192,24,24,0.75)', animationDelay: `${i * 50}ms` }
-                      : { animationDelay: `${i * 50}ms` }
-                    }
+                      : { animationDelay: `${i * 50}ms` }}
                   >
                     {item.label}
                   </Link>
                 );
               })}
-
               <div className="border-t border-foreground/5 mt-2 pt-2">
                 <Link
                   to={contactItem.path}

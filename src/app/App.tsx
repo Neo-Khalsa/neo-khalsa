@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { ScrollToTop } from './components/ScrollToTop';
+import { HomePage } from './HomePage';
 import { ProjectsPage } from './pages/ProjectsPage';
 import { MissionPage } from './pages/MissionPage';
 import { OperationPage } from './pages/OperationPage';
@@ -13,7 +14,6 @@ export default function App() {
 
   useEffect(() => {
     let ticking = false;
-
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
@@ -23,7 +23,6 @@ export default function App() {
         ticking = true;
       }
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -35,14 +34,15 @@ export default function App() {
         <Navigation isAtTop={isAtTop} />
 
         <Routes>
-          <Route path="/" element={<MissionPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/operation" element={<OperationPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/"           element={<HomePage />} />
+          <Route path="/mission"    element={<MissionPage />} />
+          <Route path="/projects"   element={<ProjectsPage />} />
+          <Route path="/operation"  element={<OperationPage />} />
+          <Route path="/contact"    element={<ContactPage />} />
+          <Route path="*"           element={<Navigate to="/" replace />} />
         </Routes>
 
-        {/* Corner Labels */}
+        {/* Corner label — desktop only, shown when at top */}
         <div className={`hidden md:flex fixed top-8 left-8 z-40 items-center gap-4 transition-opacity duration-300 ${
           isAtTop ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}>
@@ -52,8 +52,6 @@ export default function App() {
         <div className="hidden md:block fixed bottom-8 left-8 text-xs tracking-[0.2em] opacity-20 z-40 font-mono">
           2026
         </div>
-
-        {/* Mobile Bottom Label */}
         <div className="md:hidden fixed bottom-4 left-4 text-xs tracking-[0.2em] opacity-20 z-40 font-mono">
           2026
         </div>
