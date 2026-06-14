@@ -73,24 +73,24 @@ export function GetInvolvedPage() {
               <span className="text-[9px] tracking-[0.45em] opacity-25 font-mono">04 · GET INVOLVED</span>
             </div>
 
-            <div className="overflow-hidden">
+            <div className="overflow-hidden" style={{ marginLeft: '-1rem' }}>
               <motion.h1
                 initial={{ y: '105%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.95, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="font-display leading-[0.9]"
-                style={{ fontSize: 'clamp(3.4rem, 14vw, 10rem)' }}
+                style={{ fontSize: 'clamp(3.4rem, 14vw, 10rem)', paddingLeft: '1rem' }}
               >
                 Join the
               </motion.h1>
             </div>
-            <div className="overflow-hidden">
+            <div className="overflow-hidden" style={{ marginLeft: '-1rem' }}>
               <motion.h1
                 initial={{ y: '105%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.95, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="font-display-italic leading-[0.9] text-glow-crimson"
-                style={{ fontSize: 'clamp(3.4rem, 14vw, 10rem)' }}
+                style={{ fontSize: 'clamp(3.4rem, 14vw, 10rem)', paddingLeft: '1rem' }}
               >
                 work.
               </motion.h1>
