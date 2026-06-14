@@ -57,9 +57,9 @@ export function GetInvolvedPage() {
               transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
               className="order-last lg:order-first"
             >
-              <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative mx-auto w-full max-w-[240px]">
-                <div className="absolute -inset-8 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(192,24,24,0.14) 0%, transparent 70%)' }} />
+              <motion.div animate={{ y: [0, -12, 0] }} transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+                className="relative mx-auto w-full max-w-[340px]">
+                <div className="absolute -inset-10 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(192,24,24,0.16) 0%, transparent 70%)' }} />
                 <div className="relative bg-white p-3 md:p-4" style={{ boxShadow: '0 0 0 1px rgba(192,24,24,0.15), 0 36px 80px rgba(0,0,0,0.55)' }}>
                   <img src={swordImage} alt="Talwar — the shastar of the Khalsa" className="w-full h-auto block" loading="lazy" decoding="async" />
                 </div>
@@ -73,22 +73,22 @@ export function GetInvolvedPage() {
               transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <p className="text-[9px] tracking-[0.45em] opacity-25 font-mono mb-7">THE INVITATION</p>
-              <h2 className="font-display leading-[1.0]" style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)' }}>The work</h2>
-              <h2 className="font-display-italic leading-[1.0] text-glow-crimson mb-8" style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)' }}>outlasts us.</h2>
+              <h2 className="font-display leading-[1.0]" style={{ fontSize: 'clamp(2.9rem, 6.5vw, 5.4rem)' }}>The work</h2>
+              <h2 className="font-display-italic leading-[1.0] text-glow-crimson mb-8" style={{ fontSize: 'clamp(2.9rem, 6.5vw, 5.4rem)' }}>outlasts us.</h2>
 
-              <p className="leading-relaxed opacity-65 max-w-md" style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)' }}>
+              <p className="leading-relaxed opacity-65 max-w-lg" style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)' }}>
                 Lend it your hand, or your means — and be counted among the few who build what endures.
               </p>
 
               <div className="flex flex-wrap items-center gap-5 mt-10">
                 <a href={DONATE_URL} className="group inline-flex items-center gap-3 px-7 py-4 transition-all duration-300"
                   style={{ background: 'rgba(192,24,24,0.92)', boxShadow: '0 0 22px rgba(192,24,24,0.3)' }}>
-                  <span className="text-[11px] tracking-[0.3em] font-mono">SUSTAIN THE WORK</span>
+                  <span className="text-[12px] tracking-[0.3em] font-mono">SUSTAIN THE WORK</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </a>
                 <a href={CONTACT_EMAIL} className="group inline-flex items-center gap-3 px-7 py-4 transition-all duration-300 hover:bg-[rgba(192,24,24,0.06)]"
                   style={{ border: '1px solid rgba(192,24,24,0.4)' }}>
-                  <span className="text-[11px] tracking-[0.3em] font-mono opacity-80 group-hover:opacity-100">BEGIN A CONVERSATION</span>
+                  <span className="text-[12px] tracking-[0.3em] font-mono opacity-80 group-hover:opacity-100">BEGIN A CONVERSATION</span>
                   <span className="opacity-60 transition-transform duration-300 group-hover:translate-x-1" style={{ color: '#C01818' }}>→</span>
                 </a>
               </div>
