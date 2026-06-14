@@ -119,7 +119,7 @@ function SpaceSection({ bgNum, theme, image, imageAlt, darkMat, flip, title, sta
         <span className="text-[9px] tracking-[0.4em] opacity-22 font-mono">{theme}</span>
       </div>
 
-      {/* Title — serif, second line italic */}
+      {/* Title - serif, second line italic */}
       <div>
         <h2 className="font-display leading-[0.95]" style={{ fontSize: 'clamp(3rem, 8vw, 6.5rem)' }}>
           {title[0]}
@@ -201,7 +201,7 @@ export function SpacesPage() {
           className="font-display-italic max-w-3xl opacity-55"
           style={{ fontSize: 'clamp(1.1rem, 2.6vw, 1.6rem)', lineHeight: 1.45 }}
         >
-          "Where the creative work meets ground and stone — physical Sikh spaces built to outlast us."
+          "Where the creative work meets ground and stone - physical Sikh spaces built to outlast us."
         </motion.p>
       </section>
 
@@ -210,7 +210,7 @@ export function SpacesPage() {
         <Marquee items={TICKER} className="text-[9px] tracking-[0.35em] opacity-15 font-mono" />
       </div>
 
-      {/* ── SPACE I — THE AKHARA ─────────────────────────────────── */}
+      {/* ── SPACE I - THE AKHARA ─────────────────────────────────── */}
       <div className="relative z-10">
         <SpaceSection
           bgNum="I" theme="DISCOURSE & CREATIVE SPACE · SPACE I"
@@ -225,7 +225,7 @@ export function SpacesPage() {
             { label: 'OPENING',    value: '2030', live: true },
           ]}
           details={[
-            'The Akhara reimagines the traditional in-person gathering — a home for Sikhs to meet, debate, and create for the Panth. Within its walls: a lecture hall, a library, common areas, small galleries, a bookshop, and a working studio for developing projects.',
+            'The Akhara reimagines the traditional in-person gathering - a home for Sikhs to meet, debate, and create for the Panth. Within its walls: a lecture hall, a library, common areas, small galleries, a bookshop, and a working studio for developing projects.',
             'It is conceived as an incubator for new voices, a place where thought and energy move from online spaces into in-person engagement, and where the next generation of Panthic work is made.',
           ]}
           status="CONTRACTING · OPENS 2030"
@@ -237,7 +237,7 @@ export function SpacesPage() {
 
       <ChapterDivider numeral="II" />
 
-      {/* ── SPACE II — NEO KHALSA UNIVERSITY ─────────────────────── */}
+      {/* ── SPACE II - NEO KHALSA UNIVERSITY ─────────────────────── */}
       <div className="relative z-10">
         <SpaceSection
           bgNum="II" theme="DISCIPLINE & FAÇADE · SPACE II"
@@ -252,8 +252,8 @@ export function SpacesPage() {
             { label: 'HORIZON',   value: '2035 +' },
           ]}
           details={[
-            'For decades Sikh educational institutions have remained insular, cut off from the intellectual traditions that shaped civilisations across the world. Neo Khalsa University answers this with a centre of learning that brings East and West into one room — the Sikh Gurus and Sikh intellectual tradition placed in conversation with the great philosophers, scientists, and thinkers of human history.',
-            'With a campus designed to rival the world’s great universities, it will serve not only as a hub of Sikh learning but as a destination for students and seekers from every background — cultivating the leaders, scholars, and visionaries capable of meaningful change.',
+            'For decades Sikh educational institutions have remained insular, cut off from the intellectual traditions that shaped civilisations across the world. Neo Khalsa University answers this with a centre of learning that brings East and West into one room - the Sikh Gurus and Sikh intellectual tradition placed in conversation with the great philosophers, scientists, and thinkers of human history.',
+            'With a campus designed to rival the world’s great universities, it will serve not only as a hub of Sikh learning but as a destination for students and seekers from every background - cultivating the leaders, scholars, and visionaries capable of meaningful change.',
           ]}
           status="MASTER PLANNING · VOLUME II"
           phases={['STUDY', 'DESIGN', 'BUILD']}
@@ -263,23 +263,23 @@ export function SpacesPage() {
 
       <ChapterDivider numeral="III" />
 
-      {/* ── SPACE III — GURDWARAS OF THE MILLENIA ────────────────── */}
+      {/* ── SPACE III - GURDWARAS OF THE MILLENIA ────────────────── */}
       <div className="relative z-10">
         <SpaceSection
           bgNum="III" theme="WESTERN MONUMENT · SPACE III"
           image={gurdwarasImage} imageAlt="Gurdwaras of the Millenia" darkMat
           title={['Gurdwaras of', 'the Millenia']}
-          statement="The magnum opus — a monument that gathers every smaller effort into a single home for the movement"
+          statement="The magnum opus - a monument that gathers every smaller effort into a single home for the movement"
           meta={[
             { label: 'TYPOLOGY',  value: 'Monumental Gurdwara' },
             { label: 'OPERATION', value: '24 / 7' },
             { label: 'SITE',      value: '10 HA · Canada' },
             { label: 'STATUS',    value: 'Vision' },
-            { label: 'BUILD',     value: '2030 — 2035' },
+            { label: 'BUILD',     value: '2030 - 2035' },
           ]}
           details={[
-            'The magnum opus of the Neo Khalsa in the West: a monumental Gurdwara surpassing the architecture of any spiritual building in the Western world. Operating around the clock, it will function as a community centre and far more — offering services and functions found in no typical public institution.',
-            'A project of monumental scale, its architecture will stand as a beacon and testament to the Neo Khalsa vision. Smaller projects build gradually toward it, until they gather into one home — ushering Sikh spaces into a new era of aesthetic, cultural, and spiritual achievement.',
+            'The magnum opus of the Neo Khalsa in the West: a monumental Gurdwara surpassing the architecture of any spiritual building in the Western world. Operating around the clock, it will function as a community centre and far more - offering services and functions found in no typical public institution.',
+            'A project of monumental scale, its architecture will stand as a beacon and testament to the Neo Khalsa vision. Smaller projects build gradually toward it, until they gather into one home - ushering Sikh spaces into a new era of aesthetic, cultural, and spiritual achievement.',
           ]}
           status="VISION · WESTERN MONUMENT · 2035"
           phases={['PLAN', 'PROJECT', 'BUILD']}
@@ -290,7 +290,7 @@ export function SpacesPage() {
       {/* Footer strip */}
       <div className="relative z-10 flex flex-wrap items-center justify-between gap-2 px-5 md:px-10 py-10 text-[9px] font-mono tracking-[0.25em] opacity-15 border-t hairline">
         <span>NEO KHALSA</span>
-        <span>VOLUME II · BUILT WORLDS · 2028–2035</span>
+        <span>VOLUME II · BUILT WORLDS · 2028-2035</span>
         <span>MMXXVI</span>
       </div>
     </div>

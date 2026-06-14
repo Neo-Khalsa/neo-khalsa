@@ -163,9 +163,9 @@ export function ContactPage() {
                 className="font-display-italic relative z-10"
                 style={{ fontSize: 'clamp(1.1rem, 2.6vw, 1.45rem)', lineHeight: 1.55, opacity: 0.75 }}
               >
-                "The Khalsa is not a relic — it is a living philosophy, continuously rediscovered."
+                "The Khalsa is not a relic - it is a living philosophy, continuously rediscovered."
               </p>
-              <p className="text-[9px] tracking-[0.3em] opacity-25 mt-5 font-mono relative z-10">— NEO KHALSA</p>
+              <p className="text-[9px] tracking-[0.3em] opacity-25 mt-5 font-mono relative z-10">- NEO KHALSA</p>
             </div>
           </motion.div>
         </section>

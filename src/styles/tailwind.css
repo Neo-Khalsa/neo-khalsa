@@ -55,7 +55,7 @@
     font-style: italic;
   }
 
-  /* ── Glow — restrained ─────────────────────────────── */
+  /* ── Glow - restrained ─────────────────────────────── */
   .text-glow-crimson {
     text-shadow:
       0 0 16px rgba(192, 24, 24, 0.55),

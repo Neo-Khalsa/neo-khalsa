@@ -8,8 +8,8 @@ import { Marquee } from './Marquee';
 const TICKER = ['MISSION', 'NARRATIVE INFLUENCE', 'RESOURCE ACQUISITION', 'INTERNAL DISCIPLINE', 'NEO KHALSA'];
 
 const TIMELINE = [
-  { year: '2025', sub: 'PROJECT · VOL I', title: 'Neo Khalsa Koans',      status: 'COMPLETE',       active: false, path: '/projects' },
-  { year: '2026', sub: 'PROJECT · VOL I', title: 'Literary Genesis',      status: 'IN DEVELOPMENT', active: true,  path: '/projects' },
+  { year: '2026', sub: 'PROJECT · VOL I', title: 'Neo Khalsa Koans',      status: 'AVAILABLE',      active: true,  path: '/projects' },
+  { year: '2027', sub: 'PROJECT · VOL I', title: 'Literary Genesis',      status: 'IN DEVELOPMENT', active: false, path: '/projects' },
   { year: '2028', sub: 'PROJECT · VOL I', title: 'Sikh Anime',            status: 'UPCOMING',       active: false, path: '/projects' },
   { year: '2030', sub: 'SPACE · VOL II',  title: 'The Akhara Opens',      status: 'BUILDING',       active: false, path: '/spaces'   },
   { year: '2035', sub: 'MILESTONE',       title: 'University & Gurdwaras', status: 'HORIZON',        active: false, path: '/spaces'   },
@@ -17,7 +17,7 @@ const TIMELINE = [
 
 const STATEMENT: { text: string; italic?: boolean }[] = [
   { text: 'A strategic,' },
-  { text: 'results-driven hub —' },
+  { text: 'results-driven hub -' },
   { text: 'moving ideas', italic: true },
   { text: 'from words to will.', italic: true },
 ];
@@ -28,7 +28,7 @@ export function MissionSection() {
       <ParticleField />
 
       {/* ════════════════════════════════════════════════════
-          § 1 — STATEMENT HERO
+          § 1 - STATEMENT HERO
       ════════════════════════════════════════════════════ */}
       <section
         className="relative z-10 flex flex-col justify-end pb-14 md:pb-20 px-5 md:px-10 lg:px-16 pt-28 md:pt-40 overflow-hidden"
@@ -54,7 +54,7 @@ export function MissionSection() {
           <span className="text-[9px] tracking-[0.45em] opacity-25 font-mono">01 · MISSION</span>
         </motion.div>
 
-        {/* The statement — lines clip in from below */}
+        {/* The statement - lines clip in from below */}
         <div className="max-w-6xl">
           {STATEMENT.map(({ text, italic }, i) => (
             <div key={text} className="overflow-hidden">
@@ -85,7 +85,7 @@ export function MissionSection() {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          § 2 — FULL-BLEED IMAGE
+          § 2 - FULL-BLEED IMAGE
       ════════════════════════════════════════════════════ */}
       <section className="relative z-10">
         <motion.div
@@ -117,7 +117,7 @@ export function MissionSection() {
               viewport={{ once: true }}
               className="relative max-w-3xl px-6 md:px-14 py-10 md:py-14"
             >
-              {/* legibility scrim — frosts the busy area, statue stays visible around it */}
+              {/* legibility scrim - frosts the busy area, statue stays visible around it */}
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -149,7 +149,7 @@ export function MissionSection() {
       </div>
 
       {/* ════════════════════════════════════════════════════
-          § 3 — ORIGINS + TIMELINE
+          § 3 - ORIGINS + TIMELINE
       ════════════════════════════════════════════════════ */}
       <section className="relative z-10 px-5 md:px-10 lg:px-16 py-20 md:py-32 max-w-[1700px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1px_1fr] gap-0">
@@ -179,7 +179,7 @@ export function MissionSection() {
               </p>
               <p>
                 In this spirit, the ideological current of Neo Khalsa is now taking shape in tangible
-                initiatives — books, craft, and story — built to carry the work deep into the
+                initiatives - books, craft, and story - built to carry the work deep into the
                 second half of the 21st century.
               </p>
               <p className="italic opacity-80">
@@ -196,7 +196,7 @@ export function MissionSection() {
               <div className="absolute inset-0 shimmer-overlay pointer-events-none" />
               <p className="text-[9px] tracking-[0.35em] opacity-25 mb-3 font-mono relative z-10">CORE STRATEGY</p>
               <p className="text-sm leading-relaxed opacity-65 italic relative z-10">
-                "Neo Khalsa operates as a strategic, results-driven hub — moving beyond mere talk to definitize ideas through embodied action and strategic discipline."
+                "Neo Khalsa operates as a strategic, results-driven hub - moving beyond mere talk to definitize ideas through embodied action and strategic discipline."
               </p>
             </div>
           </motion.div>

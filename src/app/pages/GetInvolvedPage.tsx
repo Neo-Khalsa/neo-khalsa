@@ -47,11 +47,11 @@ export function GetInvolvedPage() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10">
 
-        {/* ── INVITATION — golden-ratio split (1 : 1.618) ──────────── */}
+        {/* ── INVITATION - golden-ratio split (1 : 1.618) ──────────── */}
         <section className="py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.618fr] gap-14 lg:gap-20 items-center">
 
-            {/* visual — the talwar, quietly floating */}
+            {/* visual - the talwar, quietly floating */}
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
@@ -61,7 +61,7 @@ export function GetInvolvedPage() {
                 className="relative mx-auto w-full max-w-[340px]">
                 <div className="absolute -inset-10 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(192,24,24,0.16) 0%, transparent 70%)' }} />
                 <div className="relative bg-white p-3 md:p-4" style={{ boxShadow: '0 0 0 1px rgba(192,24,24,0.15), 0 36px 80px rgba(0,0,0,0.55)' }}>
-                  <img src={swordImage} alt="Talwar — the shastar of the Khalsa" className="w-full h-auto block" loading="lazy" decoding="async" />
+                  <img src={swordImage} alt="Talwar - the shastar of the Khalsa" className="w-full h-auto block" loading="lazy" decoding="async" />
                 </div>
                 <p className="mt-4 text-center text-[8px] tracking-[0.35em] font-mono opacity-30">SHASTAR · THE EDGE OF INTENT</p>
               </motion.div>
@@ -77,7 +77,7 @@ export function GetInvolvedPage() {
               <h2 className="font-display-italic leading-[1.0] text-glow-crimson mb-8" style={{ fontSize: 'clamp(2.9rem, 6.5vw, 5.4rem)' }}>outlasts us.</h2>
 
               <p className="leading-relaxed opacity-65 max-w-lg" style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)' }}>
-                Lend it your hand, or your means — and be counted among the few who build what endures.
+                Lend it your hand, or your means - and be counted among the few who build what endures.
               </p>
 
               <div className="flex flex-wrap items-center gap-5 mt-10">

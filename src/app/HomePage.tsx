@@ -6,8 +6,8 @@ import logoWhite from '../assets/027354ce14dae85850c3c889442da6849aab7a08.webp';
 
 const NAV_ROWS = [
   { path: '/mission',   num: '01', label: 'Mission',   desc: 'The vision and strategic intent'    },
-  { path: '/projects',     num: '02', label: 'Projects',     desc: 'Three creative initiatives — Volume I' },
-  { path: '/spaces',       num: '03', label: 'Spaces',       desc: 'Physical Sikh builds — Volume II'      },
+  { path: '/projects',     num: '02', label: 'Projects',     desc: 'Three creative initiatives - Volume I' },
+  { path: '/spaces',       num: '03', label: 'Spaces',       desc: 'Physical Sikh builds - Volume II'      },
   { path: '/get-involved', num: '04', label: 'Get Involved', desc: 'Join the work & support the cause'     },
   { path: '/contact',      num: '05', label: 'Contact',      desc: 'Correspondence and collaboration'      },
 ];
@@ -51,7 +51,7 @@ export function HomePage() {
           />
         </motion.div>
 
-        {/* Wordmark — serif, clipped reveal */}
+        {/* Wordmark - serif, clipped reveal */}
         <div className="overflow-hidden leading-none">
           <motion.h1
             initial={{ y: '110%' }}

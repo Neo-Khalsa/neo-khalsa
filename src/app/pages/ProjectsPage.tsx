@@ -8,7 +8,7 @@ import { ParticleField } from '../components/ParticleField';
 import { KhandaSymbol } from '../components/KhandaSymbol';
 import { Marquee } from '../components/Marquee';
 
-const TICKER = ['THREE INITIATIVES', 'KOANS', 'SIKH ANIME', 'LITERARY GENESIS', '2026 — 2028', 'NEO KHALSA'];
+const TICKER = ['THREE INITIATIVES', 'KOANS', 'SIKH ANIME', 'LITERARY GENESIS', '2026 - 2028', 'NEO KHALSA'];
 
 /* ── Buy dropdown ──────────────────────────────────────────────────────── */
 function BuyDropdown() {
@@ -155,7 +155,7 @@ function ProjectSection({ bgNum, theme, image, imageAlt, darkMat, flip, title, s
         <span className="text-[9px] tracking-[0.4em] opacity-22 font-mono">{theme}</span>
       </div>
 
-      {/* Title — serif, second line italic */}
+      {/* Title - serif, second line italic */}
       <div>
         <h2 className="font-display leading-[0.95]" style={{ fontSize: 'clamp(3rem, 8vw, 6.5rem)' }}>
           {title[0]}
@@ -239,7 +239,7 @@ export function ProjectsPage() {
         <Marquee items={TICKER} className="text-[9px] tracking-[0.35em] opacity-15 font-mono" />
       </div>
 
-      {/* ── PROJECT I — KOANS ────────────────────────────────────── */}
+      {/* ── PROJECT I - KOANS ────────────────────────────────────── */}
       <div className="relative z-10">
         <ProjectSection
           bgNum="I" theme="ADAPTIVE TRUTH · PROJECT I"
@@ -263,7 +263,7 @@ export function ProjectsPage() {
 
       <ChapterDivider numeral="II" />
 
-      {/* ── PROJECT II — ANIME ───────────────────────────────────── */}
+      {/* ── PROJECT II - ANIME ───────────────────────────────────── */}
       <div className="relative z-10">
         <ProjectSection
           bgNum="II" theme="WORLDWIDE AUDIENCE · PROJECT II"
@@ -287,13 +287,13 @@ export function ProjectsPage() {
 
       <ChapterDivider numeral="III" />
 
-      {/* ── PROJECT III — LITERARY GENESIS ───────────────────────── */}
+      {/* ── PROJECT III - LITERARY GENESIS ───────────────────────── */}
       <div className="relative z-10">
         <ProjectSection
           bgNum="III" theme="WRITTEN TRUTH · PROJECT III"
           image={projectImage4} imageAlt="Literary Genesis"
           title={['Literary', 'Genesis']}
-          statement="Restoring the written word to the centre of Panthic life — original literature, translation, and thought set down to endure"
+          statement="Restoring the written word to the centre of Panthic life - original literature, translation, and thought set down to endure"
           meta={[
             { label: 'IMPRINT',  value: 'Neo Khalsa', live: true },
             { label: 'FORM',     value: 'Essay · Translation' },
@@ -302,8 +302,8 @@ export function ProjectsPage() {
             { label: 'RELEASE',  value: '2027', live: true },
           ]}
           details={[
-            'Literary Genesis is the publishing arm of the Neo Khalsa — an imprint dedicated to original Sikh literature, rigorous translation, and philosophical essay. Where scripture has been printed without reverence and scholarship left to languish, this work returns the written word to the heart of the Panth.',
-            'Drawing on archival manuscripts and the wider intellectual inheritance of mankind, each volume places Gurbani and Sikh thought in conversation with the great texts of human history — building, edition by edition, a canon for the century ahead.',
+            'Literary Genesis is the publishing arm of the Neo Khalsa - an imprint dedicated to original Sikh literature, rigorous translation, and philosophical essay. Where scripture has been printed without reverence and scholarship left to languish, this work returns the written word to the heart of the Panth.',
+            'Drawing on archival manuscripts and the wider intellectual inheritance of mankind, each volume places Gurbani and Sikh thought in conversation with the great texts of human history - building, edition by edition, a canon for the century ahead.',
           ]}
           status="IN DEVELOPMENT · 2027"
         />
@@ -312,7 +312,7 @@ export function ProjectsPage() {
       {/* Footer strip */}
       <div className="relative z-10 flex flex-wrap items-center justify-between gap-2 px-5 md:px-10 py-10 text-[9px] font-mono tracking-[0.25em] opacity-15 border-t hairline">
         <span>NEO KHALSA</span>
-        <span>THREE INITIATIVES · VOLUME I · 2026–2028</span>
+        <span>THREE INITIATIVES · VOLUME I · 2026-2028</span>
         <span>MMXXVI</span>
       </div>
     </div>
