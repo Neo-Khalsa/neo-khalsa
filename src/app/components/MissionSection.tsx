@@ -110,21 +110,35 @@ export function MissionSection() {
           />
           {/* Quote overlay */}
           <div className="absolute inset-0 flex items-center justify-center px-6 md:px-16">
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-center font-display-italic max-w-3xl"
-              style={{
-                fontSize: 'clamp(1.25rem, 3.4vw, 2.2rem)',
-                lineHeight: 1.45,
-                textShadow: '0 2px 24px rgba(0,0,0,0.9)',
-                opacity: 0.92,
-              }}
+              className="relative max-w-3xl px-6 md:px-14 py-10 md:py-14"
             >
-              "Starting with The Founder, Neo Khalsa has become a deliberate manifestation, quietly addressing the deficiencies within the Panth."
-            </motion.p>
+              {/* legibility scrim — frosts the busy area, statue stays visible around it */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse 70% 65% at center, rgba(8,8,8,0.92) 0%, rgba(8,8,8,0.78) 42%, rgba(8,8,8,0.32) 72%, transparent 100%)',
+                  backdropFilter: 'blur(4px)',
+                  WebkitBackdropFilter: 'blur(4px)',
+                  maskImage: 'radial-gradient(ellipse 70% 65% at center, black 55%, transparent 100%)',
+                  WebkitMaskImage: 'radial-gradient(ellipse 70% 65% at center, black 55%, transparent 100%)',
+                }}
+              />
+              <p
+                className="relative text-center font-display-italic"
+                style={{
+                  fontSize: 'clamp(1.25rem, 3.4vw, 2.2rem)',
+                  lineHeight: 1.45,
+                  textShadow: '0 2px 18px rgba(0,0,0,1), 0 0 6px rgba(0,0,0,0.9)',
+                }}
+              >
+                "Starting with The Founder, Neo Khalsa has become a deliberate manifestation, quietly addressing the deficiencies within the Panth."
+              </p>
+            </motion.div>
           </div>
         </motion.div>
       </section>
