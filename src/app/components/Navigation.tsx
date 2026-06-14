@@ -7,9 +7,9 @@ const MENU_ITEMS = [
   { path: '/',          num: '00', label: 'Home'      },
   { path: '/mission',   num: '01', label: 'Mission'   },
   { path: '/projects',  num: '02', label: 'Projects'  },
-  { path: '/spaces',    num: '03', label: 'Spaces'    },
-  { path: '/operation', num: '04', label: 'Operation' },
-  { path: '/contact',   num: '05', label: 'Contact'   },
+  { path: '/spaces',       num: '03', label: 'Spaces'       },
+  { path: '/get-involved', num: '04', label: 'Get Involved' },
+  { path: '/contact',      num: '05', label: 'Contact'      },
 ];
 
 export function Navigation() {

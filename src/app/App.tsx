@@ -5,7 +5,7 @@ import { HomePage } from './HomePage';
 import { ProjectsPage } from './pages/ProjectsPage';
 import { SpacesPage } from './pages/SpacesPage';
 import { MissionPage } from './pages/MissionPage';
-import { OperationPage } from './pages/OperationPage';
+import { GetInvolvedPage } from './pages/GetInvolvedPage';
 import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
@@ -20,7 +20,9 @@ export default function App() {
           <Route path="/mission"    element={<MissionPage />} />
           <Route path="/projects"   element={<ProjectsPage />} />
           <Route path="/spaces"     element={<SpacesPage />} />
-          <Route path="/operation"  element={<OperationPage />} />
+          <Route path="/get-involved" element={<GetInvolvedPage />} />
+          {/* legacy path redirect */}
+          <Route path="/operation"  element={<Navigate to="/get-involved" replace />} />
           <Route path="/contact"    element={<ContactPage />} />
           <Route path="*"           element={<Navigate to="/" replace />} />
         </Routes>

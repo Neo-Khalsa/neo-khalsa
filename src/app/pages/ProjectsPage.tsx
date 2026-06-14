@@ -2,14 +2,13 @@ import { motion } from "motion/react";
 import { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import projectImage1 from "../../assets/9db7de1cffccd7b3bcecbc3271c23d56717dcbc4.webp";
-import projectImage2 from "../../assets/104fc68ae2769a86b33de8df270f335c79fa0eda.webp";
 import projectImage3 from "../../assets/f51d02d1d6fe32ecb948954f06c2b5e6d43a9472.webp";
 import projectImage4 from "../../assets/litgen.webp";
 import { ParticleField } from '../components/ParticleField';
 import { KhandaSymbol } from '../components/KhandaSymbol';
 import { Marquee } from '../components/Marquee';
 
-const TICKER = ['FOUR INITIATIVES', 'KOANS', 'NEO SAROOP', 'SIKH ANIME', 'LITERARY GENESIS', '2026 — 2028', 'NEO KHALSA'];
+const TICKER = ['THREE INITIATIVES', 'KOANS', 'SIKH ANIME', 'LITERARY GENESIS', '2026 — 2028', 'NEO KHALSA'];
 
 /* ── Buy dropdown ──────────────────────────────────────────────────────── */
 function BuyDropdown() {
@@ -224,7 +223,7 @@ export function ProjectsPage() {
         >
           <div>
             <p className="text-[9px] tracking-[0.45em] opacity-22 font-mono mb-5">02 · PROJECTS · VOLUME I</p>
-            <h1 className="font-display leading-[0.92]" style={{ fontSize: 'clamp(3.4rem, 12vw, 9rem)' }}>Four</h1>
+            <h1 className="font-display leading-[0.92]" style={{ fontSize: 'clamp(3.4rem, 12vw, 9rem)' }}>Three</h1>
             <h1 className="font-display-italic leading-[0.92]" style={{ fontSize: 'clamp(3.4rem, 12vw, 9rem)' }}>Initiatives</h1>
           </div>
           <div className="text-left md:text-right space-y-1 flex md:block items-center gap-4">
@@ -264,35 +263,11 @@ export function ProjectsPage() {
 
       <ChapterDivider numeral="II" />
 
-      {/* ── PROJECT II — SAROOP ──────────────────────────────────── */}
+      {/* ── PROJECT II — ANIME ───────────────────────────────────── */}
       <div className="relative z-10">
         <ProjectSection
-          bgNum="II" theme="TANGIBLE TRUTH · PROJECT II"
-          image={projectImage2} imageAlt="Neo Saroop" darkMat flip
-          title={['Neo', 'Saroop']}
-          statement="Revitalizing the sacred tradition of handwritten saroops where craftsmanship meets devotion"
-          meta={[
-            { label: 'PAPER',   value: 'Washi 170 GSM' },
-            { label: 'INK',     value: <span style={{ color: 'rgba(196,164,73,0.9)' }}>GOLD</span> },
-            { label: 'LIKHARI', value: 'Taksali Singh' },
-            { label: 'ORIGIN',  value: 'Punjab' },
-            { label: 'RELEASE', value: 'Late 2027' },
-          ]}
-          details={[
-            'Crafted on thousand-year washi paper, dyed deep indigo and inscribed in gold. A Taksali Singh from Punjab will serve as the Likhari, painstakingly inscribing every letter with devotion and precision.',
-            'The aim is to establish beautiful, ceremoniously honoured saroops as the norm in the Panth, replacing monotonous printed editions that lack the reverence they deserve.',
-          ]}
-          status="PRE-PRODUCTION · LATE 2027"
-        />
-      </div>
-
-      <ChapterDivider numeral="III" />
-
-      {/* ── PROJECT III — ANIME ──────────────────────────────────── */}
-      <div className="relative z-10">
-        <ProjectSection
-          bgNum="III" theme="WORLDWIDE AUDIENCE · PROJECT III"
-          image={projectImage3} imageAlt="Sikh Anime" darkMat
+          bgNum="II" theme="WORLDWIDE AUDIENCE · PROJECT II"
+          image={projectImage3} imageAlt="Sikh Anime" darkMat flip
           title={['Sikh', 'Anime']}
           statement="Bringing Sikh stories to a worldwide audience through the universal language of anime"
           meta={[
@@ -310,13 +285,13 @@ export function ProjectsPage() {
         />
       </div>
 
-      <ChapterDivider numeral="IV" />
+      <ChapterDivider numeral="III" />
 
-      {/* ── PROJECT IV — LITERARY GENESIS ────────────────────────── */}
+      {/* ── PROJECT III — LITERARY GENESIS ───────────────────────── */}
       <div className="relative z-10">
         <ProjectSection
-          bgNum="IV" theme="WRITTEN TRUTH · PROJECT IV"
-          image={projectImage4} imageAlt="Literary Genesis" flip
+          bgNum="III" theme="WRITTEN TRUTH · PROJECT III"
+          image={projectImage4} imageAlt="Literary Genesis"
           title={['Literary', 'Genesis']}
           statement="Restoring the written word to the centre of Panthic life — original literature, translation, and thought set down to endure"
           meta={[
@@ -337,7 +312,7 @@ export function ProjectsPage() {
       {/* Footer strip */}
       <div className="relative z-10 flex flex-wrap items-center justify-between gap-2 px-5 md:px-10 py-10 text-[9px] font-mono tracking-[0.25em] opacity-15 border-t hairline">
         <span>NEO KHALSA</span>
-        <span>FOUR INITIATIVES · VOLUME I · 2026–2028</span>
+        <span>THREE INITIATIVES · VOLUME I · 2026–2028</span>
         <span>MMXXVI</span>
       </div>
     </div>

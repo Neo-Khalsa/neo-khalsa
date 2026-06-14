@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 import missionImage from "../../assets/4c82dfbc2bfb2978f11914e22f7c49f4f06e2381.webp";
 import { ParticleField } from './ParticleField';
 import { KhandaSymbol } from './KhandaSymbol';
@@ -7,12 +8,11 @@ import { Marquee } from './Marquee';
 const TICKER = ['MISSION', 'NARRATIVE INFLUENCE', 'RESOURCE ACQUISITION', 'INTERNAL DISCIPLINE', 'NEO KHALSA'];
 
 const TIMELINE = [
-  { year: '2025', sub: 'PROJECT · VOL I',  title: 'Neo Khalsa Koans',          status: 'COMPLETE',    active: false },
-  { year: '2026', sub: 'PROJECT · VOL I',  title: 'Neo Saroop & Workshop',     status: 'ACTIVE',      active: true  },
-  { year: '2027', sub: 'PROJECT · VOL I',  title: 'Literary Genesis',          status: 'DEVELOPMENT', active: false },
-  { year: '2028', sub: 'PROJECT · VOL I',  title: 'Sikh Anime',                status: 'UPCOMING',    active: false },
-  { year: '2030', sub: 'SPACE · VOL II',   title: 'The Akhara Opens',          status: 'BUILDING',    active: false },
-  { year: '2035', sub: 'MILESTONE',        title: 'University & Gurdwaras',     status: 'HORIZON',     active: false },
+  { year: '2025', sub: 'PROJECT · VOL I', title: 'Neo Khalsa Koans',      status: 'COMPLETE',       active: false, path: '/projects' },
+  { year: '2026', sub: 'PROJECT · VOL I', title: 'Literary Genesis',      status: 'IN DEVELOPMENT', active: true,  path: '/projects' },
+  { year: '2028', sub: 'PROJECT · VOL I', title: 'Sikh Anime',            status: 'UPCOMING',       active: false, path: '/projects' },
+  { year: '2030', sub: 'SPACE · VOL II',  title: 'The Akhara Opens',      status: 'BUILDING',       active: false, path: '/spaces'   },
+  { year: '2035', sub: 'MILESTONE',       title: 'University & Gurdwaras', status: 'HORIZON',        active: false, path: '/spaces'   },
 ];
 
 const STATEMENT: { text: string; italic?: boolean }[] = [
@@ -200,38 +200,49 @@ export function MissionSection() {
             viewport={{ once: true, margin: '-80px' }}
             className="space-y-0 lg:pl-16"
           >
-            <p className="text-[9px] tracking-[0.45em] opacity-22 font-mono mb-8">TIMELINE</p>
+            <p className="text-[9px] tracking-[0.45em] opacity-22 font-mono mb-8">TIMELINE · SELECT TO EXPLORE</p>
 
-            {TIMELINE.map(({ year, sub, title, status, active }, i) => (
+            {TIMELINE.map(({ year, sub, title, status, active, path }, i) => (
               <motion.div
                 key={year}
                 initial={{ opacity: 0, x: 16 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="group flex items-start gap-5 md:gap-7 py-6 md:py-7 border-b"
-                style={{ borderColor: active ? 'rgba(192,24,24,0.28)' : 'rgba(255,255,255,0.07)' }}
               >
-                <span
-                  className={`font-display flex-shrink-0 leading-none transition-all ${
-                    active ? 'text-glow-crimson opacity-95' : 'opacity-20 group-hover:opacity-45'
-                  }`}
-                  style={{ fontSize: 'clamp(2.4rem, 5vw, 3.4rem)' }}
+                <Link
+                  to={path}
+                  className="group flex items-start gap-5 md:gap-7 py-6 md:py-7 border-b transition-all duration-300 hover:px-2 md:hover:px-3 hover:bg-[rgba(192,24,24,0.025)]"
+                  style={{ borderColor: active ? 'rgba(192,24,24,0.28)' : 'rgba(255,255,255,0.07)' }}
                 >
-                  {year}
-                </span>
-                <div className="pt-1 md:pt-2">
-                  <p className="text-[9px] tracking-[0.3em] font-mono mb-1.5" style={{ opacity: active ? 0.5 : 0.25 }}>
-                    {sub} · {status}
-                  </p>
-                  <p className={`text-sm tracking-wider ${active ? 'opacity-90' : 'opacity-50'}`}>{title}</p>
-                  {active && (
-                    <div className="flex items-center gap-2 mt-2">
-                      <div className="sacred-dot" style={{ width: 6, height: 6 }} />
-                      <span className="text-[9px] opacity-40 font-mono tracking-widest">NOW</span>
-                    </div>
-                  )}
-                </div>
+                  <span
+                    className={`font-display flex-shrink-0 leading-none transition-all ${
+                      active ? 'text-glow-crimson opacity-95' : 'opacity-20 group-hover:opacity-45'
+                    }`}
+                    style={{ fontSize: 'clamp(2.4rem, 5vw, 3.4rem)' }}
+                  >
+                    {year}
+                  </span>
+                  <div className="pt-1 md:pt-2 flex-1">
+                    <p className="text-[9px] tracking-[0.3em] font-mono mb-1.5" style={{ opacity: active ? 0.5 : 0.25 }}>
+                      {sub} · {status}
+                    </p>
+                    <p className={`text-sm tracking-wider transition-opacity ${active ? 'opacity-90' : 'opacity-50 group-hover:opacity-85'}`}>{title}</p>
+                    {active && (
+                      <div className="flex items-center gap-2 mt-2">
+                        <div className="sacred-dot" style={{ width: 6, height: 6 }} />
+                        <span className="text-[9px] opacity-40 font-mono tracking-widest">NOW</span>
+                      </div>
+                    )}
+                  </div>
+                  <span
+                    className="self-center text-lg md:text-xl flex-shrink-0 opacity-0 group-hover:opacity-70 group-hover:translate-x-1 transition-all duration-300"
+                    style={{ color: '#C01818' }}
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
