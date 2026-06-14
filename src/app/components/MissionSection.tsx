@@ -99,7 +99,8 @@ export function MissionSection() {
           <img
             src={missionImage}
             alt="Neo Khalsa"
-            className="w-full h-full object-cover object-center img-duotone"
+            className="w-full h-full object-cover img-duotone"
+            style={{ objectPosition: '50% 20%' }}
             loading="lazy"
             decoding="async"
           />
