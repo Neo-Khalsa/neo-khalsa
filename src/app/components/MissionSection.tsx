@@ -17,7 +17,7 @@ const TIMELINE = [
 
 const STATEMENT: { text: string; italic?: boolean }[] = [
   { text: 'A strategic,' },
-  { text: 'results-driven hub -' },
+  { text: 'results-driven hub —' },
   { text: 'moving ideas', italic: true },
   { text: 'from words to will.', italic: true },
 ];
