@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import projectImage1 from "../../assets/9db7de1cffccd7b3bcecbc3271c23d56717dcbc4.webp";
@@ -10,6 +10,43 @@ import { KhandaSymbol } from '../components/KhandaSymbol';
 import { Marquee } from '../components/Marquee';
 
 const TICKER = ['THREE WORKS', 'KOANS', 'SIKH ANIME', 'LITERARY GENESIS', 'VOLUME I', 'NEO KHALSA'];
+
+/* ── Scroll-driven halo backdrop ───────────────────────────────────────── */
+function HaloBackdrop() {
+  const { scrollYProgress } = useScroll();
+  const yA = useTransform(scrollYProgress, [0, 1], ['-12%', '28%']);
+  const sA = useTransform(scrollYProgress, [0, 1], [0.85, 1.8]);
+  const oA = useTransform(scrollYProgress, [0, 0.45, 1], [0.35, 0.62, 0.4]);
+  const rA = useTransform(scrollYProgress, [0, 1], [0, 70]);
+
+  const yB = useTransform(scrollYProgress, [0, 1], ['25%', '-22%']);
+  const sB = useTransform(scrollYProgress, [0, 1], [1.3, 0.7]);
+  const oB = useTransform(scrollYProgress, [0, 0.5, 1], [0.12, 0.4, 0.18]);
+  const rB = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
+  return (
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <motion.div
+        style={{
+          y: yA, scale: sA, opacity: oA, rotate: rA,
+          position: 'absolute', top: '-18%', right: '-22%',
+          width: 'min(95vw, 980px)', height: 'min(95vw, 980px)',
+          backgroundImage: `url(${haloImage})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center',
+          mixBlendMode: 'screen',
+        }}
+      />
+      <motion.div
+        style={{
+          y: yB, scale: sB, opacity: oB, rotate: rB,
+          position: 'absolute', bottom: '-25%', left: '-28%',
+          width: 'min(85vw, 860px)', height: 'min(85vw, 860px)',
+          backgroundImage: `url(${haloImage})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center',
+          mixBlendMode: 'screen',
+        }}
+      />
+    </div>
+  );
+}
 
 /* ── Acquire dropdown ──────────────────────────────────────────────────── */
 function BuyDropdown() {
@@ -48,20 +85,20 @@ function BuyDropdown() {
   );
 }
 
-/* ── Orbiting concentric rings ─────────────────────────────────────────── */
+/* ── Orbiting ring accent (soft circular shape behind the image) ───────── */
 function OrbitRings() {
   return (
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
       <motion.svg
         viewBox="0 0 600 600"
-        className="w-[125%] h-[125%]"
+        className="w-[150%] h-[150%]"
         animate={{ rotate: 360 }}
-        transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
-        style={{ opacity: 0.5 }}
+        transition={{ duration: 110, repeat: Infinity, ease: 'linear' }}
+        style={{ opacity: 0.45 }}
       >
-        <circle cx="300" cy="300" r="290" fill="none" stroke="rgba(192,24,24,0.16)" strokeWidth="1" strokeDasharray="2 10" />
-        <circle cx="300" cy="300" r="240" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
-        <circle cx="300" cy="8" r="3" fill="rgba(192,24,24,0.8)" />
+        <circle cx="300" cy="300" r="292" fill="none" stroke="rgba(192,24,24,0.14)" strokeWidth="1" strokeDasharray="2 12" />
+        <circle cx="300" cy="300" r="250" fill="none" stroke="rgba(255,255,255,0.045)" strokeWidth="1" />
+        <circle cx="300" cy="8" r="3" fill="rgba(192,24,24,0.75)" />
       </motion.svg>
     </div>
   );
@@ -90,56 +127,51 @@ function ProjectScene({ numeral, index, theme, image, imageAlt, flip, title, sta
 
   const imageCol = (
     <div className={`relative flex justify-center ${flip ? 'lg:justify-start' : 'lg:justify-end'}`}>
-      {/* radial bloom */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(192,24,24,0.10) 0%, transparent 62%)' }} />
-      {/* orbit rings */}
-      <div className="absolute inset-0"><OrbitRings /></div>
+      {/* soft radial bloom + orbit rings (the circular element) */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(192,24,24,0.12) 0%, transparent 60%)' }} />
+      <OrbitRings />
 
-      {/* arch-framed image */}
+      {/* large rectangular framed image */}
       <motion.div
-        whileHover={{ scale: 1.015 }}
+        whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.6 }}
-        className="relative z-10 w-[78%] sm:w-[68%] lg:w-[80%] max-w-[440px] overflow-hidden group"
+        className="relative z-10 w-full max-w-[620px] overflow-hidden group"
         style={{
-          borderRadius: '50% 50% 18px 18px / 44% 44% 18px 18px',
-          border: '1px solid rgba(192,24,24,0.32)',
-          boxShadow: '0 0 0 8px rgba(10,10,10,0.6), 0 0 70px rgba(192,24,24,0.12)',
+          borderRadius: 10,
+          border: '1px solid rgba(192,24,24,0.3)',
+          boxShadow: '0 36px 90px rgba(0,0,0,0.55), 0 0 70px rgba(192,24,24,0.10)',
         }}
       >
-        <img src={image} alt={imageAlt} className="w-full h-auto gpu-accelerate transition-all duration-700 group-hover:brightness-110"
+        <img src={image} alt={imageAlt} className="w-full h-auto block gpu-accelerate transition-all duration-700 group-hover:brightness-110"
           loading={initial ? 'eager' : 'lazy'} decoding="async" />
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{ background: 'linear-gradient(160deg, rgba(192,24,24,0.10) 0%, transparent 55%)' }} />
-        {/* status — floating circular tag */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-4 px-4 py-2 backdrop-blur-md flex items-center gap-2"
-          style={{ background: 'rgba(10,10,10,0.78)', border: '1px solid rgba(192,24,24,0.3)', borderRadius: 999 }}>
+        {/* status tag */}
+        <div className="absolute left-4 bottom-4 px-4 py-2 backdrop-blur-md flex items-center gap-2"
+          style={{ background: 'rgba(10,10,10,0.72)', border: '1px solid rgba(192,24,24,0.3)', borderRadius: 999 }}>
           <div className="sacred-dot" style={{ width: 5, height: 5 }} />
-          <span className="text-[8px] tracking-[0.3em] font-mono opacity-75 whitespace-nowrap">{status}</span>
+          <span className="text-[8px] tracking-[0.3em] font-mono opacity-80 whitespace-nowrap">{status}</span>
         </div>
       </motion.div>
     </div>
   );
 
   const contentCol = (
-    <div className={`relative ${flip ? 'lg:pl-6' : 'lg:pr-6'}`}>
-      {/* theme */}
+    <div className={`relative ${flip ? 'lg:pl-4' : 'lg:pr-4'}`}>
       <div className="flex items-center gap-3 mb-6">
         <KhandaSymbol size={12} glow={false} animate={false} className="opacity-25" />
         <span className="text-[9px] tracking-[0.4em] opacity-30 font-mono">{theme}</span>
       </div>
 
-      {/* title — oversized, may bleed */}
       <div className="relative">
         <h2 className="font-display leading-[0.86]" style={{ fontSize: 'clamp(3rem, 8.5vw, 7rem)' }}>{title[0]}</h2>
         <h2 className="font-display-italic leading-[0.86] text-glow-crimson" style={{ fontSize: 'clamp(3rem, 8.5vw, 7rem)' }}>{title[1]}</h2>
       </div>
 
-      {/* one-line statement */}
       <p className="font-display-italic opacity-70 mt-7 max-w-md" style={{ fontSize: 'clamp(1.05rem, 2.3vw, 1.5rem)', lineHeight: 1.4 }}>
         “{statement}”
       </p>
 
-      {/* meta — minimal inline cluster */}
       <div className="flex flex-wrap items-center gap-x-7 gap-y-3 mt-9">
         {meta.map(({ label, value }) => (
           <div key={label} className="flex flex-col">
@@ -159,21 +191,20 @@ function ProjectScene({ numeral, index, theme, image, imageAlt, flip, title, sta
 
   return (
     <motion.div {...motionProps} transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-      className="relative px-5 md:px-10 py-24 md:py-36 max-w-[1500px] mx-auto overflow-hidden">
+      className="relative px-5 md:px-10 py-20 md:py-28 max-w-[1500px] mx-auto overflow-hidden">
       {/* giant bleeding numeral */}
       <div className="absolute -top-10 md:-top-20 pointer-events-none select-none font-display"
         style={{ fontSize: 'clamp(14rem, 36vw, 34rem)', lineHeight: 0.8, opacity: 0.04, color: 'white', right: flip ? 'auto' : '-6vw', left: flip ? '-6vw' : 'auto' }}
         aria-hidden="true">{numeral}</div>
 
-      <div className={`relative grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-16 lg:gap-10 items-center ${flip ? 'lg:[&>*:first-child]:order-last' : ''}`}>
+      <div className={`relative grid grid-cols-1 lg:grid-cols-[1.08fr_1fr] gap-14 lg:gap-12 items-center ${flip ? 'lg:[&>*:first-child]:order-last' : ''}`}>
         {imageCol}
         {contentCol}
       </div>
 
       {/* index marker */}
-      <div className={`relative mt-14 flex items-center gap-4 ${flip ? 'lg:justify-end' : ''}`}>
-        <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-          style={{ border: '1px solid rgba(192,24,24,0.4)' }}>
+      <div className={`relative mt-12 flex items-center gap-4 ${flip ? 'lg:justify-end' : ''}`}>
+        <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ border: '1px solid rgba(192,24,24,0.4)' }}>
           <span className="text-[10px] font-mono opacity-60">{index}</span>
         </div>
         <div className="h-px flex-1 max-w-[180px]" style={{ background: 'linear-gradient(90deg, rgba(192,24,24,0.4), transparent)' }} />
@@ -186,15 +217,11 @@ function ProjectScene({ numeral, index, theme, image, imageAlt, flip, title, sta
 export function ProjectsPage() {
   return (
     <div className="min-h-screen relative grain-overlay overflow-hidden">
+      <HaloBackdrop />
       <ParticleField />
 
       {/* ── Header ───────────────────────────────────────────────── */}
       <section className="relative z-10 px-5 md:px-10 pt-32 md:pt-48 pb-12 md:pb-20 max-w-[1500px] mx-auto">
-        {/* halo behind title */}
-        <div className="absolute pointer-events-none select-none"
-          style={{ top: '6%', right: '-6%', width: 'min(70vw, 620px)', height: 'min(70vw, 620px)', opacity: 0.55, mixBlendMode: 'screen', backgroundImage: `url(${haloImage})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}
-          aria-hidden="true" />
-
         <motion.div initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }} className="relative">
           <p className="text-[9px] tracking-[0.45em] opacity-30 font-mono mb-6">02 · VOLUME I</p>
           <h1 className="font-display leading-[0.82]" style={{ fontSize: 'clamp(4.5rem, 20vw, 18rem)' }}>Projects</h1>
@@ -254,10 +281,10 @@ export function ProjectsPage() {
   );
 }
 
-/* ── Curved arc divider (replaces straight hairline) ───────────────────── */
+/* ── Curved arc divider ────────────────────────────────────────────────── */
 function ArcDivider({ flip }: { flip?: boolean }) {
   return (
-    <div className="relative z-10 h-24 md:h-32 max-w-[1500px] mx-auto overflow-hidden" aria-hidden="true">
+    <div className="relative z-10 h-20 md:h-28 max-w-[1500px] mx-auto overflow-hidden" aria-hidden="true">
       <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-full" style={{ transform: flip ? 'scaleX(-1)' : 'none' }}>
         <path d="M0,20 Q600,140 1200,20" fill="none" stroke="rgba(192,24,24,0.22)" strokeWidth="1" />
       </svg>
