@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import swordImage from "../../assets/d471ea4233bb041ed70df8b61c5f992a45b7d581.webp";
+import swordImage from "../../assets/d819f16399e086e1b759d42556e51b73a508aa03.webp";
 import { ParticleField } from '../components/ParticleField';
 import { KhandaSymbol } from '../components/KhandaSymbol';
 import { Marquee } from '../components/Marquee';
@@ -58,12 +58,26 @@ export function GetInvolvedPage() {
               className="order-last lg:order-first"
             >
               <motion.div animate={{ y: [0, -12, 0] }} transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative mx-auto w-full max-w-[340px]">
-                <div className="absolute -inset-10 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(192,24,24,0.16) 0%, transparent 70%)' }} />
-                <div className="relative bg-white p-3 md:p-4" style={{ boxShadow: '0 0 0 1px rgba(192,24,24,0.15), 0 36px 80px rgba(0,0,0,0.55)' }}>
-                  <img src={swordImage} alt="Talwar - the shastar of the Khalsa" className="w-full h-auto block" loading="lazy" decoding="async" />
+                className="relative mx-auto w-full max-w-[440px]">
+                {/* crimson light bleeding out from behind the figure */}
+                <div className="absolute -inset-12 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 55% at 42% 46%, rgba(192,24,24,0.22) 0%, transparent 68%)' }} />
+                {/* the seated Singh, dissolving into the dark - no frame, edges fade to the page */}
+                <div className="relative">
+                  <img
+                    src={swordImage}
+                    alt="A Singh seated in the half-dark, talwar in hand"
+                    className="w-full h-auto block img-duotone"
+                    loading="lazy"
+                    decoding="async"
+                    style={{
+                      maskImage: 'radial-gradient(ellipse 80% 84% at 50% 46%, black 46%, transparent 100%)',
+                      WebkitMaskImage: 'radial-gradient(ellipse 80% 84% at 50% 46%, black 46%, transparent 100%)',
+                    }}
+                  />
+                  {/* gentle vignette to seat it deeper into the background */}
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 90% 90% at 50% 50%, transparent 55%, rgba(10,10,10,0.85) 100%)' }} />
                 </div>
-                <p className="mt-4 text-center text-[8px] tracking-[0.35em] font-mono opacity-30">SHASTAR · THE EDGE OF INTENT</p>
+                <p className="mt-2 text-center text-[8px] tracking-[0.35em] font-mono opacity-30">SHASTAR · THE EDGE OF INTENT</p>
               </motion.div>
             </motion.div>
 
@@ -78,6 +92,15 @@ export function GetInvolvedPage() {
 
               <p className="leading-relaxed opacity-65 max-w-lg" style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)' }}>
                 Lend it your hand, or your means - and be counted among the few who build what endures.
+              </p>
+
+              <p className="leading-relaxed opacity-45 max-w-lg mt-5" style={{ fontSize: 'clamp(0.98rem, 1.9vw, 1.15rem)' }}>
+                Neo Khalsa is not a campaign to be joined and forgotten. It is a long labour - carried by
+                those willing to give before they are asked, and to stay when the work grows quiet.
+              </p>
+              <p className="leading-relaxed opacity-45 max-w-lg mt-4" style={{ fontSize: 'clamp(0.98rem, 1.9vw, 1.15rem)' }}>
+                Whether you offer skill, time, or sustenance, your part becomes thread in something meant
+                to outlast the hands that shaped it. The Panth was never raised by spectators.
               </p>
 
               <div className="flex flex-wrap items-center gap-5 mt-10">
