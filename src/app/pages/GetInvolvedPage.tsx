@@ -6,7 +6,7 @@ import { Marquee } from '../components/Marquee';
 
 /* Replace DONATE_URL with the real donation link when ready. */
 const DONATE_URL = '#';
-const CONTACT_EMAIL = 'mailto:neokhalsa@proton.me';
+const CONTACT_EMAIL = 'mailto:neokhalsaofficial@gmail.com';
 
 const TICKER = ['GET INVOLVED', 'CARRY THE WORK', 'FROM WORDS TO WILL', 'SUSTAIN', 'NEO KHALSA'];
 

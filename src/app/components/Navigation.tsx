@@ -169,8 +169,8 @@ export function Navigation() {
             >
               <div className="h-px w-full mb-6" style={{ background: 'rgba(255,255,255,0.07)' }} />
               <div className="flex flex-wrap items-center justify-between gap-4 text-[9px] md:text-[10px] tracking-[0.3em] font-mono">
-                <a href="mailto:neokhalsa@proton.me" className="opacity-35 hover:opacity-80 transition-opacity">
-                  NEOKHALSA@PROTON.ME
+                <a href="mailto:neokhalsaofficial@gmail.com" className="opacity-35 hover:opacity-80 transition-opacity">
+                  NEOKHALSAOFFICIAL@GMAIL.COM
                 </a>
                 <a href="https://instagram.com/neokhalsa" target="_blank" rel="noopener noreferrer" className="opacity-35 hover:opacity-80 transition-opacity">
                   @NEOKHALSA
