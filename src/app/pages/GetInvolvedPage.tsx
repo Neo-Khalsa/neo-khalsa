@@ -4,8 +4,6 @@ import { ParticleField } from '../components/ParticleField';
 import { KhandaSymbol } from '../components/KhandaSymbol';
 import { Marquee } from '../components/Marquee';
 
-/* Replace DONATE_URL with the real donation link when ready. */
-const DONATE_URL = '#';
 const CONTACT_EMAIL = 'mailto:neokhalsaofficial@gmail.com';
 
 const TICKER = ['GET INVOLVED', 'CARRY THE WORK', 'FROM WORDS TO WILL', 'SUSTAIN', 'NEO KHALSA'];
@@ -104,11 +102,6 @@ export function GetInvolvedPage() {
               </p>
 
               <div className="flex flex-wrap items-center gap-5 mt-10">
-                <a href={DONATE_URL} className="group inline-flex items-center gap-3 px-7 py-4 transition-all duration-300"
-                  style={{ background: 'rgba(192,24,24,0.92)', boxShadow: '0 0 22px rgba(192,24,24,0.3)' }}>
-                  <span className="text-[12px] tracking-[0.3em] font-mono">SUSTAIN THE WORK</span>
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </a>
                 <a href={CONTACT_EMAIL} className="group inline-flex items-center gap-3 px-7 py-4 transition-all duration-300 hover:bg-[rgba(192,24,24,0.06)]"
                   style={{ border: '1px solid rgba(192,24,24,0.4)' }}>
                   <span className="text-[12px] tracking-[0.3em] font-mono opacity-80 group-hover:opacity-100">BEGIN A CONVERSATION</span>
