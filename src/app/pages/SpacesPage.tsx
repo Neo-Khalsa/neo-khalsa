@@ -4,9 +4,7 @@ import universityImage from "../../assets/university.webp";
 import gurdwarasImage from "../../assets/gurdwaras.webp";
 import { ParticleField } from '../components/ParticleField';
 import { KhandaSymbol } from '../components/KhandaSymbol';
-import { Marquee } from '../components/Marquee';
-
-const TICKER = ['VOLUME II', 'THE AKHARA', 'NEO KHALSA UNIVERSITY', 'GURDWARAS OF THE MILLENIA', 'BUILT WORLDS', 'NEO KHALSA'];
+import { SectionDivider } from '../components/SectionDivider';
 
 /* ── Meta row ──────────────────────────────────────────────────────────── */
 function MetaRow({ label, value, live }: { label: string; value: React.ReactNode; live?: boolean }) {
@@ -205,10 +203,7 @@ export function SpacesPage() {
         </motion.p>
       </section>
 
-      {/* Ticker */}
-      <div className="relative z-10 border-y py-3 hairline">
-        <Marquee items={TICKER} className="text-[9px] tracking-[0.35em] opacity-15 font-mono" />
-      </div>
+      <SectionDivider />
 
       {/* ── SPACE I - THE AKHARA ─────────────────────────────────── */}
       <div className="relative z-10">

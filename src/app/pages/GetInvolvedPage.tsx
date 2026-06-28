@@ -2,11 +2,9 @@ import { motion } from "motion/react";
 import swordImage from "../../assets/d819f16399e086e1b759d42556e51b73a508aa03.webp";
 import { ParticleField } from '../components/ParticleField';
 import { KhandaSymbol } from '../components/KhandaSymbol';
-import { Marquee } from '../components/Marquee';
+import { SectionDivider } from '../components/SectionDivider';
 
 const CONTACT_EMAIL = 'mailto:neokhalsaofficial@gmail.com';
-
-const TICKER = ['GET INVOLVED', 'CARRY THE WORK', 'FROM WORDS TO WILL', 'SUSTAIN', 'NEO KHALSA'];
 
 export function GetInvolvedPage() {
   return (
@@ -38,10 +36,7 @@ export function GetInvolvedPage() {
         </section>
       </div>
 
-      {/* Ticker */}
-      <div className="relative z-10 border-y py-3 hairline">
-        <Marquee items={TICKER} className="text-[9px] tracking-[0.35em] opacity-15 font-mono" />
-      </div>
+      <SectionDivider />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10">
 

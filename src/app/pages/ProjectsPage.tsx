@@ -6,9 +6,7 @@ import projectImage3 from "../../assets/f51d02d1d6fe32ecb948954f06c2b5e6d43a9472
 import projectImage4 from "../../assets/litgen.webp";
 import { ParticleField } from '../components/ParticleField';
 import { KhandaSymbol } from '../components/KhandaSymbol';
-import { Marquee } from '../components/Marquee';
-
-const TICKER = ['THREE INITIATIVES', 'KOANS', 'SIKH ANIME', 'LITERARY GENESIS', '2026 - 2028', 'NEO KHALSA'];
+import { SectionDivider } from '../components/SectionDivider';
 
 /* ── Buy dropdown ──────────────────────────────────────────────────────── */
 function BuyDropdown() {
@@ -234,10 +232,7 @@ export function ProjectsPage() {
         </motion.div>
       </section>
 
-      {/* Ticker */}
-      <div className="relative z-10 border-b py-3 hairline">
-        <Marquee items={TICKER} className="text-[9px] tracking-[0.35em] opacity-15 font-mono" />
-      </div>
+      <SectionDivider />
 
       {/* ── PROJECT I - KOANS ────────────────────────────────────── */}
       <div className="relative z-10">

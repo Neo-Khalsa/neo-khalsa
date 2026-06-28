@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import missionImage from "../../assets/4c82dfbc2bfb2978f11914e22f7c49f4f06e2381.webp";
 import { ParticleField } from './ParticleField';
 import { KhandaSymbol } from './KhandaSymbol';
-import { Marquee } from './Marquee';
-
-const TICKER = ['MISSION', 'NARRATIVE INFLUENCE', 'RESOURCE ACQUISITION', 'INTERNAL DISCIPLINE', 'NEO KHALSA'];
+import { SectionDivider } from './SectionDivider';
 
 const TIMELINE = [
   { year: '2026', sub: 'PROJECT · VOL I', title: 'Neo Khalsa Koans',      status: 'AVAILABLE',      active: true,  path: '/projects' },
@@ -78,7 +76,7 @@ export function MissionSection() {
           transition={{ duration: 0.6, delay: 0.9 }}
           className="flex flex-wrap items-center gap-x-8 gap-y-3 mt-12 md:mt-16 pt-6 text-[9px] md:text-[10px] tracking-[0.35em] font-mono opacity-25 border-t hairline"
         >
-          {['EST. 2020', 'MEMBERS · 347', 'STATUS · ACTIVE', 'THREE DOMAINS'].map((item) => (
+          {['EST. 2020', 'MEMBERS · 402', 'STATUS · ACTIVE', 'THREE DOMAINS'].map((item) => (
             <span key={item}>{item}</span>
           ))}
         </motion.div>
@@ -143,10 +141,7 @@ export function MissionSection() {
         </motion.div>
       </section>
 
-      {/* Ticker between sections */}
-      <div className="relative z-10 border-y py-3 hairline">
-        <Marquee items={TICKER} slow className="text-[9px] tracking-[0.35em] opacity-15 font-mono" />
-      </div>
+      <SectionDivider />
 
       {/* ════════════════════════════════════════════════════
           § 3 - ORIGINS + TIMELINE
