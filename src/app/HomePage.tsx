@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ParticleField } from './components/ParticleField';
-import { Marquee } from './components/Marquee';
+import { MastheadCycle } from './components/MastheadCycle';
 import logoWhite from '../assets/027354ce14dae85850c3c889442da6849aab7a08.webp';
 
 const NAV_ROWS = [
@@ -11,8 +11,6 @@ const NAV_ROWS = [
   { path: '/get-involved', num: '04', label: 'Get Involved', desc: 'Join the work & support the cause'     },
   { path: '/contact',      num: '05', label: 'Contact',      desc: 'Correspondence and collaboration'      },
 ];
-
-const TICKER = ['NEO KHALSA', 'CHARDI KALA', 'KOANS', 'ANIME', 'LITERARY GENESIS', 'GURDWARAS', 'MMXXVI'];
 
 export function HomePage() {
   return (
@@ -125,9 +123,11 @@ export function HomePage() {
       {/* ── SECTION INDEX ───────────────────────────────────────────── */}
       <section className="relative z-10 pb-24 md:pb-32">
 
-        {/* Ticker strip */}
-        <div className="border-y py-3 md:py-4 hairline">
-          <Marquee items={TICKER} className="text-[9px] md:text-[10px] tracking-[0.35em] opacity-20 font-mono" />
+        {/* Motif masthead - crossfades between coherent themed sets, static */}
+        <div className="border-y py-4 md:py-5 hairline">
+          <div className="max-w-[1700px] mx-auto px-5 md:px-10">
+            <MastheadCycle />
+          </div>
         </div>
 
         {/* Index label */}
