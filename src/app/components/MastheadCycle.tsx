@@ -18,6 +18,9 @@ export function MastheadCycle() {
   const [i, setI] = useState(0);
 
   useEffect(() => {
+    // motion/react animates via JS, so CSS reduced-motion rules don't apply -
+    // hold the first set statically instead of rotating
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const t = setInterval(() => setI((prev) => (prev + 1) % GROUPS.length), HOLD_MS);
     return () => clearInterval(t);
   }, []);

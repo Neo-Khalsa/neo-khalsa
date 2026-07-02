@@ -46,6 +46,9 @@ export function ParticleField() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    // CSS reduced-motion rules can't stop a canvas rAF loop - skip it entirely
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const resize = () => {
       canvas.width  = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -53,7 +56,8 @@ export function ParticleField() {
     resize();
     window.addEventListener('resize', resize);
 
-    // seed particles across full viewport
+    // seed particles across full viewport (reset first so re-runs don't double up)
+    ps.current = [];
     for (let i = 0; i < 65; i++) {
       const p = makeParticle(canvas.width, canvas.height);
       p.y      = Math.random() * canvas.height;

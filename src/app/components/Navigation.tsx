@@ -41,12 +41,13 @@ export function Navigation() {
   /* Close on route change */
   useEffect(() => { setOpen(false); }, [location.pathname]);
 
-  /* Close on Escape */
+  /* Close on Escape - listener only while the menu is open */
   useEffect(() => {
+    if (!open) return;
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, []);
+  }, [open]);
 
   const current = MENU_ITEMS.find(i => i.path === location.pathname);
 

@@ -54,6 +54,9 @@
     "tailwindcss": "4.1.12",
     "vite": "6.3.5"
   },
+  "overrides": {
+    "rollup": "4.34.9"
+  },
   "peerDependenciesMeta": {
     "react": {
       "optional": true
