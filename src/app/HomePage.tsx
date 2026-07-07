@@ -43,7 +43,11 @@ export function HomePage() {
             src={logoWhite}
             alt="Neo Khalsa"
             className="w-24 md:w-36 lg:w-44 h-auto animate-divine-breathe"
-            style={{ filter: 'drop-shadow(0 0 22px rgba(192,24,24,0.35)) drop-shadow(0 0 56px rgba(192,24,24,0.12))' }}
+            style={{
+              // cap by viewport height so short laptop screens don't overflow the hero
+              maxWidth: '20svh',
+              filter: 'drop-shadow(0 0 22px rgba(192,24,24,0.35)) drop-shadow(0 0 56px rgba(192,24,24,0.12))',
+            }}
             loading="eager"
             fetchPriority="high"
           />
@@ -56,7 +60,7 @@ export function HomePage() {
             animate={{ y: 0 }}
             transition={{ duration: 1.0, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="font-display leading-[0.92] tracking-[0.01em]"
-            style={{ fontSize: 'clamp(4rem, 17vw, 12rem)' }}
+            style={{ fontSize: 'clamp(3rem, min(17vw, 22svh), 12rem)' }}
           >
             NEO
           </motion.h1>
@@ -67,7 +71,7 @@ export function HomePage() {
             animate={{ y: 0 }}
             transition={{ duration: 1.0, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="font-display-italic leading-[0.92] tracking-[0.01em]"
-            style={{ fontSize: 'clamp(4rem, 17vw, 12rem)' }}
+            style={{ fontSize: 'clamp(3rem, min(17vw, 22svh), 12rem)' }}
           >
             Khalsa
           </motion.h1>
