@@ -3,6 +3,17 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import logoImage from '../../assets/75c40697214f907eef38b05581e8d850d6220130.webp';
 
+/* iPhone Safari (not the Chrome/Firefox/Edge shells) anchors pinned bars below
+   the status-bar strip, leaving page content visible above the bar. Make the
+   bar itself ~70px taller there: its top edge is raised and the content padded
+   back down, so the dark band covers the strip while logo/menu stay put. */
+const IOS_SAFARI_BAR_EXTRA =
+  typeof navigator !== 'undefined' &&
+  /iP(hone|ad|od)/.test(navigator.userAgent) &&
+  !/CriOS|FxiOS|EdgiOS|OPiOS/.test(navigator.userAgent)
+    ? 70
+    : 0;
+
 const MENU_ITEMS = [
   { path: '/',          num: '00', label: 'Home'      },
   { path: '/mission',   num: '01', label: 'Mission'   },
@@ -66,7 +77,11 @@ export function Navigation() {
             // bar; this padding drops the bar's content below it while the bar's
             // own background covers the notch strip (otherwise iOS 26 Safari
             // paints that strip with a glassy smear of page content).
-            paddingTop: 'env(safe-area-inset-top)',
+            // Raise the bar's top edge by the extra amount and pad the content
+            // back down: the band gets taller upward, logo/menu don't move,
+            // and the bottom edge stays where it was.
+            top: IOS_SAFARI_BAR_EXTRA ? -IOS_SAFARI_BAR_EXTRA : undefined,
+            paddingTop: `calc(env(safe-area-inset-top, 0px) + ${IOS_SAFARI_BAR_EXTRA}px)`,
             // Near-solid instead of backdrop-blur: iOS Safari samples a stale
             // snapshot for backdrop-filter on pinned elements during its
             // address-bar animation. A solid fill avoids the WebKit glitch.
