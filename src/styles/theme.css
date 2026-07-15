@@ -1,6 +1,10 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* Tell the browser this is a dark page - iOS Safari uses this to paint its
+     own chrome (status-bar strip, overscroll areas) dark instead of white. */
+  color-scheme: dark;
+
   --font-size: 16px;
 
   /* ── Palette · obsidian / ash / crimson ───────────────── */
