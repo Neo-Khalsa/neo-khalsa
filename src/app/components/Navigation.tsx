@@ -57,9 +57,11 @@ export function Navigation() {
       <header
         className="fixed top-0 left-0 right-0 z-[90] transition-colors duration-500"
         style={{
-          background: scrolled && !open ? 'rgba(10,10,10,0.82)' : 'transparent',
-          backdropFilter: scrolled && !open ? 'blur(12px)' : 'none',
-          WebkitBackdropFilter: scrolled && !open ? 'blur(12px)' : 'none',
+          // Near-solid instead of backdrop-blur: iOS Safari samples a stale
+          // snapshot for backdrop-filter on a fixed element during its address-bar
+          // animation, making content look "stuck" above the bar. Chrome is fine
+          // either way, but a solid fill avoids the WebKit glitch entirely.
+          background: scrolled && !open ? 'rgba(10,10,10,0.96)' : 'transparent',
           borderBottom: scrolled && !open ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
         }}
       >
