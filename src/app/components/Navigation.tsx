@@ -70,6 +70,16 @@ export function Navigation() {
           borderBottom: scrolled && !open ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
         }}
       >
+        {/* Glitch shield: iOS Safari can strand this bar mid-screen during its
+            toolbar animation. This solid bleed extends a full viewport height
+            above the bar, so any gap Safari opens up shows page-black instead of
+            misplaced content. Normally it sits entirely off-screen - invisible
+            in every browser - so no Safari-only targeting is needed. */}
+        <div
+          aria-hidden="true"
+          className="absolute left-0 right-0 pointer-events-none"
+          style={{ bottom: '100%', height: '100vh', background: '#0a0a0a' }}
+        />
         <div className="flex items-center justify-between px-5 md:px-10 h-16 md:h-20 max-w-[1700px] mx-auto">
           <Link to="/" aria-label="Neo Khalsa - Home" className="flex items-center gap-3">
             <img src={logoImage} alt="Neo Khalsa" className="h-7 md:h-8 w-auto opacity-95" />
