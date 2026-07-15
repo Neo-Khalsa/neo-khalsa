@@ -55,7 +55,12 @@ export function Navigation() {
     <>
       {/* ── Top bar ─────────────────────────────────────────────────── */}
       <header
-        className="fixed top-0 left-0 right-0 z-[90] transition-colors duration-500"
+        // sticky instead of fixed: iOS Safari re-anchors fixed elements to the
+        // layout viewport during its toolbar show/hide animation, leaving the bar
+        // stranded mid-page. Sticky tracks the scroll flow on the compositor and
+        // doesn't glitch. The negative bottom margin (= header height) pulls the
+        // page back up underneath so it still overlays the hero like before.
+        className="sticky top-0 z-[90] -mb-16 md:-mb-20 transition-colors duration-500"
         style={{
           // Near-solid instead of backdrop-blur: iOS Safari samples a stale
           // snapshot for backdrop-filter on a fixed element during its address-bar
