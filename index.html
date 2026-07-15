@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- viewport-fit=cover: the page claims the notch/status-bar safe area itself.
+         Without it, iOS 26 Safari fills that strip with a glassy stretched sample
+         of the page's top edge, which looks like broken content above the header. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#0a0a0a" />
     <meta name="description" content="Neo Khalsa — a strategic, results-driven initiative. Culture, craft, and discipline: Koans, Saroop, Anime, and Operation Acheron." />
     <meta property="og:title" content="Neo Khalsa" />

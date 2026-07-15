@@ -54,33 +54,35 @@ export function Navigation() {
   return (
     <>
       {/* ── Top bar ─────────────────────────────────────────────────── */}
-      <header
-        // sticky instead of fixed: iOS Safari re-anchors fixed elements to the
-        // layout viewport during its toolbar show/hide animation, leaving the bar
-        // stranded mid-page. Sticky tracks the scroll flow on the compositor and
-        // doesn't glitch. The negative bottom margin (= header height) pulls the
-        // page back up underneath so it still overlays the hero like before.
-        className="sticky top-0 z-[90] -mb-16 md:-mb-20 transition-colors duration-500"
-        style={{
-          // Near-solid instead of backdrop-blur: iOS Safari samples a stale
-          // snapshot for backdrop-filter on a fixed element during its address-bar
-          // animation, making content look "stuck" above the bar. Chrome is fine
-          // either way, but a solid fill avoids the WebKit glitch entirely.
-          background: scrolled && !open ? 'rgba(10,10,10,0.96)' : 'transparent',
-          borderBottom: scrolled && !open ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
-        }}
-      >
-        {/* Glitch shield: iOS Safari can strand this bar mid-screen during its
-            toolbar animation. This solid bleed extends a full viewport height
-            above the bar, so any gap Safari opens up shows page-black instead of
-            misplaced content. Normally it sits entirely off-screen - invisible
-            in every browser - so no Safari-only targeting is needed. */}
+      {/* Sticky (not fixed): iOS Safari re-anchors fixed elements to the layout
+          viewport during its toolbar animation, stranding the bar mid-page.
+          The wrapper is h-0 so it takes no layout space - the bar inside simply
+          overflows downward and overlays the hero, no negative margins needed. */}
+      <header className="sticky top-0 z-[90] h-0">
         <div
-          aria-hidden="true"
-          className="absolute left-0 right-0 pointer-events-none"
-          style={{ bottom: '100%', height: '100vh', background: '#0a0a0a' }}
-        />
-        <div className="flex items-center justify-between px-5 md:px-10 h-16 md:h-20 max-w-[1700px] mx-auto">
+          className="relative transition-colors duration-500"
+          style={{
+            // With viewport-fit=cover the page extends under the iPhone status
+            // bar; this padding drops the bar's content below it while the bar's
+            // own background covers the notch strip (otherwise iOS 26 Safari
+            // paints that strip with a glassy smear of page content).
+            paddingTop: 'env(safe-area-inset-top)',
+            // Near-solid instead of backdrop-blur: iOS Safari samples a stale
+            // snapshot for backdrop-filter on pinned elements during its
+            // address-bar animation. A solid fill avoids the WebKit glitch.
+            background: scrolled && !open ? 'rgba(10,10,10,0.96)' : 'transparent',
+            borderBottom: scrolled && !open ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
+          }}
+        >
+          {/* Glitch shield: if Safari still opens a gap above the bar mid-animation,
+              this solid bleed (one viewport tall, normally entirely off-screen)
+              shows page-black instead of misplaced content. */}
+          <div
+            aria-hidden="true"
+            className="absolute left-0 right-0 pointer-events-none"
+            style={{ bottom: '100%', height: '100vh', background: '#0a0a0a' }}
+          />
+          <div className="flex items-center justify-between px-5 md:px-10 h-16 md:h-20 max-w-[1700px] mx-auto">
           <Link to="/" aria-label="Neo Khalsa - Home" className="flex items-center gap-3">
             <img src={logoImage} alt="Neo Khalsa" className="h-7 md:h-8 w-auto opacity-95" />
             <span className="hidden sm:block text-[10px] tracking-[0.35em] font-mono opacity-30">
@@ -114,6 +116,7 @@ export function Navigation() {
                 />
               </span>
             </button>
+          </div>
           </div>
         </div>
       </header>
