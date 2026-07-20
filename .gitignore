@@ -127,6 +127,3 @@ vite.config.*.timestamp-*
 
 # Turbo
 .turbo
-
-# Large source PDF - pending compression before commit
-public/neo-khalsa-blueprint.pdf
