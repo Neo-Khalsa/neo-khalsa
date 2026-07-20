@@ -21,6 +21,7 @@ const MENU_ITEMS = [
   { path: '/spaces',       num: '03', label: 'Spaces'       },
   { path: '/get-involved', num: '04', label: 'Get Involved' },
   { path: '/contact',      num: '05', label: 'Contact'      },
+  { path: '/blueprint',    num: '06', label: 'Blueprint'    },
 ];
 
 export function Navigation() {

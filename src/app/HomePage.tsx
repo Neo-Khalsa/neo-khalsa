@@ -10,6 +10,7 @@ const NAV_ROWS = [
   { path: '/spaces',       num: '03', label: 'Spaces',       desc: 'Physical Sikh builds - Volume II'      },
   { path: '/get-involved', num: '04', label: 'Get Involved', desc: 'Join the work & support the cause'     },
   { path: '/contact',      num: '05', label: 'Contact',      desc: 'Correspondence and collaboration'      },
+  { path: '/blueprint',    num: '06', label: 'Blueprint',    desc: 'The plan, set down in full'            },
 ];
 
 export function HomePage() {
