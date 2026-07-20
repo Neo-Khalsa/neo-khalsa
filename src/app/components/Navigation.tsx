@@ -20,8 +20,8 @@ const MENU_ITEMS = [
   { path: '/projects',  num: '02', label: 'Projects'  },
   { path: '/spaces',       num: '03', label: 'Spaces'       },
   { path: '/get-involved', num: '04', label: 'Get Involved' },
-  { path: '/contact',      num: '05', label: 'Contact'      },
-  { path: '/blueprint',    num: '06', label: 'Blueprint'    },
+  { path: '/blueprint',    num: '05', label: 'Blueprint'    },
+  { path: '/contact',      num: '06', label: 'Contact'      },
 ];
 
 export function Navigation() {
@@ -101,7 +101,8 @@ export function Navigation() {
           <div className="flex items-center justify-between px-5 md:px-10 h-16 md:h-20 max-w-[1700px] mx-auto">
           <Link to="/" aria-label="Neo Khalsa - Home" className="flex items-center gap-3">
             <img src={logoImage} alt="Neo Khalsa" className="h-7 md:h-8 w-auto opacity-95" />
-            <span className="hidden sm:block text-[10px] tracking-[0.35em] font-mono opacity-30">
+            {/* Hidden while the menu is open so it doesn't overlap the large menu items */}
+            <span className={`${open ? 'hidden' : 'hidden sm:block'} text-[10px] tracking-[0.35em] font-mono opacity-30`}>
               NEO KHALSA
             </span>
           </Link>
