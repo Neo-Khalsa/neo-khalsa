@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/TextLayer.css';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
+import './blueprint.css';
 import { ParticleField } from '../components/ParticleField';
 import { KhandaSymbol } from '../components/KhandaSymbol';
 import { SectionDivider } from '../components/SectionDivider';
@@ -197,7 +198,7 @@ export function BlueprintPage() {
                 <div
                   key={i}
                   ref={(el) => { pageRefs.current[i] = el; }}
-                  className="mb-8 md:mb-12 scroll-mt-24"
+                  className="mb-8 md:mb-12 scroll-mt-24 flex flex-col items-center"
                 >
                   {activated.has(i) ? (
                     <Page
@@ -205,7 +206,6 @@ export function BlueprintPage() {
                       width={width}
                       renderAnnotationLayer
                       renderTextLayer
-                      className="mx-auto"
                       loading={
                         <div
                           className="mx-auto flex items-center justify-center"
