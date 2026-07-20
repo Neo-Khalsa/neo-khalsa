@@ -1,11 +1,23 @@
+# Neo Khalsa
 
-  # Neo Khalsa Site
+The website for the Neo Khalsa initiative — a strategic, results-driven hub for
+culture, craft, and discipline.
 
-  This is a code bundle for Neo Khalsa Site. The original project is available at https://www.figma.com/design/hlGyimPR56rEaQRTAu53Fv/Neo-Khalsa-Site.
+Built with React, Vite, React Router, Tailwind CSS, and Motion.
 
-  ## Running the code
+## Development
 
-  Run `npm i` to install the dependencies.
+```bash
+npm install    # install dependencies
+npm run dev     # start the dev server (http://localhost:5173)
+npm run build   # build for production into dist/
+```
 
-  Run `npm run dev` to start the development server.
-  
+## Structure
+
+- `src/app/` — pages and components
+- `src/styles/` — Tailwind setup and theme tokens
+- `src/assets/` — images
+- `public/` — static files served as-is (favicon, the Blueprint PDF)
+
+Deployed on Vercel; every push to `main` builds and deploys automatically.

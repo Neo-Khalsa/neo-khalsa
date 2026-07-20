@@ -1,8 +1,6 @@
 @import 'tailwindcss' source(none);
 @source '../**/*.{js,ts,jsx,tsx}';
 
-@import 'tw-animate-css';
-
 /* ── Keyframes ─────────────────────────────────────────────────────────── */
 @keyframes pulse-glow {
   0%, 100% { filter: drop-shadow(0 0 4px rgba(192, 24, 24, 0.25)); }

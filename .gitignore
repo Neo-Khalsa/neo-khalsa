@@ -127,3 +127,6 @@ vite.config.*.timestamp-*
 
 # Turbo
 .turbo
+
+# Local Claude tooling
+.claude/
