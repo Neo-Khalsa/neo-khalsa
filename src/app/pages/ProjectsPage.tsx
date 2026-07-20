@@ -44,10 +44,26 @@ function BuyDropdown() {
           <a
             href="https://www.amazon.ca/Khalsa-Koans-Ekonkar-Singh-Jouhal/dp/106743030X"
             target="_blank" rel="noopener noreferrer"
+            className="block px-5 py-4 text-[10px] tracking-wider opacity-55 hover:opacity-100 hover:bg-[rgba(192,24,24,0.07)] transition-all border-b hairline"
+            onClick={() => setOpen(false)}
+          >
+            AMAZON CANADA →
+          </a>
+          <a
+            href="https://www.amazon.co.uk/Khalsa-Koans-Ekonkar-Singh-Jouhal/dp/106743030X"
+            target="_blank" rel="noopener noreferrer"
+            className="block px-5 py-4 text-[10px] tracking-wider opacity-55 hover:opacity-100 hover:bg-[rgba(192,24,24,0.07)] transition-all border-b hairline"
+            onClick={() => setOpen(false)}
+          >
+            AMAZON UK →
+          </a>
+          <a
+            href="https://www.amazon.com/Khalsa-Koans-Ekonkar-Singh-Jouhal/dp/106743030X"
+            target="_blank" rel="noopener noreferrer"
             className="block px-5 py-4 text-[10px] tracking-wider opacity-55 hover:opacity-100 hover:bg-[rgba(192,24,24,0.07)] transition-all"
             onClick={() => setOpen(false)}
           >
-            AMAZON →
+            AMAZON US →
           </a>
         </div>
       )}
