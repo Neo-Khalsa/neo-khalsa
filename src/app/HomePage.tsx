@@ -94,6 +94,20 @@ export function HomePage() {
         >
           EST. MMXX
         </motion.p>
+
+        {/* Scroll cue - a crimson wash along the bottom edge that slowly swells,
+            hinting the page continues. No label or arrow. Uses a CSS keyframe so
+            the global prefers-reduced-motion rule settles it to a static glow. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 pointer-events-none animate-horizon-breathe"
+          style={{
+            height: 'clamp(90px, 15svh, 170px)',
+            background: 'linear-gradient(to top, rgba(192,24,24,0.3), transparent)',
+            // sits behind the hero text so it can never tint it
+            zIndex: -1,
+          }}
+        />
       </section>
 
       {/* ── SECTION INDEX ───────────────────────────────────────────── */}

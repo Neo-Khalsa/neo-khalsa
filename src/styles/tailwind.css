@@ -2,14 +2,16 @@
 @source '../**/*.{js,ts,jsx,tsx}';
 
 /* ── Keyframes ─────────────────────────────────────────────────────────── */
-@keyframes pulse-glow {
-  0%, 100% { filter: drop-shadow(0 0 4px rgba(192, 24, 24, 0.25)); }
-  50%       { filter: drop-shadow(0 0 14px rgba(192, 24, 24, 0.65)) drop-shadow(0 0 30px rgba(192, 24, 24, 0.25)); }
-}
-
 @keyframes divine-breathe {
   0%, 100% { opacity: 0.7; transform: scale(1); }
   50%       { opacity: 1;   transform: scale(1.012); }
+}
+
+/* Scroll cue on the landing hero - a crimson wash at the bottom edge that
+   slowly swells, hinting the page continues without a label or arrow. */
+@keyframes horizon-breathe {
+  0%, 100% { opacity: 0.28; }
+  50%       { opacity: 0.8; }
 }
 
 @keyframes shimmer-sweep {
@@ -20,18 +22,6 @@
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-10px); }
   to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes marquee-scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes ember-rise {
-  0%   { transform: translateY(0); opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 0.5; }
-  100% { transform: translateY(-60px); opacity: 0; }
 }
 
 /* ── Utility classes ───────────────────────────────────────────────────── */
@@ -89,11 +79,9 @@
   .bg-line     { background: rgba(255, 255, 255, 0.08); }
 
   /* ── Animations ────────────────────────────────────── */
-  .animate-pulse-glow     { animation: pulse-glow 3.5s ease-in-out infinite; }
   .animate-divine-breathe { animation: divine-breathe 4s ease-in-out infinite; }
   .animate-slideDown      { animation: slideDown 0.3s ease-out forwards; }
-  .animate-marquee        { animation: marquee-scroll 35s linear infinite; }
-  .animate-marquee-slow   { animation: marquee-scroll 55s linear infinite; }
+  .animate-horizon-breathe{ animation: horizon-breathe 4.5s ease-in-out infinite; }
 
   /* ── Shimmer overlay ───────────────────────────────── */
   .shimmer-overlay {
