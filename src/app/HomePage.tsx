@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ParticleField } from './components/ParticleField';
-import { MastheadCycle } from './components/MastheadCycle';
 import logoWhite from '../assets/027354ce14dae85850c3c889442da6849aab7a08.webp';
 
 const NAV_ROWS = [
@@ -78,24 +77,12 @@ export function HomePage() {
           </motion.h1>
         </div>
 
-        {/* Rule */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.0, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="w-24 md:w-40 h-px mt-8 mb-6"
-          style={{
-            background: 'linear-gradient(90deg, transparent, rgba(192,24,24,0.65), transparent)',
-            transformOrigin: 'center',
-          }}
-        />
-
         {/* Tagline */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="text-[9px] md:text-[10px] tracking-[0.45em] opacity-30 font-mono"
+          className="text-[9px] md:text-[10px] tracking-[0.45em] opacity-30 font-mono mt-10 md:mt-12"
         >
           CULTURE · CRAFT · DISCIPLINE
         </motion.p>
@@ -107,33 +94,10 @@ export function HomePage() {
         >
           EST. MMXX
         </motion.p>
-
-        {/* Scroll cue */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.6 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <motion.div
-            animate={{ y: [0, 9, 0] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-px h-10"
-            style={{ background: 'linear-gradient(to bottom, rgba(192,24,24,0.55), transparent)' }}
-          />
-          <span className="text-[8px] tracking-[0.35em] opacity-20 font-mono">SCROLL</span>
-        </motion.div>
       </section>
 
       {/* ── SECTION INDEX ───────────────────────────────────────────── */}
       <section className="relative z-10 pb-24 md:pb-32">
-
-        {/* Motif masthead - crossfades between coherent themed sets, static */}
-        <div className="border-y py-4 md:py-5 hairline">
-          <div className="max-w-[1700px] mx-auto px-5 md:px-10">
-            <MastheadCycle />
-          </div>
-        </div>
 
         {/* Index label */}
         <div className="max-w-[1700px] mx-auto px-5 md:px-10 pt-12 md:pt-16 pb-2">
