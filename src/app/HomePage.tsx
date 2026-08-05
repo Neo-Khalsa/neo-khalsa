@@ -95,15 +95,19 @@ export function HomePage() {
           EST. MMXX
         </motion.p>
 
-        {/* Scroll cue - a crimson wash along the bottom edge that slowly swells,
+        {/* Scroll cue - a crimson bloom low in the hero that slowly swells,
             hinting the page continues. No label or arrow. Uses a CSS keyframe so
-            the global prefers-reduced-motion rule settles it to a static glow. */}
+            the global prefers-reduced-motion rule settles it to a static glow.
+            Radial (not a bottom-anchored linear wash) so it fades out on every
+            side - a linear one ends flush with the section edge, which reads as
+            a hard crimson line once you scroll past it. */}
         <div
           aria-hidden="true"
           className="absolute inset-x-0 bottom-0 pointer-events-none animate-horizon-breathe"
           style={{
-            height: 'clamp(90px, 15svh, 170px)',
-            background: 'linear-gradient(to top, rgba(192,24,24,0.3), transparent)',
+            height: 'clamp(140px, 24svh, 260px)',
+            background:
+              'radial-gradient(ellipse 64% 48% at 50% 50%, rgba(192,24,24,0.34) 0%, rgba(192,24,24,0.14) 38%, transparent 72%)',
             // sits behind the hero text so it can never tint it
             zIndex: -1,
           }}
