@@ -105,9 +105,9 @@ export function HomePage() {
           aria-hidden="true"
           className="absolute inset-x-0 bottom-0 pointer-events-none animate-horizon-breathe"
           style={{
-            height: 'clamp(140px, 24svh, 260px)',
+            height: 'clamp(110px, 18svh, 200px)',
             background:
-              'radial-gradient(ellipse 64% 48% at 50% 50%, rgba(192,24,24,0.34) 0%, rgba(192,24,24,0.14) 38%, transparent 72%)',
+              'radial-gradient(ellipse 64% 42% at 50% 62%, rgba(192,24,24,0.34) 0%, rgba(192,24,24,0.14) 38%, transparent 72%)',
             // sits behind the hero text so it can never tint it
             zIndex: -1,
           }}
