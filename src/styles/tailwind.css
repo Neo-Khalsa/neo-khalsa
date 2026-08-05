@@ -7,13 +7,6 @@
   50%       { opacity: 1;   transform: scale(1.012); }
 }
 
-/* Scroll cue on the landing hero - a crimson wash at the bottom edge that
-   slowly swells, hinting the page continues without a label or arrow. */
-@keyframes horizon-breathe {
-  0%, 100% { opacity: 0.28; }
-  50%       { opacity: 0.8; }
-}
-
 @keyframes shimmer-sweep {
   0%   { background-position: -200% center; }
   100% { background-position:  200% center; }
@@ -81,7 +74,6 @@
   /* ── Animations ────────────────────────────────────── */
   .animate-divine-breathe { animation: divine-breathe 4s ease-in-out infinite; }
   .animate-slideDown      { animation: slideDown 0.3s ease-out forwards; }
-  .animate-horizon-breathe{ animation: horizon-breathe 4.5s ease-in-out infinite; }
 
   /* ── Shimmer overlay ───────────────────────────────── */
   .shimmer-overlay {
