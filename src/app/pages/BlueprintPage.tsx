@@ -22,6 +22,8 @@ const PDF_OPTIONS = {
   disableStream: false,
 };
 
+const ZOOM_STEPS = [1, 1.25, 1.5, 2, 2.5, 3];
+
 export function BlueprintPage() {
   const [numPages, setNumPages] = useState(0);
   const [current, setCurrent] = useState(1);
@@ -60,8 +62,9 @@ export function BlueprintPage() {
 
     const sync = () => {
       const vh = window.innerHeight;
-      // tighter window when zoomed, where each canvas costs several times more
-      const reach = vh * (zoom > 1 ? 0.5 : 1.25);
+      // tighter window the further in we zoom, where each canvas costs several
+      // times more: at 3x a single page is already ~100MB of bitmap
+      const reach = vh * (zoom >= 2 ? 0.15 : zoom > 1 ? 0.5 : 1.25);
       const near = new Set<number>();
       let best = 1;
       let bestVisible = -1;
@@ -169,25 +172,36 @@ export function BlueprintPage() {
             )}
           </div>
 
-          {/* Zoom - the landscape spreads need more than fit-to-width to be read */}
+          {/* Zoom - the landscape spreads need more than fit-to-width to be read.
+              A stepper rather than a row of presets: it offers more levels without
+              filling the toolbar, which matters on narrow screens. */}
           {numPages > 0 && (
             <div className="flex items-center gap-2">
               <span className="text-[9px] tracking-[0.35em] font-mono opacity-25 mr-1">ZOOM</span>
-              {[1, 1.5, 2].map((z) => (
-                <button
-                  key={z}
-                  onClick={() => setZoom(z)}
-                  aria-pressed={zoom === z}
-                  className="px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all hover:bg-[rgba(192,24,24,0.08)]"
-                  style={{
-                    border: '1px solid rgba(192,24,24,0.28)',
-                    background: zoom === z ? 'rgba(192,24,24,0.14)' : 'transparent',
-                    opacity: zoom === z ? 1 : 0.55,
-                  }}
-                >
-                  {z === 1 ? 'FIT' : `${z * 100}%`}
-                </button>
-              ))}
+              <button
+                onClick={() => setZoom((z) => ZOOM_STEPS[Math.max(0, ZOOM_STEPS.indexOf(z) - 1)])}
+                disabled={zoom === ZOOM_STEPS[0]}
+                aria-label="Zoom out"
+                className="px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all disabled:opacity-15 hover:bg-[rgba(192,24,24,0.08)]"
+                style={{ border: '1px solid rgba(192,24,24,0.28)' }}
+              >−</button>
+              <button
+                onClick={() => setZoom(1)}
+                aria-label="Reset zoom to fit"
+                className="px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all hover:bg-[rgba(192,24,24,0.08)] min-w-[62px]"
+                style={{
+                  border: '1px solid rgba(192,24,24,0.28)',
+                  background: zoom > 1 ? 'rgba(192,24,24,0.14)' : 'transparent',
+                  opacity: zoom > 1 ? 1 : 0.55,
+                }}
+              >{zoom === 1 ? 'FIT' : `${Math.round(zoom * 100)}%`}</button>
+              <button
+                onClick={() => setZoom((z) => ZOOM_STEPS[Math.min(ZOOM_STEPS.length - 1, ZOOM_STEPS.indexOf(z) + 1)])}
+                disabled={zoom === ZOOM_STEPS[ZOOM_STEPS.length - 1]}
+                aria-label="Zoom in"
+                className="px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all disabled:opacity-15 hover:bg-[rgba(192,24,24,0.08)]"
+                style={{ border: '1px solid rgba(192,24,24,0.28)' }}
+              >+</button>
             </div>
           )}
 
@@ -246,6 +260,11 @@ export function BlueprintPage() {
                         <Page
                           pageNumber={i + 1}
                           width={width * zoom}
+                          // At fit, honour the display's pixel ratio so small type
+                          // stays crisp. Once zoomed the page is already being drawn
+                          // large, and letting a retina screen double the canvas on
+                          // top of that quadruples memory for no visible gain.
+                          devicePixelRatio={zoom > 1 ? 1 : undefined}
                           renderAnnotationLayer
                           renderTextLayer
                           loading={
