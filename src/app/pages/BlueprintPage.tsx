@@ -25,19 +25,27 @@ const PDF_OPTIONS = {
 export function BlueprintPage() {
   const [numPages, setNumPages] = useState(0);
   const [current, setCurrent] = useState(1);
-  /* Pages that have come near the viewport. Only these get mounted, so pdf.js
-     fetches their byte ranges on demand rather than pulling the whole file. */
+  /* Pages currently near the viewport. Only these stay mounted: a rendered page
+     is a full-resolution canvas (~13MB at fit, ~50MB at 200%), so keeping all
+     sixteen alive would run to hundreds of megabytes and crash weaker devices. */
   const [activated, setActivated] = useState<Set<number>>(() => new Set([0]));
+  /* Real width/height ratio per page, so unmounted placeholders reserve exactly
+     the right height and nothing jumps as pages mount and unmount. */
+  const [ratios, setRatios] = useState<number[]>([]);
   const [width, setWidth] = useState(900);
+  /* Zoom multiplier. The document mixes portrait pages with much wider landscape
+     spreads; at fit-to-width the spreads render below their design size and the
+     small labels become unreadable, so the reader needs a way past 100%. */
+  const [zoom, setZoom] = useState(1);
   const [error, setError] = useState<string | null>(null);
   const shellRef = useRef<HTMLDivElement>(null);
   const pageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  /* Render pages at the container's width, capped for large screens */
+  /* Render pages at the container's width, capped for very large screens */
   useEffect(() => {
     const measure = () => {
       const w = shellRef.current?.clientWidth ?? 900;
-      setWidth(Math.min(w, 1000));
+      setWidth(Math.min(w, 1500));
     };
     measure();
     window.addEventListener('resize', measure);
@@ -52,7 +60,8 @@ export function BlueprintPage() {
 
     const sync = () => {
       const vh = window.innerHeight;
-      const reach = vh * 1.5; // mount this far ahead/behind the viewport
+      // tighter window when zoomed, where each canvas costs several times more
+      const reach = vh * (zoom > 1 ? 0.5 : 1.25);
       const near = new Set<number>();
       let best = 1;
       let bestVisible = -1;
@@ -65,12 +74,12 @@ export function BlueprintPage() {
         if (visible > bestVisible) { bestVisible = visible; best = i + 1; }
       });
 
+      if (!near.size) near.add(0);
       setCurrent(best);
       setActivated((prev) => {
-        let changed = false;
-        const next = new Set(prev);
-        near.forEach((i) => { if (!next.has(i)) { next.add(i); changed = true; } });
-        return changed ? next : prev;
+        // replace rather than accumulate, so pages left behind release their canvas
+        if (prev.size === near.size && [...near].every((i) => prev.has(i))) return prev;
+        return near;
       });
     };
 
@@ -81,7 +90,7 @@ export function BlueprintPage() {
       window.removeEventListener('scroll', sync);
       window.removeEventListener('resize', sync);
     };
-  }, [numPages]);
+  }, [numPages, zoom]);
 
   const jump = useCallback((delta: number) => {
     const target = pageRefs.current[current - 1 + delta];
@@ -137,7 +146,7 @@ export function BlueprintPage() {
       </div>
 
       {/* ── READER ───────────────────────────────────────────────── */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 py-12 md:py-16">
+      <div className="relative z-10 max-w-[1700px] mx-auto px-5 md:px-10 py-12 md:py-16">
         {/* Toolbar */}
         <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b hairline">
           <div className="flex items-center gap-4">
@@ -159,6 +168,28 @@ export function BlueprintPage() {
               </div>
             )}
           </div>
+
+          {/* Zoom - the landscape spreads need more than fit-to-width to be read */}
+          {numPages > 0 && (
+            <div className="flex items-center gap-2">
+              <span className="text-[9px] tracking-[0.35em] font-mono opacity-25 mr-1">ZOOM</span>
+              {[1, 1.5, 2].map((z) => (
+                <button
+                  key={z}
+                  onClick={() => setZoom(z)}
+                  aria-pressed={zoom === z}
+                  className="px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all hover:bg-[rgba(192,24,24,0.08)]"
+                  style={{
+                    border: '1px solid rgba(192,24,24,0.28)',
+                    background: zoom === z ? 'rgba(192,24,24,0.14)' : 'transparent',
+                    opacity: zoom === z ? 1 : 0.55,
+                  }}
+                >
+                  {z === 1 ? 'FIT' : `${z * 100}%`}
+                </button>
+              ))}
+            </div>
+          )}
 
           <a
             href={PDF_URL} download
@@ -183,7 +214,17 @@ export function BlueprintPage() {
             <Document
               file={PDF_URL}
               options={PDF_OPTIONS}
-              onLoadSuccess={({ numPages: n }) => setNumPages(n)}
+              onLoadSuccess={async (pdf) => {
+                setNumPages(pdf.numPages);
+                // page sizes vary (portrait pages and wider landscape spreads),
+                // so read each one to size its placeholder correctly
+                const rs: number[] = [];
+                for (let i = 1; i <= pdf.numPages; i++) {
+                  const v = (await pdf.getPage(i)).getViewport({ scale: 1 });
+                  rs.push(v.width / v.height);
+                }
+                setRatios(rs);
+              }}
               onLoadError={(e) => setError(e.message)}
               loading={
                 <div className="py-20 text-center text-[9px] tracking-[0.35em] font-mono opacity-25">
@@ -195,35 +236,41 @@ export function BlueprintPage() {
                 <div
                   key={i}
                   ref={(el) => { pageRefs.current[i] = el; }}
-                  className="mb-8 md:mb-12 scroll-mt-24 flex flex-col items-center"
+                  className="mb-8 md:mb-12 scroll-mt-24"
                 >
-                  {activated.has(i) ? (
-                    <Page
-                      pageNumber={i + 1}
-                      width={width}
-                      renderAnnotationLayer
-                      renderTextLayer
-                      loading={
+                  {/* Zoomed pages exceed the container, so they scroll inside their
+                      own rail rather than pushing the page layout sideways. */}
+                  <div className={zoom > 1 ? 'overflow-x-auto' : ''}>
+                    <div className="flex flex-col items-center" style={{ width: width * zoom, margin: '0 auto' }}>
+                      {activated.has(i) ? (
+                        <Page
+                          pageNumber={i + 1}
+                          width={width * zoom}
+                          renderAnnotationLayer
+                          renderTextLayer
+                          loading={
+                            <div
+                              className="flex items-center justify-center"
+                              style={{ width: width * zoom, height: (width * zoom) / (ratios[i] ?? 0.714), background: '#101010', border: '1px solid rgba(255,255,255,0.06)' }}
+                            >
+                              <span className="text-[9px] tracking-[0.35em] font-mono opacity-20">
+                                {String(i + 1).padStart(2, '0')}
+                              </span>
+                            </div>
+                          }
+                        />
+                      ) : (
                         <div
-                          className="mx-auto flex items-center justify-center"
-                          style={{ width, height: width * 1.4, background: '#101010', border: '1px solid rgba(255,255,255,0.06)' }}
+                          className="flex items-center justify-center"
+                          style={{ width: width * zoom, height: (width * zoom) / (ratios[i] ?? 0.714), background: '#101010', border: '1px solid rgba(255,255,255,0.06)' }}
                         >
                           <span className="text-[9px] tracking-[0.35em] font-mono opacity-20">
                             {String(i + 1).padStart(2, '0')}
                           </span>
                         </div>
-                      }
-                    />
-                  ) : (
-                    <div
-                      className="mx-auto flex items-center justify-center"
-                      style={{ width, height: width * 1.4, background: '#101010', border: '1px solid rgba(255,255,255,0.06)' }}
-                    >
-                      <span className="text-[9px] tracking-[0.35em] font-mono opacity-20">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
+                      )}
                     </div>
-                  )}
+                  </div>
                   <p className="mt-3 text-center text-[8px] tracking-[0.35em] font-mono opacity-20">
                     {String(i + 1).padStart(2, '0')}
                   </p>
