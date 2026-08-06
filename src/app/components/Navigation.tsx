@@ -171,7 +171,7 @@ export function Navigation() {
                   >
                     <Link
                       to={path}
-                      className="group flex items-baseline gap-4 md:gap-8 py-2.5 md:py-3"
+                      className="group flex items-baseline gap-4 md:gap-8 py-1.5 md:py-2"
                     >
                       <span className="text-[10px] font-mono w-7 flex-shrink-0 transition-opacity"
                         style={{ color: active ? '#C01818' : undefined, opacity: active ? 0.9 : 0.25 }}>
@@ -181,7 +181,10 @@ export function Navigation() {
                         className={`font-display leading-none transition-all duration-300 ${
                           active ? 'text-glow-crimson' : 'opacity-65 group-hover:opacity-100'
                         }`}
-                        style={{ fontSize: 'clamp(2.6rem, 9vw, 6.5rem)' }}
+                        // sized by height as well as width: seven items at 9vw
+                        // overflowed short laptop screens and pushed the last
+                        // link off the overlay, which cannot scroll
+                        style={{ fontSize: 'clamp(2.25rem, min(7vw, 7svh), 5rem)' }}
                       >
                         {label}
                       </span>
