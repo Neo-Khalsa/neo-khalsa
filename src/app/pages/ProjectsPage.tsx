@@ -6,7 +6,6 @@ import projectImage3 from "../../assets/f51d02d1d6fe32ecb948954f06c2b5e6d43a9472
 import projectImage4 from "../../assets/litgen.webp";
 import { ParticleField } from '../components/ParticleField';
 import { KhandaSymbol } from '../components/KhandaSymbol';
-import { SectionDivider } from '../components/SectionDivider';
 
 /* ── Buy dropdown ──────────────────────────────────────────────────────── */
 function BuyDropdown() {
@@ -249,8 +248,6 @@ export function ProjectsPage() {
           </div>
         </motion.div>
       </section>
-
-      <SectionDivider />
 
       {/* ── PROJECT I - KOANS ────────────────────────────────────── */}
       <div className="relative z-10">

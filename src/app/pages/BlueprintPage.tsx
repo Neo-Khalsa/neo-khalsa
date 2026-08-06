@@ -6,7 +6,6 @@ import 'react-pdf/dist/Page/AnnotationLayer.css';
 import './blueprint.css';
 import { ParticleField } from '../components/ParticleField';
 import { KhandaSymbol } from '../components/KhandaSymbol';
-import { SectionDivider } from '../components/SectionDivider';
 
 /* Worker is bundled locally (no CDN) so the strict-CSP/offline case still works. */
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -136,8 +135,6 @@ export function BlueprintPage() {
           </motion.div>
         </section>
       </div>
-
-      <SectionDivider />
 
       {/* ── READER ───────────────────────────────────────────────── */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 py-12 md:py-16">

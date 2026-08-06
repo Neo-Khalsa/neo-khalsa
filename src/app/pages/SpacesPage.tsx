@@ -4,7 +4,6 @@ import universityImage from "../../assets/university.webp";
 import gurdwarasImage from "../../assets/gurdwaras.webp";
 import { ParticleField } from '../components/ParticleField';
 import { KhandaSymbol } from '../components/KhandaSymbol';
-import { SectionDivider } from '../components/SectionDivider';
 
 /* ── Meta row ──────────────────────────────────────────────────────────── */
 function MetaRow({ label, value, live }: { label: string; value: React.ReactNode; live?: boolean }) {
@@ -202,8 +201,6 @@ export function SpacesPage() {
           "Where the creative work meets ground and stone - physical Sikh spaces built to outlast us."
         </motion.p>
       </section>
-
-      <SectionDivider />
 
       {/* ── SPACE I - THE AKHARA ─────────────────────────────────── */}
       <div className="relative z-10">

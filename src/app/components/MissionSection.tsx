@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import missionImage from "../../assets/4c82dfbc2bfb2978f11914e22f7c49f4f06e2381.webp";
 import { ParticleField } from './ParticleField';
 import { KhandaSymbol } from './KhandaSymbol';
-import { SectionDivider } from './SectionDivider';
 
 const TIMELINE = [
   { year: '2026', sub: 'PROJECT · VOL I', title: 'Neo Khalsa Koans',      status: 'AVAILABLE',      active: true,  path: '/projects' },
@@ -140,8 +139,6 @@ export function MissionSection() {
           </div>
         </motion.div>
       </section>
-
-      <SectionDivider />
 
       {/* ════════════════════════════════════════════════════
           § 3 - ORIGINS + TIMELINE
