@@ -127,10 +127,11 @@ export function BlueprintPage() {
 
             <motion.p
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.55 }}
-              className="font-display-italic max-w-xl opacity-60 mt-8"
-              style={{ fontSize: 'clamp(1.05rem, 2.4vw, 1.45rem)', lineHeight: 1.5 }}
+              className="max-w-xl opacity-60 mt-8"
+              style={{ fontSize: 'clamp(1.02rem, 2.1vw, 1.28rem)', lineHeight: 1.55 }}
             >
-              "The plan set down in full - read it as it was written."
+              The complete plan as it was written: objectives, costs, timelines, and the reasoning
+              behind the order they are attempted in. Sixteen pages.
             </motion.p>
           </motion.div>
         </section>

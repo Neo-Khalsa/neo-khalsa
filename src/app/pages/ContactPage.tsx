@@ -6,7 +6,7 @@ const CHANNELS = [
   {
     num: '01',
     label: 'General Enquiries',
-    desc: 'Questions about the initiative, the projects, or general correspondence',
+    desc: 'Questions about the projects, the plan, or anything on this site',
     href: 'mailto:neokhalsaofficial@gmail.com',
     display: 'neokhalsaofficial@gmail.com',
     external: false,
@@ -14,7 +14,7 @@ const CHANNELS = [
   {
     num: '02',
     label: 'Collaborations',
-    desc: 'Artists, scholars, institutions, and creators called to the work',
+    desc: 'Artists, scholars, translators, and institutions with something to propose',
     href: 'mailto:neokhalsaofficial@gmail.com',
     display: 'Reach out →',
     external: false,
@@ -30,7 +30,7 @@ const CHANNELS = [
   {
     num: '04',
     label: 'Social',
-    desc: 'Follow the development of projects and philosophical dispatches',
+    desc: 'Project updates, and shorter arguments as they are written',
     href: 'https://instagram.com/neokhalsa',
     display: '@neokhalsa',
     external: true,
@@ -163,7 +163,7 @@ export function ContactPage() {
                 className="font-display-italic relative z-10"
                 style={{ fontSize: 'clamp(1.1rem, 2.6vw, 1.45rem)', lineHeight: 1.55, opacity: 0.75 }}
               >
-                "The Khalsa is not a relic - it is a living philosophy, continuously rediscovered."
+                "None of this asks to be believed. It asks to be good enough to argue with."
               </p>
               <p className="text-[9px] tracking-[0.3em] opacity-25 mt-5 font-mono relative z-10">- NEO KHALSA</p>
             </div>

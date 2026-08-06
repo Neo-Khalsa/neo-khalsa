@@ -20,16 +20,17 @@ export function GetInvolvedPage() {
             </div>
 
             <motion.h1 initial={{ opacity: 0, y: 44 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.95, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display leading-[0.9]" style={{ fontSize: 'clamp(3.4rem, 14vw, 10rem)' }}>Join the</motion.h1>
+              className="font-display leading-[0.9]" style={{ fontSize: 'clamp(3.4rem, 14vw, 10rem)' }}>Where you</motion.h1>
             <motion.h1 initial={{ opacity: 0, y: 44 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.95, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display-italic leading-[0.9] text-glow-crimson" style={{ fontSize: 'clamp(3.4rem, 14vw, 10rem)' }}>work.</motion.h1>
+              className="font-display-italic leading-[0.9] text-glow-crimson" style={{ fontSize: 'clamp(3.4rem, 14vw, 10rem)' }}>come in.</motion.h1>
 
             <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               className="gold-divider w-28 md:w-44 mt-9 mb-7" style={{ transformOrigin: 'left' }} />
 
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.65 }}
-              className="font-display-italic max-w-xl opacity-60" style={{ fontSize: 'clamp(1.1rem, 2.6vw, 1.55rem)', lineHeight: 1.5 }}>
-              "The Khalsa was never the work of one."
+              className="max-w-xl opacity-60" style={{ fontSize: 'clamp(1.05rem, 2.2vw, 1.3rem)', lineHeight: 1.55 }}>
+              Most of what is described on this site is not yet built. What follows is an honest account
+              of what it takes, and where a person can be useful.
             </motion.p>
           </motion.div>
         </section>
@@ -67,7 +68,7 @@ export function GetInvolvedPage() {
                   {/* gentle vignette to seat it deeper into the background */}
                   <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 90% 90% at 50% 50%, transparent 55%, rgba(10,10,10,0.85) 100%)' }} />
                 </div>
-                <p className="mt-2 text-center text-[8px] tracking-[0.35em] font-mono opacity-30">SHASTAR · THE EDGE OF INTENT</p>
+                <p className="mt-2 text-center text-[8px] tracking-[0.35em] font-mono opacity-30">TALWAR · 18TH CENTURY · PUNJAB</p>
               </motion.div>
             </motion.div>
 
@@ -76,21 +77,24 @@ export function GetInvolvedPage() {
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              <p className="text-[9px] tracking-[0.45em] opacity-25 font-mono mb-7">THE INVITATION</p>
-              <h2 className="font-display leading-[1.0]" style={{ fontSize: 'clamp(2.9rem, 6.5vw, 5.4rem)' }}>The work</h2>
-              <h2 className="font-display-italic leading-[1.0] text-glow-crimson mb-8" style={{ fontSize: 'clamp(2.9rem, 6.5vw, 5.4rem)' }}>outlasts us.</h2>
+              <p className="text-[9px] tracking-[0.45em] opacity-25 font-mono mb-7">TWO KINDS OF USEFUL</p>
+              <h2 className="font-display leading-[1.0]" style={{ fontSize: 'clamp(2.9rem, 6.5vw, 5.4rem)' }}>In front of it,</h2>
+              <h2 className="font-display-italic leading-[1.0] text-glow-crimson mb-8" style={{ fontSize: 'clamp(2.9rem, 6.5vw, 5.4rem)' }}>or behind it.</h2>
 
-              <p className="leading-relaxed opacity-65 max-w-lg" style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)' }}>
-                Lend it your hand, or your means - and be counted among the few who build what endures.
+              <p className="leading-relaxed opacity-65 max-w-lg" style={{ fontSize: 'clamp(1.05rem, 2.1vw, 1.3rem)' }}>
+                Some people are useful in public: writing, translating, teaching, arguing well in
+                places where the argument is being lost.
               </p>
 
               <p className="leading-relaxed opacity-45 max-w-lg mt-5" style={{ fontSize: 'clamp(0.98rem, 1.9vw, 1.15rem)' }}>
-                Neo Khalsa is not a campaign to be joined and forgotten. It is a long labour - carried by
-                those willing to give before they are asked, and to stay when the work grows quiet.
+                Others are useful precisely because they are not visible - arranging funding, securing
+                premises, handling logistics and the legal work, or introducing the project to someone
+                who can move it further in an afternoon than a year of effort otherwise would.
               </p>
               <p className="leading-relaxed opacity-45 max-w-lg mt-4" style={{ fontSize: 'clamp(0.98rem, 1.9vw, 1.15rem)' }}>
-                Whether you offer skill, time, or sustenance, your part becomes thread in something meant
-                to outlast the hands that shaped it. The Panth was never raised by spectators.
+                Both are needed, and the second is chronically undersupplied. If you are considering
+                it, say what you do and what you have time for. A specific offer is easier to answer
+                than an expression of interest.
               </p>
 
               <div className="flex flex-wrap items-center gap-5 mt-10">
@@ -109,8 +113,8 @@ export function GetInvolvedPage() {
           <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-center max-w-[1000px] mx-auto">
             <div className="crimson-divider mb-10 md:mb-14" />
-            <h2 className="font-display leading-[1.08]" style={{ fontSize: 'clamp(2rem, 6vw, 4.2rem)' }}>Move where others</h2>
-            <h2 className="font-display-italic leading-[1.08] text-glow-crimson" style={{ fontSize: 'clamp(2rem, 6vw, 4.2rem)' }}>hesitate.</h2>
+            <h2 className="font-display leading-[1.08]" style={{ fontSize: 'clamp(2rem, 6vw, 4.2rem)' }}>This will take</h2>
+            <h2 className="font-display-italic leading-[1.08] text-glow-crimson" style={{ fontSize: 'clamp(2rem, 6vw, 4.2rem)' }}>thirty years.</h2>
             <div className="crimson-divider mt-10 md:mt-14" />
           </motion.div>
         </section>

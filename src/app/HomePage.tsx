@@ -4,12 +4,12 @@ import { ParticleField } from './components/ParticleField';
 import logoWhite from '../assets/027354ce14dae85850c3c889442da6849aab7a08.webp';
 
 const NAV_ROWS = [
-  { path: '/mission',   num: '01', label: 'Mission',   desc: 'The vision and strategic intent'    },
-  { path: '/projects',     num: '02', label: 'Projects',     desc: 'Three creative initiatives - Volume I' },
-  { path: '/spaces',       num: '03', label: 'Spaces',       desc: 'Physical Sikh builds - Volume II'      },
-  { path: '/get-involved', num: '04', label: 'Get Involved', desc: 'Join the work & support the cause'     },
-  { path: '/blueprint',    num: '05', label: 'Blueprint',    desc: 'The plan, set down in full'            },
-  { path: '/contact',      num: '06', label: 'Contact',      desc: 'Correspondence and collaboration'      },
+  { path: '/mission',      num: '01', label: 'Mission',      desc: 'What we are building, and why'         },
+  { path: '/projects',     num: '02', label: 'Projects',     desc: 'A book, an imprint, a series'          },
+  { path: '/spaces',       num: '03', label: 'Spaces',       desc: 'An akhara, a university, a gurdwara'   },
+  { path: '/get-involved', num: '04', label: 'Get Involved', desc: 'Funding, skills, collaboration'        },
+  { path: '/blueprint',    num: '05', label: 'Blueprint',    desc: 'The full plan, page by page'           },
+  { path: '/contact',      num: '06', label: 'Contact',      desc: 'Enquiries and correspondence'          },
 ];
 
 export function HomePage() {
@@ -84,7 +84,7 @@ export function HomePage() {
           transition={{ duration: 0.8, delay: 1.0 }}
           className="text-[9px] md:text-[10px] tracking-[0.45em] opacity-30 font-mono mt-10 md:mt-12"
         >
-          CULTURE · CRAFT · DISCIPLINE
+          NARRATIVE · RESOURCES · DISCIPLINE
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}

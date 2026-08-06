@@ -13,10 +13,10 @@ const TIMELINE = [
 ];
 
 const STATEMENT: { text: string; italic?: boolean }[] = [
-  { text: 'A strategic,' },
-  { text: 'results-driven hub —' },
-  { text: 'moving ideas', italic: true },
-  { text: 'from words to will.', italic: true },
+  { text: 'The Panth does not' },
+  { text: 'lack conviction.' },
+  { text: 'It lacks the means', italic: true },
+  { text: 'to act on it.', italic: true },
 ];
 
 export function MissionSection() {
@@ -133,7 +133,7 @@ export function MissionSection() {
                   textShadow: '0 2px 18px rgba(0,0,0,1), 0 0 6px rgba(0,0,0,0.9)',
                 }}
               >
-                "Starting with The Founder, Neo Khalsa has become a deliberate manifestation, quietly addressing the deficiencies within the Panth."
+                "Sikh institutions rarely fail for want of belief. They fail for want of money that answers to no one else."
               </p>
             </motion.div>
           </div>
@@ -160,23 +160,23 @@ export function MissionSection() {
               className="font-display-italic pl-5"
               style={{ fontSize: 'clamp(1.35rem, 2.6vw, 1.8rem)', lineHeight: 1.4, borderLeft: '2px solid rgba(192,24,24,0.5)' }}
             >
-              "Neo Khalsa is a positive panthic institution that offers new ideas to people."
+              "Small, well-chosen work pays for larger work. Each rung is climbed deliberately, until the whole structure moves."
             </blockquote>
 
             <div className="space-y-5 text-sm leading-relaxed opacity-60">
               <p>
-                Neo Khalsa began as a digital forum of discourse centred around the E-Squared show,
-                quietly evolving into the primary channel for disseminating ideas and voicing what
-                the rest of the Panth will not.
+                Neo Khalsa began as a forum for discourse around the E-Squared show. It became the
+                place where arguments the rest of the Panth avoids were made in public, and stayed
+                there long enough to be tested.
               </p>
               <p>
-                In this spirit, the ideological current of Neo Khalsa is now taking shape in tangible
-                initiatives - books, craft, and story - built to carry the work deep into the
-                second half of the 21st century.
+                Those arguments are now being built into things that exist - a book, an imprint, an
+                animated series, and in time, buildings. Each is chosen partly for what it is, and
+                partly for what it makes possible next.
               </p>
               <p className="italic opacity-80">
-                The objectives are far-reaching, concentrated in three domains: narrative influence,
-                resource acquisition, and internal discipline.
+                The objectives fall into three domains: narrative influence, resource acquisition,
+                and internal discipline.
               </p>
             </div>
 
@@ -188,7 +188,7 @@ export function MissionSection() {
               <div className="absolute inset-0 shimmer-overlay pointer-events-none" />
               <p className="text-[9px] tracking-[0.35em] opacity-25 mb-3 font-mono relative z-10">CORE STRATEGY</p>
               <p className="text-sm leading-relaxed opacity-65 italic relative z-10">
-                "Neo Khalsa operates as a strategic, results-driven hub - moving beyond mere talk to definitize ideas through embodied action and strategic discipline."
+                "Donations cannot sustain serious work. The strategy is to build assets - capital, property, and people - that produce their own returns, and to spend them deliberately."
               </p>
             </div>
           </motion.div>

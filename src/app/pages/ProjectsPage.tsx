@@ -255,16 +255,18 @@ export function ProjectsPage() {
           bgNum="I" theme="ADAPTIVE TRUTH · PROJECT I"
           image={projectImage1} imageAlt="Neo Khalsa Koans"
           title={['Neo Khalsa', 'Koans']}
-          statement="A philosophical synthesis demonstrating that profound truths embedded in Sikh scripture echo across cultures and time"
+          statement="That Sikh philosophy and the universal ideas of mankind are, on inspection, the same ideas"
           meta={[
             { label: 'PUBLISHER', value: 'Neo Khalsa', live: true },
             { label: 'PAGES',     value: '273' },
-            { label: 'EDITION',   value: 'First' },
+            { label: 'EDITION',   value: 'First · 1,000 copies' },
+            { label: 'FORMAT',    value: 'Cloth hardcover' },
             { label: 'RELEASE',   value: '2026', live: true },
           ]}
           details={[
-            'The Founder merges Art History and Philosophy, drawing on archival imagery across time periods and cultures. Through visual form and analytical rigor, he translates Sikhi\'s profound principles into concepts that resonate universally.',
-            'Neo Khalsa Koans are paradoxical prompts designed to cut through conventional thought, complemented with classical art to bridge timeless wisdom with modern insight. Successfully crowdfunded for 2026 release.',
+            'A koan is a paradox that a reader cannot resolve by habit. Each one here is set against classical art drawn from archives across several centuries and cultures, so that the argument is made twice - once in language, once in image.',
+            'Ekonkar Singh, who trained in both Art History and Philosophy, wrote and assembled the book. The pairing is the point: the claim is that Sikh thought and the wider inheritance of human philosophy arrive at the same conclusions, and that this is easier to show than to assert.',
+            'Written and designed over two years, crowdfunded in full, and printed as a cloth hardcover on 157gsm stock. Released 2026.',
           ]}
           status="COMPLETE · CROWDFUNDED · AVAILABLE 2026"
           showBuy initial
@@ -279,17 +281,19 @@ export function ProjectsPage() {
           bgNum="II" theme="WORLDWIDE AUDIENCE · PROJECT II"
           image={projectImage3} imageAlt="Sikh Anime" darkMat flip
           title={['Sikh', 'Anime']}
-          statement="Bringing Sikh stories to a worldwide audience through the universal language of anime"
+          statement="Written for people who have never heard of the Khalsa, and made well enough that they stay"
           meta={[
-            { label: 'STUDIO',   value: 'TBD · Japan' },
-            { label: 'EPISODES', value: '26' },
-            { label: 'BUDGET',   value: '35K + 200K' },
-            { label: 'STATUS',   value: 'Concept Art' },
-            { label: 'RELEASE',  value: 'Late 2028' },
+            { label: 'STUDIO',      value: 'TBD · Japan' },
+            { label: 'EPISODES',    value: '26' },
+            { label: 'CONCEPT ART', value: '$35,000' },
+            { label: 'TRAILER',     value: '$200,000' },
+            { label: 'STATUS',      value: 'Concept Art' },
+            { label: 'RELEASE',     value: 'Late 2028' },
           ]}
           details={[
-            'Designed to introduce the Khalsa to audiences unfamiliar with Sikhi. The story follows Sikhs who uncover an ancient technology powered by their spiritual energy, sparking wars and destruction that mirrors historical trials.',
-            'Using a sci-fi backdrop infused with fantasy, the anime casts the widest possible net, reaching audiences globally while conveying the depth and values of the Khalsa in an engaging way.',
+            'Sikhs uncover an ancient technology that runs on spiritual energy. The world wants it, and the wars that follow force a resistance to form. The structure is science fiction; the trials underneath it are historical.',
+            'The audience is deliberately not the Panth. Most Sikh media is made for Sikhs and asks nothing of anyone else. This is written for viewers with no prior knowledge, on the assumption that a story strong enough to hold them will survive scrutiny from both directions.',
+            'A sci-fi frame also sidesteps the factional divisions that make Sikh storytelling difficult to fund and easy to dismiss. Budgeted at $35,000 for concept art and $200,000 for a trailer, with a studio to be secured in Japan.',
           ]}
           status="CONCEPT ART · 2028"
         />
@@ -303,17 +307,18 @@ export function ProjectsPage() {
           bgNum="III" theme="WRITTEN TRUTH · PROJECT III"
           image={projectImage4} imageAlt="Literary Genesis"
           title={['Literary', 'Genesis']}
-          statement="Restoring the written word to the centre of Panthic life - original literature, translation, and thought set down to endure"
+          statement="A publishing house, because a tradition that stops writing eventually stops thinking"
           meta={[
             { label: 'IMPRINT',  value: 'Neo Khalsa', live: true },
             { label: 'FORM',     value: 'Essay · Translation' },
             { label: 'LANGUAGE', value: 'Punjabi · English' },
             { label: 'ORIGIN',   value: 'Surrey' },
-            { label: 'RELEASE',  value: '2027', live: true },
+            { label: 'FIRST',    value: '2027', live: true },
           ]}
           details={[
-            'Literary Genesis is the publishing arm of the Neo Khalsa - an imprint dedicated to original Sikh literature, rigorous translation, and philosophical essay. Where scripture has been printed without reverence and scholarship left to languish, this work returns the written word to the heart of the Panth.',
-            'Drawing on archival manuscripts and the wider intellectual inheritance of mankind, each volume places Gurbani and Sikh thought in conversation with the great texts of human history - building, edition by edition, a canon for the century ahead.',
+            'An imprint for original Sikh writing: essays, translation, and scholarship held to the standard applied to any serious text. Sikh publishing has largely become reprinting - the same editions reissued without editorial care, and little new work commissioned at all.',
+            'Each volume places Gurbani and Sikh thought beside the texts they can be usefully argued against. Not to borrow authority from them, but because ideas only sharpen in contact with other ideas.',
+            'The intended output is slow and cumulative: a small number of well-made books a decade from now that a reader can rely on.',
           ]}
           status="IN DEVELOPMENT · 2027"
         />

@@ -198,7 +198,7 @@ export function SpacesPage() {
           className="font-display-italic max-w-3xl opacity-55"
           style={{ fontSize: 'clamp(1.1rem, 2.6vw, 1.6rem)', lineHeight: 1.45 }}
         >
-          "Where the creative work meets ground and stone - physical Sikh spaces built to outlast us."
+          "Ideas that never take physical form remain opinions. These are the buildings that follow from the argument."
         </motion.p>
       </section>
 
@@ -208,17 +208,19 @@ export function SpacesPage() {
           bgNum="I" theme="DISCOURSE & CREATIVE SPACE · SPACE I"
           image={akharaImage} imageAlt="The Akhara" darkMat
           title={['The', 'Akhara']}
-          statement="A place where discourse and energy move from the screen into the room"
+          statement="A room where the strongest argument wins, and no committee decides in advance which one that is"
           meta={[
-            { label: 'STATUS',     value: 'Contracting', live: true },
-            { label: 'AREA',       value: '3,000 sq ft' },
-            { label: 'LOCATION',   value: 'Surrey' },
-            { label: 'INVESTMENT', value: '~$5M · land + build' },
-            { label: 'OPENING',    value: '2030', live: true },
+            { label: 'STATUS',   value: 'Contracting', live: true },
+            { label: 'AREA',     value: '3,000 sq ft' },
+            { label: 'LOCATION', value: 'Surrey' },
+            { label: 'LAND',     value: '$2M' },
+            { label: 'BUILD',    value: '$3M' },
+            { label: 'OPENING',  value: '2030', live: true },
           ]}
           details={[
-            'The Akhara reimagines the traditional in-person gathering - a home for Sikhs to meet, debate, and create for the Panth. Within its walls: a lecture hall, a library, common areas, small galleries, a bookshop, and a working studio for developing projects.',
-            'It is conceived as an incubator for new voices, a place where thought and energy move from online spaces into in-person engagement, and where the next generation of Panthic work is made.',
+            'A lecture hall, a library, common areas, small galleries, a bookshop, and a working studio - roughly 3,000 square feet in Surrey, on about $2M of land with a $3M build.',
+            'The gurdwara was meant to serve this function and largely no longer does. Committees set the terms, debate is managed rather than had, and younger members are given no space that takes their thinking seriously.',
+            'The Akhara is governed by one rule that matters: ideas are tested openly and the better one prevails on its merits, not on who tabled it. That is difficult to guarantee and easy to lose, which is why the building exists separately from any existing institution.',
           ]}
           status="CONTRACTING · OPENS 2030"
           phases={['PLAN', 'PLANNING', 'BUILDING']}
@@ -244,8 +246,9 @@ export function SpacesPage() {
             { label: 'HORIZON',   value: '2035 +' },
           ]}
           details={[
-            'For decades Sikh educational institutions have remained insular, cut off from the intellectual traditions that shaped civilisations across the world. Neo Khalsa University answers this with a centre of learning that brings East and West into one room - the Sikh Gurus and Sikh intellectual tradition placed in conversation with the great philosophers, scientists, and thinkers of human history.',
-            'With a campus designed to rival the world’s great universities, it will serve not only as a hub of Sikh learning but as a destination for students and seekers from every background - cultivating the leaders, scholars, and visionaries capable of meaningful change.',
+            'Sikh educational institutions have stayed largely insular, teaching the tradition apart from the intellectual history that surrounds it. The proposal here is simple: teach Gurbani and the Sikh Gurus in the same room as Plato, Aristotle, and Kant, and see what kind of graduate that produces.',
+            'The curriculum is deliberately cross-disciplinary, on the view that the divisions between subjects are administrative rather than real. Philosophy connects to kinesiology; kinesiology connects to urban design. The body is studied at close range in one, and at the scale of a city in the other - the same subject, examined from different distances.',
+            'The precedent is the Anandpur darbar, which was open to scholars and poets regardless of where they came from. A campus of roughly 10 hectares, pursued through adaptive reuse. Faculty willing to teach this way will be harder to find than the site itself.',
           ]}
           status="MASTER PLANNING · VOLUME II"
           phases={['STUDY', 'DESIGN', 'BUILD']}
@@ -261,17 +264,18 @@ export function SpacesPage() {
           bgNum="III" theme="WESTERN MONUMENT · SPACE III"
           image={gurdwarasImage} imageAlt="Gurdwaras of the Millenia" darkMat
           title={['Gurdwaras of', 'the Millenia']}
-          statement="The magnum opus - a monument that gathers every smaller effort into a single home for the movement"
+          statement="The last project on the schedule, and the one every earlier project is paying for"
           meta={[
             { label: 'TYPOLOGY',  value: 'Monumental Gurdwara' },
             { label: 'OPERATION', value: '24 / 7' },
             { label: 'SITE',      value: '10 HA · Canada' },
-            { label: 'STATUS',    value: 'Vision' },
-            { label: 'BUILD',     value: '2030 - 2035' },
+            { label: 'STATUS',    value: 'Long-term' },
+            { label: 'BUILD',     value: '2032 - 2036' },
           ]}
           details={[
-            'The magnum opus of the Neo Khalsa in the West: a monumental Gurdwara surpassing the architecture of any spiritual building in the Western world. Operating around the clock, it will function as a community centre and far more - offering services and functions found in no typical public institution.',
-            'A project of monumental scale, its architecture will stand as a beacon and testament to the Neo Khalsa vision. Smaller projects build gradually toward it, until they gather into one home - ushering Sikh spaces into a new era of aesthetic, cultural, and spiritual achievement.',
+            'A gurdwara in the West built to a standard of architecture no spiritual building on this continent currently meets, on a site of roughly 10 hectares, open around the clock and running services no ordinary public institution provides.',
+            'Sikh building in the diaspora has been governed by cost and expedience for fifty years, and it shows. The claim being made here is that this was a choice, not a constraint, and that a community capable of Amritsar is capable of better.',
+            'This is the furthest object on the schedule and the reason the earlier ones are sequenced as they are. Each project before it exists partly to make this one affordable.',
           ]}
           status="VISION · WESTERN MONUMENT · 2035"
           phases={['PLAN', 'PROJECT', 'BUILD']}
