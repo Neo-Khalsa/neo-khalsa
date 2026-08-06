@@ -112,8 +112,8 @@ export function GetInvolvedPage() {
           <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-center max-w-[1000px] mx-auto">
             <div className="crimson-divider mb-10 md:mb-14" />
-            <h2 className="font-display leading-[1.08]" style={{ fontSize: 'clamp(2rem, 6vw, 4.2rem)' }}>This will take</h2>
-            <h2 className="font-display-italic leading-[1.08] text-glow-crimson" style={{ fontSize: 'clamp(2rem, 6vw, 4.2rem)' }}>thirty years.</h2>
+            <h2 className="font-display leading-[1.08]" style={{ fontSize: 'clamp(2rem, 6vw, 4.2rem)' }}>We are not</h2>
+            <h2 className="font-display-italic leading-[1.08] text-glow-crimson" style={{ fontSize: 'clamp(2rem, 6vw, 4.2rem)' }}>in a hurry.</h2>
             <div className="crimson-divider mt-10 md:mt-14" />
           </motion.div>
         </section>
