@@ -28,9 +28,8 @@ export function GetInvolvedPage() {
               className="gold-divider w-28 md:w-44 mt-9 mb-7" style={{ transformOrigin: 'left' }} />
 
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.65 }}
-              className="max-w-xl opacity-60" style={{ fontSize: 'clamp(1.05rem, 2.2vw, 1.3rem)', lineHeight: 1.55 }}>
-              Most of what is described on this site is not yet built. What follows is an honest account
-              of what it takes, and where a person can be useful.
+              className="font-display-italic max-w-xl opacity-60" style={{ fontSize: 'clamp(1.1rem, 2.6vw, 1.55rem)', lineHeight: 1.5 }}>
+              "Most of this is unbuilt. That is not a caveat; it is the reason to arrive early."
             </motion.p>
           </motion.div>
         </section>
