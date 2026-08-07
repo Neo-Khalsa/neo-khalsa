@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/TextLayer.css';
@@ -47,7 +47,7 @@ export function BlueprintPage() {
   useEffect(() => {
     const measure = () => {
       const w = shellRef.current?.clientWidth ?? 900;
-      setWidth(Math.min(w, 1500));
+      setWidth(Math.min(w, 1100));
     };
     measure();
     window.addEventListener('resize', measure);
@@ -94,11 +94,6 @@ export function BlueprintPage() {
       window.removeEventListener('resize', sync);
     };
   }, [numPages, zoom]);
-
-  const jump = useCallback((delta: number) => {
-    const target = pageRefs.current[current - 1 + delta];
-    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, [current]);
 
   return (
     <div className="min-h-screen relative grain-overlay">
@@ -150,26 +145,18 @@ export function BlueprintPage() {
 
       {/* ── READER ───────────────────────────────────────────────── */}
       <div className="relative z-10 max-w-[1700px] mx-auto px-5 md:px-10 py-12 md:py-16">
-        {/* Toolbar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b hairline">
+        {/* Toolbar. Sticks below the site header so zoom stays reachable deep in
+            the document - it was unusable once scrolled past. Page arrows are gone:
+            scrolling already does that job, and the counter now reads as a live
+            position indicator rather than a control. */}
+        <div
+          className="sticky top-16 md:top-20 z-20 flex flex-wrap items-center justify-between gap-2 sm:gap-4 py-2.5 mb-8 border-b hairline"
+          style={{ background: 'rgba(10,10,10,0.94)' }}
+        >
           <div className="flex items-center gap-4">
             <span className="text-[9px] tracking-[0.35em] font-mono opacity-25">
               {numPages ? `PAGE ${String(current).padStart(2, '0')} / ${String(numPages).padStart(2, '0')}` : 'LOADING'}
             </span>
-            {numPages > 0 && (
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => jump(-1)} disabled={current <= 1} aria-label="Previous page"
-                  className="px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all disabled:opacity-15 hover:bg-[rgba(192,24,24,0.08)]"
-                  style={{ border: '1px solid rgba(192,24,24,0.28)' }}
-                >←</button>
-                <button
-                  onClick={() => jump(1)} disabled={current >= numPages} aria-label="Next page"
-                  className="px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all disabled:opacity-15 hover:bg-[rgba(192,24,24,0.08)]"
-                  style={{ border: '1px solid rgba(192,24,24,0.28)' }}
-                >→</button>
-              </div>
-            )}
           </div>
 
           {/* Zoom - the landscape spreads need more than fit-to-width to be read.
@@ -177,18 +164,18 @@ export function BlueprintPage() {
               filling the toolbar, which matters on narrow screens. */}
           {numPages > 0 && (
             <div className="flex items-center gap-2">
-              <span className="text-[9px] tracking-[0.35em] font-mono opacity-25 mr-1">ZOOM</span>
+              <span className="hidden sm:inline text-[9px] tracking-[0.35em] font-mono opacity-25 mr-1">ZOOM</span>
               <button
                 onClick={() => setZoom((z) => ZOOM_STEPS[Math.max(0, ZOOM_STEPS.indexOf(z) - 1)])}
                 disabled={zoom === ZOOM_STEPS[0]}
                 aria-label="Zoom out"
-                className="px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all disabled:opacity-15 hover:bg-[rgba(192,24,24,0.08)]"
+                className="px-2.5 sm:px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all disabled:opacity-15 hover:bg-[rgba(192,24,24,0.08)]"
                 style={{ border: '1px solid rgba(192,24,24,0.28)' }}
               >−</button>
               <button
                 onClick={() => setZoom(1)}
                 aria-label="Reset zoom to fit"
-                className="px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all hover:bg-[rgba(192,24,24,0.08)] min-w-[62px]"
+                className="px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all hover:bg-[rgba(192,24,24,0.08)] min-w-[54px] sm:min-w-[62px]"
                 style={{
                   border: '1px solid rgba(192,24,24,0.28)',
                   background: zoom > 1 ? 'rgba(192,24,24,0.14)' : 'transparent',
@@ -199,7 +186,7 @@ export function BlueprintPage() {
                 onClick={() => setZoom((z) => ZOOM_STEPS[Math.min(ZOOM_STEPS.length - 1, ZOOM_STEPS.indexOf(z) + 1)])}
                 disabled={zoom === ZOOM_STEPS[ZOOM_STEPS.length - 1]}
                 aria-label="Zoom in"
-                className="px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all disabled:opacity-15 hover:bg-[rgba(192,24,24,0.08)]"
+                className="px-2.5 sm:px-3 py-1.5 text-[10px] font-mono tracking-wider transition-all disabled:opacity-15 hover:bg-[rgba(192,24,24,0.08)]"
                 style={{ border: '1px solid rgba(192,24,24,0.28)' }}
               >+</button>
             </div>
@@ -207,10 +194,12 @@ export function BlueprintPage() {
 
           <a
             href={PDF_URL} download
-            className="group inline-flex items-center gap-3 px-5 py-3 transition-all duration-300 hover:bg-[rgba(192,24,24,0.06)]"
+            className="group inline-flex items-center gap-3 px-4 py-2 transition-all duration-300 hover:bg-[rgba(192,24,24,0.06)]"
             style={{ border: '1px solid rgba(192,24,24,0.4)' }}
           >
-            <span className="text-[10px] tracking-[0.3em] font-mono opacity-80 group-hover:opacity-100">DOWNLOAD PDF</span>
+            <span className="text-[10px] tracking-[0.3em] font-mono opacity-80 group-hover:opacity-100">
+              <span className="hidden sm:inline">DOWNLOAD </span>PDF
+            </span>
             <span className="opacity-60 transition-transform duration-300 group-hover:translate-y-0.5" style={{ color: '#C01818' }}>↓</span>
           </a>
         </div>
