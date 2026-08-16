@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ParticleField } from './components/ParticleField';
+import { useHeroIntro } from './components/HeroIntro';
 import logoWhite from '../assets/027354ce14dae85850c3c889442da6849aab7a08.webp';
 
 const NAV_ROWS = [
@@ -13,30 +14,40 @@ const NAV_ROWS = [
 ];
 
 export function HomePage() {
+  const { t0, pace, reduced, stage } = useHeroIntro();
+
   return (
     <div className="min-h-screen relative grain-overlay">
       <ParticleField />
 
       {/* ── HERO ─────────────────────────────────────────────────────── */}
+      {/* overflow-hidden clips the entrance so its embers cannot spill over
+          the index section below */}
       <section
-        className="relative z-10 flex flex-col items-center justify-center text-center px-5"
+        className="relative z-10 flex flex-col items-center justify-center text-center px-5 overflow-hidden"
         style={{ minHeight: '100svh' }}
       >
-        {/* Crimson bloom behind the mark */}
-        <div
+        {stage}
+
+        {/* Crimson bloom behind the mark - held back until the mark arrives,
+            otherwise it sits in the middle of the entrance as a red disc */}
+        <motion.div
           className="absolute pointer-events-none"
           style={{
             top: '50%', left: '50%', transform: 'translate(-50%, -58%)',
             width: 'min(90vw, 760px)', height: 'min(90vw, 760px)',
             background: 'radial-gradient(circle, rgba(192,24,24,0.085) 0%, transparent 62%)',
           }}
+          initial={reduced ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.4 * pace, delay: t0 }}
         />
 
         {/* Logo */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
+          initial={reduced ? false : { opacity: 0, scale: 1.06 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.2 * pace, delay: t0, ease: [0.16, 1, 0.3, 1] }}
           className="mb-9 md:mb-12"
         >
           <img
@@ -56,9 +67,9 @@ export function HomePage() {
         {/* Wordmark - serif, clipped reveal */}
         <div className="overflow-hidden leading-none">
           <motion.h1
-            initial={{ y: '110%' }}
+            initial={reduced ? false : { y: '110%' }}
             animate={{ y: 0 }}
-            transition={{ duration: 1.0, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.0 * pace, delay: t0 + 0.25 * pace, ease: [0.16, 1, 0.3, 1] }}
             className="font-display leading-[0.92] tracking-[0.01em]"
             style={{ fontSize: 'clamp(3rem, min(17vw, 22svh), 12rem)' }}
           >
@@ -67,9 +78,9 @@ export function HomePage() {
         </div>
         <div className="overflow-hidden leading-none">
           <motion.h1
-            initial={{ y: '110%' }}
+            initial={reduced ? false : { y: '110%' }}
             animate={{ y: 0 }}
-            transition={{ duration: 1.0, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.0 * pace, delay: t0 + 0.4 * pace, ease: [0.16, 1, 0.3, 1] }}
             className="font-display-italic leading-[0.92] tracking-[0.01em]"
             style={{ fontSize: 'clamp(3rem, min(17vw, 22svh), 12rem)' }}
           >
@@ -79,17 +90,17 @@ export function HomePage() {
 
         {/* Tagline */}
         <motion.p
-          initial={{ opacity: 0 }}
+          initial={reduced ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
+          transition={{ duration: 0.8 * pace, delay: t0 + 1.0 * pace }}
           className="text-[9px] md:text-[10px] tracking-[0.45em] opacity-30 font-mono mt-10 md:mt-12"
         >
           NARRATIVE · RESOURCES · DISCIPLINE
         </motion.p>
         <motion.p
-          initial={{ opacity: 0 }}
+          initial={reduced ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.15 }}
+          transition={{ duration: 0.8 * pace, delay: t0 + 1.15 * pace }}
           className="text-[9px] tracking-[0.4em] opacity-15 font-mono mt-3"
         >
           EST. MMXX
